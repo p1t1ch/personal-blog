@@ -1,6 +1,6 @@
 backend:
-  name: git-gateway
-  branch: master
+  name: github
+  repo: p1t1ch/personal-blog
 
 media_folder: static/assets
 public_folder: /assets
