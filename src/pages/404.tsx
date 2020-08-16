@@ -7,8 +7,8 @@ const NotFoundPage = ({ location }: PageProps) => {
   return (
     <Layout>
       <Seo />
-      <h1>Error 404</h1>
-      <p>Path &ldquo;{location.pathname}&rdquo; is not defined</p>
+      <h1>Ошибка 404</h1>
+      <p>Страница &ldquo;{location.pathname}&rdquo; не найдена</p>
     </Layout>
   )
 }

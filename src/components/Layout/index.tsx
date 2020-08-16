@@ -1,13 +1,8 @@
 import React from 'react'
-import { Link } from 'gatsby'
-import { useTheme } from 'emotion-theming'
 import styled from '@emotion/styled'
-import { transitions, size, padding } from 'polished'
+import { padding } from 'polished'
 import media from '@/utils/media'
-import typography from '@/utils/typography'
-import { Theme, ThemeProps } from '@theme'
-import { ReactComponent as LogoIcon } from '@/icons/logo.svg'
-import { ReactComponent as GithubIcon } from '@/icons/github.svg'
+import { ThemeProps } from '@theme'
 
 const Header = styled.header(({ theme }: ThemeProps) => ({
   display: 'grid',
@@ -20,17 +15,6 @@ const Header = styled.header(({ theme }: ThemeProps) => ({
   boxShadow: theme.shadows.basic,
   zIndex: 1,
   [media.sm]: { gridTemplateColumns: 'auto 1fr', gridColumnGap: theme.grid * 2 },
-}))
-
-const Nav = styled.nav(({ theme }: ThemeProps) => ({
-  [media.sm]: { gridColumn: 2 },
-  'a:not(:last-child)': { marginRight: theme.grid * 2 },
-}))
-
-const StyledLink = styled(Link)(({ theme }: ThemeProps) => ({
-  ...typography('nav'),
-  ...transitions('font-weight', theme.transitions.basic),
-  ':hover, &.active': { fontWeight: 800 },
 }))
 
 const Main = styled.main(({ theme }: ThemeProps) => ({
@@ -49,7 +33,6 @@ const Footer = styled.footer(({ theme }: ThemeProps) => ({
   ...padding(theme.grid, theme.grid * 2),
   textAlign: 'center',
   boxShadow: theme.shadows.basic,
-  fontSize: 0,
 }))
 
 interface LayoutProps {
@@ -58,35 +41,11 @@ interface LayoutProps {
 }
 
 const Layout = ({ children }: LayoutProps) => {
-  const theme = useTheme<Theme>()
-
   return (
     <div css={{ display: 'grid', gridTemplateRows: 'auto 1fr auto', minHeight: '100vh' }}>
-      <Header>
-        <LogoIcon
-          css={{
-            ...size(theme.grid * 13),
-            [media.sm]: { ...size(theme.grid * 8) },
-          }}
-        />
-        <Link to="/" css={typography('title')}>
-          Gatsby Starter Vadyan
-        </Link>
-        <Nav>
-          <StyledLink to="/" activeClassName="active">
-            Quick start
-          </StyledLink>
-          <StyledLink to="/showcase/" activeClassName="active">
-            Showcase
-          </StyledLink>
-        </Nav>
-      </Header>
+      <Header>Header</Header>
       <Main>{children}</Main>
-      <Footer>
-        <a href="https://github.com/p1t1ch/gatsby-starter" target="_blank" rel="noopener noreferrer">
-          <GithubIcon width={theme.grid * 6} title="Project page on Github" />
-        </a>
-      </Footer>
+      <Footer>Footer</Footer>
     </div>
   )
 }
