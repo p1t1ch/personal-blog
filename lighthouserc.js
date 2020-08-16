@@ -3,7 +3,7 @@ module.exports = {
   ci: {
     collect: {
       // Run Lighthouse only on these routes. Localhost port will be added automatically
-      url: ['http://localhost/', 'http://localhost/showcase/'],
+      url: ['http://localhost/'],
       // We need to set build result folder now explicitly because we defined url property
       staticDistDir: './public',
     },

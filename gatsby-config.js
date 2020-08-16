@@ -51,6 +51,7 @@ module.exports = {
         generateStatsFile: true,
       },
     },
+    'gatsby-plugin-netlify-cms',
     {
       resolve: 'gatsby-plugin-manifest',
       options: {
