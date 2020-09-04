@@ -55,6 +55,7 @@ const typography = {
 
 const shadows = {
   basic: `0 0 4px 1px ${colors.purpleDark}`,
+  preview: `inset 0 0 0 4px ${colors.primary}, 2px 2px 0 ${colors.secondary}, 10px 8px 0 ${colors.primary}`,
 }
 
 const transitions = {
