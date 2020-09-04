@@ -2,6 +2,8 @@
 // In project they are available via useTheme hook or prop in styled components
 
 const colors = {
+  primary: '#333',
+  secondary: '#fff',
   purple: '#639',
   purpleLight: '#fcfaff',
   purpleDark: '#362066',

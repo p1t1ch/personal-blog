@@ -6,7 +6,7 @@ import Layout from '.'
 # Layout
 
 <Canvas>
-  <Story name="Basic" args={{ children: 'Page content' }}>
+  <Story name="Basic" args={{ children: 'Page content', isHome: false }}>
     {args => <Layout {...args} />}
   </Story>
 </Canvas>
@@ -14,3 +14,13 @@ import Layout from '.'
 Wrapper for page components. Contains common blocks like header and footer. Start new page with this component as render root.
 
 <ArgsTable />
+
+## Home page
+
+Home page has own versions of header and main container
+
+<Canvas>
+  <Story name="Home page" args={{ children: 'Page content', isHome: true }}>
+    {args => <Layout {...args} />}
+  </Story>
+</Canvas>
