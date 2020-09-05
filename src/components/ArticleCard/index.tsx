@@ -41,11 +41,10 @@ const Meta = styled.div(({ theme }: ThemeProps) => ({
 
 const Description = styled.p(() => ({
   padding: '1.5rem',
-  textAlign: 'justify',
 }))
 
-interface ArticleCardProps {
-  /** Article code for link */
+export interface ArticleCardProps {
+  /** Article unique code */
   code: string
   /** Article title */
   name: string
@@ -61,7 +60,15 @@ interface ArticleCardProps {
   minutesRead: number
 }
 
-const ArticleCard = ({ code, name, description, /*image,*/ alt, releaseDate, minutesRead }: ArticleCardProps) => {
+const ArticleCard = ({
+  code,
+  name,
+  description,
+  /*image,*/ alt,
+  releaseDate,
+  minutesRead,
+  ...props
+}: ArticleCardProps) => {
   const data: StaticImageQuery = useStaticQuery(graphql`
     query {
       file(relativePath: { eq: "keyboard.jpg" }) {
@@ -75,7 +82,7 @@ const ArticleCard = ({ code, name, description, /*image,*/ alt, releaseDate, min
   `)
 
   return (
-    <Article>
+    <Article {...props}>
       <Link to={`/blog/${code}`} css={singleGridCell}>
         <Img
           fluid={data.file.childImageSharp.fluid}
@@ -88,7 +95,7 @@ const ArticleCard = ({ code, name, description, /*image,*/ alt, releaseDate, min
           <time aria-label="Дата выхода" dateTime={releaseDate.replace(/(\d{2})\.(\d{2})\.(\d{4})/, '$3-$2-$1')}>
             {releaseDate}
           </time>
-          <div aria-label="Примерно время чтения">{minutesRead} минут</div>
+          <div aria-label="Примерное время чтения">{minutesRead} минут</div>
         </Meta>
       </Link>
       <Description>{description}</Description>

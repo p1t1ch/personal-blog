@@ -57,6 +57,9 @@ const GlobalStyles = () => {
           svg: {
             fill: 'currentColor',
           },
+          li: {
+            listStyle: 'none',
+          },
         },
       ]}
     />
