@@ -29,8 +29,8 @@ const GlobalStyles = () => {
           body: {
             fontFamily: [theme.typography.family, ...theme.typography.stack].join(', '),
             ...typography('body'),
-            backgroundColor: theme.colors.purpleDark,
-            color: theme.colors.purpleLight,
+            backgroundColor: theme.colors.primary,
+            color: theme.colors.primary,
           },
           'h1, h2, h3, h4, h5, h6, p, ol, ul, dl, dd': {
             margin: 0,
@@ -42,7 +42,7 @@ const GlobalStyles = () => {
             outline: 'none',
           },
           ':focus': {
-            outline: `3px solid ${theme.colors.purpleLight}`,
+            outline: `3px solid ${theme.colors.primary}`,
             outlineOffset: 2,
           },
           [buttons()]: {
@@ -51,7 +51,7 @@ const GlobalStyles = () => {
           },
           a: {
             textDecoration: 'none',
-            color: theme.colors.purpleLight,
+            color: theme.colors.active,
             ...transitions('color', theme.transitions.basic),
           },
           svg: {

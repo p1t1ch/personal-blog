@@ -1,0 +1,22 @@
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks'
+import ArticleHead from '.'
+
+<Meta title="ArticleHead" component={ArticleHead} />
+
+# ArticleHead
+
+<Canvas>
+  <Story
+    name="Basic"
+    args={{
+      name: 'Заголовок статьи',
+      alt: 'Клавиатура',
+      releaseDate: '04.09.2020',
+      minutesRead: 12,
+    }}
+  >
+    {args => <ArticleHead {...args} />}
+  </Story>
+</Canvas>
+
+<ArgsTable />

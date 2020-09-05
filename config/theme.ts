@@ -4,12 +4,8 @@
 const colors = {
   primary: '#333',
   secondary: '#fff',
-  purple: '#639',
-  purpleLight: '#fcfaff',
-  purpleDark: '#362066',
+  active: '#6d4672',
 }
-
-const grid = 8
 
 const breakpoints = {
   lg: 1440,
@@ -54,7 +50,6 @@ const typography = {
 }
 
 const shadows = {
-  basic: `0 0 4px 1px ${colors.purpleDark}`,
   preview: `inset 0 0 0 4px ${colors.primary}, 2px 2px 0 ${colors.secondary}, 10px 8px 0 ${colors.primary}`,
 }
 
@@ -64,7 +59,6 @@ const transitions = {
 
 const theme = {
   colors,
-  grid,
   breakpoints,
   typography,
   shadows,

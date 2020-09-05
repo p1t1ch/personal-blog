@@ -1,13 +1,13 @@
 import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks'
-import Main from '.'
+import Container from '.'
 
-<Meta title="Main" component={Main} />
+<Meta title="Container" component={Container} />
 
-# Main
+# Container
 
 <Canvas>
   <Story name="Basic" args={{ children: 'Page content', isHome: false }}>
-    {args => <Main {...args} />}
+    {args => <Container {...args} />}
   </Story>
 </Canvas>
 
@@ -19,6 +19,6 @@ Home page has another container size
 
 <Canvas>
   <Story name="Home page" args={{ children: 'Page content', isHome: true }}>
-    {args => <Main {...args} />}
+    {args => <Container {...args} />}
   </Story>
 </Canvas>

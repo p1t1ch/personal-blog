@@ -1,6 +1,7 @@
 import React from 'react'
+import { Theme } from '@theme'
+import { useTheme } from 'emotion-theming'
 import Header from '@/components/Header'
-import Main from '@/components/Main'
 import Footer from '@/components/Footer'
 
 interface LayoutProps {
@@ -11,10 +12,12 @@ interface LayoutProps {
 }
 
 const Layout = ({ children, isHome }: LayoutProps) => {
+  const { colors } = useTheme<Theme>()
+
   return (
     <div css={{ display: 'grid', gridTemplateRows: 'auto 1fr auto', minHeight: '100vh' }}>
       <Header isHome={isHome} />
-      <Main isHome={isHome}>{children}</Main>
+      <main css={{ backgroundColor: colors.secondary }}>{children}</main>
       <Footer />
     </div>
   )
