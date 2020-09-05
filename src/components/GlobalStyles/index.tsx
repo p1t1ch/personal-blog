@@ -3,8 +3,7 @@ import 'focus-visible'
 import { Global } from '@emotion/core'
 import { useTheme } from 'emotion-theming'
 import { buttons, transitions, normalize } from 'polished'
-import Manrope from '@/fonts/Manrope.woff2'
-import typography from '@/utils/typography'
+// import Commissioner from '@/fonts/Commissioner.woff2'
 import { Theme } from '@theme'
 
 const GlobalStyles = () => {
@@ -14,30 +13,28 @@ const GlobalStyles = () => {
     <Global
       styles={[
         ...normalize(),
-        {
-          '@font-face': {
-            fontFamily: 'Manrope',
-            src: `url(${Manrope}) format('woff2-variations')`,
-            fontDisplay: 'swap',
-            fontWeight: '200 800' as any,
-          },
-        },
+        // {
+        //   '@font-face': {
+        //     fontFamily: 'Commissioner',
+        //     src: `url(${Commissioner}) format('woff2-variations')`,
+        //     fontDisplay: 'swap',
+        //     fontWeight: '100 900' as any,
+        //   },
+        // },
         {
           '*': {
             boxSizing: 'border-box',
           },
           body: {
             fontFamily: [theme.typography.family, ...theme.typography.stack].join(', '),
-            ...typography('body'),
+            ...theme.typography.styles.body,
             backgroundColor: theme.colors.primary,
             color: theme.colors.primary,
           },
-          'h1, h2, h3, h4, h5, h6, p, ol, ul, dl, dd': {
+          'h1, h2, h3, h4, h5, h6, p, ol, ul, dl, dd, hr, pre': {
             margin: 0,
             padding: 0,
           },
-          h1: typography('h1'),
-          h2: typography('h2'),
           '.js-focus-visible :focus:not(.focus-visible)': {
             outline: 'none',
           },
@@ -51,7 +48,7 @@ const GlobalStyles = () => {
           },
           a: {
             textDecoration: 'none',
-            color: theme.colors.active,
+            color: theme.colors.primary,
             ...transitions('color', theme.transitions.basic),
           },
           svg: {
@@ -59,6 +56,9 @@ const GlobalStyles = () => {
           },
           li: {
             listStyle: 'none',
+          },
+          blockquote: {
+            margin: 0,
           },
         },
       ]}

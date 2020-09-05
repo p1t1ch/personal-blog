@@ -16,7 +16,9 @@ interface StaticImageQuery {
 // TODO Separate common parts between article head and preview in component
 
 const Title = styled.h1(({ theme }: ThemeProps) => ({
+  ...theme.typography.styles.h1,
   color: theme.colors.secondary,
+  textShadow: theme.shadows.title,
   justifySelf: 'center',
   zIndex: 1,
 }))

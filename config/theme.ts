@@ -13,8 +13,7 @@ const breakpoints = {
 }
 
 const typography = {
-  breakpoints: ['lg', 'sm'] as (keyof typeof breakpoints)[],
-  family: 'Manrope',
+  family: 'Commissioner',
   stack: [
     'system-ui',
     '-apple-system',
@@ -26,30 +25,53 @@ const typography = {
     'sans-serif',
   ],
   styles: {
-    body: {
-      desktop: { fontWeight: 400, lineHeight: 1.5, fontSize: 18 },
-      mobile: { fontSize: 16 },
-    },
     h1: {
-      desktop: { fontWeight: 700, lineHeight: 1.5, fontSize: 36 },
-      mobile: { fontSize: 24 },
+      fontWeight: 800,
+      fontSize: 'clamp(4.1875rem, 1rem + 2vw, 5.25rem)',
+      lineHeight: 1.5,
     },
     h2: {
-      desktop: { fontWeight: 700, lineHeight: 1.5, fontSize: 28 },
-      mobile: { fontSize: 18 },
+      fontWeight: 700,
+      fontSize: 'clamp(4.1875rem, 1rem + 2vw, 3.375rem)',
+      lineHeight: 1.5,
     },
-    title: {
-      desktop: { fontWeight: 700, lineHeight: 1.5, fontSize: 40 },
-      mobile: { fontSize: 24 },
+    h3: {
+      fontWeight: 700,
+      fontSize: 'clamp(3.375rem, 1rem + 2vw, 2.6875rem)',
+      lineHeight: 1.5,
     },
-    nav: {
-      desktop: { fontWeight: 200, lineHeight: 1.5, fontSize: 24 },
-      mobile: { fontSize: 18 },
+    h4: {
+      fontWeight: 700,
+      fontSize: 'clamp(2.6875rem, 1rem + 2vw, 2.125rem)',
+      lineHeight: 1.5,
+    },
+    h5: {
+      fontWeight: 600,
+      fontSize: 'clamp(2.125rem, 1rem + 2vw, 1.6875rem)',
+      lineHeight: 1.5,
+    },
+    h6: {
+      fontWeight: 500,
+      fontSize: 'clamp(1.6875rem, 1rem + 2vw, 1.375rem)',
+      lineHeight: 1.5,
+    },
+    body: {
+      fontSize: 'clamp(1.375rem, 1rem + 2vw, 1.125rem)',
+      lineHeight: 1.5,
+    },
+    small: {
+      fontSize: 'clamp(1.125rem, 1rem + 2vw, 0.875rem)',
+      lineHeight: 1.5,
+    },
+    extrasmall: {
+      fontSize: '0.875rem',
+      lineHeight: 1.5,
     },
   },
 }
 
 const shadows = {
+  title: `6px 6px 0 ${colors.primary}`,
   preview: `inset 0 0 0 4px ${colors.primary}, 2px 2px 0 ${colors.secondary}, 10px 8px 0 ${colors.primary}`,
 }
 
