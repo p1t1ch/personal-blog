@@ -8,6 +8,8 @@ Hi folks!
 
 **Bold text**
 
+_Italic text_
+
 **_And italic bold_**
 
 `Thats going on? Insert gatsby-node.js in your codebase, ok?`
