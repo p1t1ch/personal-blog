@@ -1,4 +1,3 @@
-const path = require('path')
 const config = require('./config')
 
 module.exports = {
@@ -18,15 +17,34 @@ module.exports = {
       resolve: 'gatsby-alias-imports',
       options: {
         aliases: {
-          '@theme': path.join(__dirname, 'config/theme.ts'),
-          '@': path.join(__dirname, 'src'),
+          '@theme': `${__dirname}/config/theme.ts`,
+          '@': `${__dirname}/src`,
         },
       },
     },
     {
       resolve: 'gatsby-source-filesystem',
       options: {
-        path: path.join(__dirname, 'src/images'),
+        path: `${__dirname}/static/assets`,
+        name: 'uploads',
+      },
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        path: `${__dirname}/content`,
+        name: 'content',
+      },
+    },
+    {
+      resolve: 'gatsby-transform-remark',
+      options: {},
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        path: `${__dirname}/src/images`,
+        name: 'images',
       },
     },
     {
@@ -51,7 +69,13 @@ module.exports = {
         generateStatsFile: true,
       },
     },
-    'gatsby-plugin-netlify-cms',
+    {
+      resolve: 'gatsby-plugin-netlify-cms',
+      options: {
+        // modulePath: `${__dirname}/src/cms/index.js`,
+        enableIdentityWidget: false,
+      },
+    },
     {
       resolve: 'gatsby-plugin-manifest',
       options: {

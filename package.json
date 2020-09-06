@@ -72,6 +72,7 @@
     "gatsby-plugin-svgr": "^2.0.2",
     "gatsby-plugin-webpack-bundle-analyser-v2": "^1.1.12",
     "gatsby-source-filesystem": "^2.3.24",
+    "gatsby-transformer-remark": "^2.8.32",
     "gatsby-transformer-sharp": "^2.5.13",
     "netlify-cms-app": "^2.12.19",
     "polished": "^3.6.5",
