@@ -1,95 +1,70 @@
 import React from 'react'
+import { graphql, PageProps } from 'gatsby'
 import { hideVisually } from 'polished'
 import Layout from '@/components/Layout'
 import Seo from '@/components/Seo'
 import ArticlesGrid from '@/components/ArticlesGrid'
 import Container from '@/components/Container'
 
-const IndexPage = () => {
+interface IndexPageQuery {
+  allMarkdownRemark: {
+    edges: {
+      node: {
+        excerpt: string
+        id: number
+        fields: {
+          slug: string
+        }
+        frontmatter: {
+          date: string
+          description: string
+          title: string
+        }
+      }
+    }[]
+  }
+}
+
+const IndexPage = ({ data }: PageProps<IndexPageQuery>) => {
+  const articles = data.allMarkdownRemark.edges.map(({ node }) => ({
+    id: node.id,
+    slug: node.fields.slug,
+    name: node.frontmatter.title,
+    description: node.excerpt,
+    alt: 'Клавиатура',
+    releaseDate: node.frontmatter.date,
+    minutesRead: 12,
+  }))
   return (
     <Layout isHome>
       <Seo />
       <Container isHome>
         <h2 css={hideVisually()}>Список статей</h2>
-        <ArticlesGrid
-          articles={[
-            {
-              alt: 'Клавиатура',
-              code: 'article-code-8',
-              description:
-                'Съешь же ещё этих мягких французских булок, да выпей чаю. Съешь же ещё этих мягких французских булок, да выпей чаю. Съешь же ещё этих мягких французских булок, да выпей чаю. Съешь же ещё этих мягких французских булок, да выпей чаю.',
-              minutesRead: 8,
-              name: 'Заголовок статьи 8',
-              releaseDate: '07.10.2020',
-            },
-            {
-              alt: 'Клавиатура',
-              code: 'article-code-7',
-              description:
-                'Съешь же ещё этих мягких французских булок, да выпей чаю. Съешь же ещё этих мягких французских булок, да выпей чаю. Съешь же ещё этих мягких французских булок, да выпей чаю.',
-              minutesRead: 6,
-              name: 'Заголовок статьи 7',
-              releaseDate: '30.09.2020',
-            },
-            {
-              alt: 'Клавиатура',
-              code: 'article-code-6',
-              description:
-                'Съешь же ещё этих мягких французских булок, да выпей чаю. Съешь же ещё этих мягких французских булок, да выпей чаю. Съешь же ещё этих мягких французских булок, да выпей чаю.',
-              minutesRead: 10,
-              name: 'Заголовок статьи 6',
-              releaseDate: '23.09.2020',
-            },
-            {
-              alt: 'Клавиатура',
-              code: 'article-code-5',
-              description:
-                'Съешь же ещё этих мягких французских булок, да выпей чаю. Съешь же ещё этих мягких французских булок, да выпей чаю. Съешь же ещё этих мягких французских булок, да выпей чаю. Съешь же ещё этих мягких французских булок, да выпей чаю. Съешь же ещё этих мягких французских булок, да выпей чаю.',
-              minutesRead: 12,
-              name: 'Заголовок статьи 5',
-              releaseDate: '16.09.2020',
-            },
-            {
-              alt: 'Клавиатура',
-              code: 'article-code-4',
-              description:
-                'Съешь же ещё этих мягких французских булок, да выпей чаю. Съешь же ещё этих мягких французских булок, да выпей чаю.',
-              minutesRead: 7,
-              name: 'Заголовок статьи 4',
-              releaseDate: '09.09.2020',
-            },
-            {
-              alt: 'Клавиатура',
-              code: 'article-code-3',
-              description:
-                'Съешь же ещё этих мягких французских булок, да выпей чаю. Съешь же ещё этих мягких французских булок, да выпей чаю. Съешь же ещё этих мягких французских булок, да выпей чаю.',
-              minutesRead: 9,
-              name: 'Заголовок статьи 3',
-              releaseDate: '02.09.2020',
-            },
-            {
-              alt: 'Клавиатура',
-              code: 'article-code-2',
-              description:
-                'Съешь же ещё этих мягких французских булок, да выпей чаю. Съешь же ещё этих мягких французских булок, да выпей чаю. Съешь же ещё этих мягких французских булок, да выпей чаю. Съешь же ещё этих мягких французских булок, да выпей чаю. Съешь же ещё этих мягких французских булок, да выпей чаю.',
-              minutesRead: 6,
-              name: 'Заголовок статьи 2',
-              releaseDate: '26.08.2020',
-            },
-            {
-              alt: 'Клавиатура',
-              code: 'article-code-1',
-              description:
-                'Съешь же ещё этих мягких французских булок, да выпей чаю. Съешь же ещё этих мягких французских булок, да выпей чаю.',
-              minutesRead: 4,
-              name: 'Заголовок статьи 1',
-              releaseDate: '19.08.2020',
-            },
-          ]}
-        />
+        <ArticlesGrid articles={articles} />
       </Container>
     </Layout>
   )
 }
+
+export const pageQuery = graphql`
+  query articlesList {
+    allMarkdownRemark {
+      edges {
+        node {
+          excerpt
+          id
+          fields {
+            slug
+          }
+          frontmatter {
+            date
+            description
+            title
+          }
+        }
+      }
+    }
+  }
+`
 
 export default IndexPage

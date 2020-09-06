@@ -44,8 +44,10 @@ const Description = styled.p(() => ({
 }))
 
 export interface ArticleCardProps {
-  /** Article unique code */
-  code: string
+  /** Unique id */
+  id: number
+  /** Page path */
+  slug: string
   /** Article title */
   name: string
   /** Article short description */
@@ -61,7 +63,8 @@ export interface ArticleCardProps {
 }
 
 const ArticleCard = ({
-  code,
+  id,
+  slug,
   name,
   description,
   /*image,*/ alt,
@@ -83,7 +86,7 @@ const ArticleCard = ({
 
   return (
     <Article {...props}>
-      <Link to={`/blog/${code}`} css={singleGridCell}>
+      <Link to={slug} css={singleGridCell}>
         <Img
           fluid={data.file.childImageSharp.fluid}
           alt={alt}

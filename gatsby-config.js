@@ -37,10 +37,6 @@ module.exports = {
       },
     },
     {
-      resolve: 'gatsby-transform-remark',
-      options: {},
-    },
-    {
       resolve: 'gatsby-source-filesystem',
       options: {
         path: `${__dirname}/src/images`,
@@ -54,6 +50,10 @@ module.exports = {
       },
     },
     'gatsby-transformer-sharp',
+    {
+      resolve: 'gatsby-transformer-remark',
+      options: {},
+    },
     {
       resolve: 'gatsby-plugin-svgr',
       options: {

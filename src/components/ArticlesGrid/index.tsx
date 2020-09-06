@@ -18,7 +18,7 @@ const ArticlesGrid = ({ articles }: ArticlesGridProps) => {
       }}
     >
       {articles.map(article => (
-        <li key={article.code}>
+        <li key={article.id}>
           <ArticleCard {...article} css={{ height: '100%' }} />
         </li>
       ))}

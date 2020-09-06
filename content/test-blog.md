@@ -3,11 +3,12 @@ title: Test blog
 date: 2020-08-16T16:25:36.620Z
 description: Test description
 ---
+
 Hi folks!
 
 **Bold text**
 
-***And italic bold***
+**_And italic bold_**
 
 `Thats going on? Insert gatsby-node.js in your codebase, ok?`
 
@@ -47,15 +48,15 @@ text
 
 Also here another possible way:
 
-* Start
-* Continue
-* Finish
+- Start
+- Continue
+- Finish
 
 ```typescript
 const sum = (a: number, b: number) => a + b
-console.log(sum(1,2)) // 3
+console.log(sum(1, 2)) // 3
 ```
 
 Aaaand image!
 
-![Test image](/assets/gatsby.png "What is a title even mean?")
+![Test image](/assets/gatsby.png 'What is a title even mean?')
