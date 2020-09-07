@@ -21,4 +21,8 @@ module.exports = {
   themeColor: '#333',
   // Background color. Used as background on PWA launch screen. Recommended to make it the same as body color
   backgroundColor: '#333',
+  // Color for traced SVG placeholders for content images
+  tracedSVGColor: '#6d4672',
+  // Width of blogpost page container to generate fluid images
+  containerWidth: 752,
 }

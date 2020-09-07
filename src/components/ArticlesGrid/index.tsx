@@ -5,6 +5,7 @@ interface ArticlesGridProps {
   /** Articles list */
   articles: ArticleCardProps[]
 }
+
 const ArticlesGrid = ({ articles }: ArticlesGridProps) => {
   return articles.length ? (
     <ol

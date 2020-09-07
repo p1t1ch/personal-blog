@@ -2,6 +2,7 @@
 title: Test blog
 date: 2020-08-16T16:25:36.620Z
 description: Test description
+featuredImage: /assets/keyboard.jpg
 ---
 
 Hi folks!
@@ -61,4 +62,8 @@ console.log(sum(1, 2)) // 3
 
 Aaaand image!
 
-![Test image](/assets/gatsby.png 'What is a title even mean?')
+![Test image](/assets/gatsby.png)
+
+![Test image](/assets/keyboard.jpg 'I have a title')
+
+![Test image](/assets/github.svg)

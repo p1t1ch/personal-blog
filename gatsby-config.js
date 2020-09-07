@@ -25,8 +25,8 @@ module.exports = {
     {
       resolve: 'gatsby-source-filesystem',
       options: {
-        path: `${__dirname}/static/assets`,
-        name: 'uploads',
+        path: `${__dirname}/src`,
+        name: 'src',
       },
     },
     {
@@ -39,8 +39,8 @@ module.exports = {
     {
       resolve: 'gatsby-source-filesystem',
       options: {
-        path: `${__dirname}/src/images`,
-        name: 'images',
+        path: `${__dirname}/static/assets`,
+        name: 'assets',
       },
     },
     {
@@ -52,7 +52,23 @@ module.exports = {
     'gatsby-transformer-sharp',
     {
       resolve: 'gatsby-transformer-remark',
-      options: {},
+      options: {
+        plugins: [
+          'gatsby-remark-relative-images',
+          {
+            resolve: `gatsby-remark-images`,
+            options: {
+              maxWidth: config.containerWidth,
+              showCaptions: ['title'],
+              withWebp: true,
+              tracedSVG: {
+                color: config.tracedSVGColor,
+              },
+            },
+          },
+          'gatsby-remark-copy-linked-files',
+        ],
+      },
     },
     {
       resolve: 'gatsby-plugin-svgr',

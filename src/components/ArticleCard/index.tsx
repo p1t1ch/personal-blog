@@ -1,17 +1,9 @@
 import React from 'react'
-import { Link, graphql, useStaticQuery } from 'gatsby'
+import { Link } from 'gatsby'
 import Img, { FluidObject } from 'gatsby-image'
 import { ThemeProps } from '@theme'
 import styled from '@emotion/styled'
 import singleGridCell from '@/utils/singleGridCell'
-
-interface StaticImageQuery {
-  file: {
-    childImageSharp: {
-      fluid: FluidObject
-    }
-  }
-}
 
 const Article = styled.article(({ theme }: ThemeProps) => ({
   backgroundColor: theme.colors.secondary,
@@ -52,44 +44,21 @@ export interface ArticleCardProps {
   name: string
   /** Article short description */
   description: string
-  /** Article preview image source */
-  // image: string
-  /** Article preview image alternative text */
-  alt: string
+  /** Article preview image */
+  image: FluidObject
   /** Date of article publication in DD.MM.YYYY format */
   releaseDate: string
   /** Calculated minutes to read based on article size */
   minutesRead: number
 }
 
-const ArticleCard = ({
-  id,
-  slug,
-  name,
-  description,
-  /*image,*/ alt,
-  releaseDate,
-  minutesRead,
-  ...props
-}: ArticleCardProps) => {
-  const data: StaticImageQuery = useStaticQuery(graphql`
-    query {
-      file(relativePath: { eq: "keyboard.jpg" }) {
-        childImageSharp {
-          fluid(grayscale: true, traceSVG: { color: "#333" }) {
-            ...GatsbyImageSharpFluid_withWebp_tracedSVG
-          }
-        }
-      }
-    }
-  `)
-
+const ArticleCard = ({ id, slug, name, description, image, releaseDate, minutesRead, ...props }: ArticleCardProps) => {
   return (
     <Article {...props}>
       <Link to={slug} css={singleGridCell}>
         <Img
-          fluid={data.file.childImageSharp.fluid}
-          alt={alt}
+          fluid={image}
+          alt={`Превью для статьи ${name}`}
           imgStyle={{ height: '16rem', objectFit: 'cover' }}
           css={{ height: '16rem', clipPath: 'polygon(0 0, 100% 0%, 100% 100%, 0 calc(100% - 1rem))' }}
         />

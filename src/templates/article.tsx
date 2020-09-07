@@ -5,12 +5,18 @@ import Seo from '@/components/Seo'
 import ArticleHead from '@/components/ArticleHead'
 import Container from '@/components/Container'
 import Content from '@/components/Content'
+import { FluidObject } from 'gatsby-image'
 
 interface ArticleTemplateQuery {
   markdownRemark: {
     html: string
     frontmatter: {
       date: string
+      featuredImage: {
+        childImageSharp: {
+          fluid: FluidObject
+        }
+      }
       title: string
     }
   }
@@ -23,7 +29,12 @@ const ArticleTemplate = ({ data }: PageProps<ArticleTemplateQuery>) => {
     <Layout>
       <Seo />
       <article>
-        <ArticleHead alt="Клавиатура" minutesRead={12} name={frontmatter.title} releaseDate={frontmatter.date} />
+        <ArticleHead
+          image={frontmatter.featuredImage.childImageSharp.fluid}
+          minutesRead={12}
+          name={frontmatter.title}
+          releaseDate={frontmatter.date}
+        />
         <Container>
           <Content content={html} />
         </Container>
@@ -38,6 +49,13 @@ export const pageQuery = graphql`
       html
       frontmatter {
         date(formatString: "DD.MM.YYYY")
+        featuredImage {
+          childImageSharp {
+            fluid(grayscale: true, traceSVG: { color: "#333" }) {
+              ...GatsbyImageSharpFluid_withWebp_tracedSVG
+            }
+          }
+        }
         title
       }
     }
