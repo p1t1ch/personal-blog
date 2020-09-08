@@ -5,7 +5,7 @@ import Layout from '@/components/Layout'
 import Seo from '@/components/Seo'
 import ArticlesGrid from '@/components/ArticlesGrid'
 import Container from '@/components/Container'
-import { FluidObject } from 'gatsby-image'
+// import { FluidObject } from 'gatsby-image'
 
 interface IndexPageQuery {
   allMarkdownRemark: {
@@ -19,11 +19,11 @@ interface IndexPageQuery {
         frontmatter: {
           date: string
           description: string
-          featuredImage: {
-            childImageSharp: {
-              fluid: FluidObject
-            }
-          }
+          // featuredImage: {
+          //   childImageSharp: {
+          //     fluid: FluidObject
+          //   }
+          // }
           title: string
         }
       }
@@ -36,7 +36,7 @@ const IndexPage = ({ data }: PageProps<IndexPageQuery>) => {
     id: node.id,
     slug: node.fields.slug,
     name: node.frontmatter.title,
-    image: node.frontmatter.featuredImage.childImageSharp.fluid,
+    // image: node.frontmatter.featuredImage.childImageSharp.fluid,
     description: node.excerpt,
     releaseDate: node.frontmatter.date,
     minutesRead: 12,
@@ -65,13 +65,13 @@ export const pageQuery = graphql`
           frontmatter {
             date(formatString: "DD.MM.YYYY")
             description
-            featuredImage {
-              childImageSharp {
-                fluid(grayscale: true, traceSVG: { color: "#333" }) {
-                  ...GatsbyImageSharpFluid_withWebp_tracedSVG
-                }
-              }
-            }
+            # featuredImage {
+            #   childImageSharp {
+            #     fluid(grayscale: true, traceSVG: { color: "#333" }) {
+            #       ...GatsbyImageSharpFluid_withWebp_tracedSVG
+            #     }
+            #   }
+            # }
             title
           }
         }

@@ -2,7 +2,7 @@
 title: Test blog
 date: 2020-08-16T16:25:36.620Z
 description: Test description
-featuredImage: /assets/keyboard.jpg
+# featuredImage: /assets/gatsby.png
 ---
 
 Hi folks!

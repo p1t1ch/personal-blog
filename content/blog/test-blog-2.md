@@ -2,15 +2,16 @@
 title: Test blog 2
 date: 2020-09-07T16:43:49.535Z
 description: Test description
-featuredImage: /assets/keyboard.jpg
+# featuredImage: /assets/gatsby.png
 ---
+
 Hi folks!
 
 **Bold text**
 
-*Italic text*
+_Italic text_
 
-***And italic bold***
+**_And italic bold_**
 
 `Thats going on? Insert gatsby-node.js in your codebase, ok?`
 
@@ -50,15 +51,118 @@ text
 
 Also here another possible way:
 
-* Start
-* Continue
-* Finish
+- Start
+- Continue
+- Finish
 
-```typescript
-const sum = (a: number, b: number) => a + b
+```ts{1-2}
+const sum = (firstVariableName: number, secondVariableName: number) => firstVariableName + secondVariableName
 console.log(sum(1, 2)) // 3
 ```
 
-Aaaand image!
+```css
+.my-class {
+  color: #f00;
+  font-weight: 900;
+}
+```
 
-![Альтернативный текст](/assets/gatsby.png "Заголовок, который вы можете лицезреть")
+```javascript
+// In your gatsby-config.js
+plugins: [
+  {
+    resolve: `gatsby-transformer-remark`,
+    options: {
+      plugins: [`gatsby-remark-prismjs`],
+    },
+  },
+]
+```
+
+```javascript{numberLines: true}
+// In your gatsby-config.js
+plugins: [
+  {
+    resolve: `gatsby-transformer-remark`,
+    options: {
+      plugins: [`gatsby-remark-prismjs`],
+    },
+  },
+]
+```
+
+```javascript{numberLines: 5}
+// In your gatsby-config.js
+plugins: [
+  {
+    resolve: `gatsby-transformer-remark`,
+    options: {
+      plugins: [`gatsby-remark-prismjs`],
+    },
+  },
+]
+```
+
+```jsx
+class FlavorForm extends React.Component { // highlight-line
+  constructor(props) {
+    super(props);
+    this.state = {value: 'coconut'};
+
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  handleChange(event) {
+    // highlight-next-line
+    this.setState({value: event.target.value});
+  }
+
+  // highlight-start
+  handleSubmit(event) {
+    alert('Your favorite flavor is: ' + this.state.value);
+    event.preventDefault();
+  }
+  // highlight-end
+
+  render() {
+    return (
+      { /* highlight-range{1,4-9,12} */ }
+      <form onSubmit={this.handleSubmit}>
+        <label>
+          Pick your favorite flavor:
+          <select value={this.state.value} onChange={this.handleChange}>
+            <option value="grapefruit">Grapefruit</option>
+            <option value="lime">Lime</option>
+            <option value="coconut">Coconut</option>
+            <option value="mango">Mango</option>
+          </select>
+        </label>
+        <input type="submit" value="Submit" />
+      </form>
+    );
+  }
+}
+```
+
+```javascript{1,4-6}
+// In your gatsby-config.js
+plugins: [
+  {
+    resolve: `gatsby-transformer-remark`,
+    options: {
+      plugins: [`gatsby-remark-prismjs`],
+    },
+  },
+]
+```
+
+```shell{promptUser: alice}{promptHost: dev.localhost}
+cd project-name
+yarn
+yarn dev
+```
+
+Aaaand `console.log('vadyan', x);` image `js>console.log('vadyan', x);`!
+
+![Альтернативный текст](/assets/gatsby.png 'Заголовок, который вы можете лицезреть')

@@ -23,6 +23,7 @@ module.exports = {
       },
     },
     {
+      // Do i even need this?
       resolve: 'gatsby-source-filesystem',
       options: {
         path: `${__dirname}/src`,
@@ -67,6 +68,13 @@ module.exports = {
             },
           },
           'gatsby-remark-copy-linked-files',
+          {
+            resolve: 'gatsby-remark-prismjs',
+            options: {
+              // showLineNumbers: true,
+              inlineCodeMarker: '>',
+            },
+          },
         ],
       },
     },
