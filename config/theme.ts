@@ -2,9 +2,10 @@
 // In project they are available via useTheme hook or prop in styled components
 
 const colors = {
-  primary: '#333',
+  primary: '#2b2b2b',
   secondary: '#fff',
   active: '#6d4672',
+  light: '#d4d0ab',
 }
 
 const breakpoints = {
@@ -14,16 +15,24 @@ const breakpoints = {
 
 const typography = {
   family: 'Commissioner',
-  stack: [
-    'system-ui',
-    '-apple-system',
-    'BlinkMacSystemFont',
-    '"Segoe UI"',
-    'Roboto',
-    '"Helvetica Neue"',
-    'Arial',
-    'sans-serif',
-  ],
+  stacks: {
+    sansSerif: [
+      'system-ui',
+      '-apple-system',
+      'BlinkMacSystemFont',
+      '"Avenir Next"',
+      'Avenir',
+      'Helvetica Neue',
+      'Helvetica',
+      'Ubuntu',
+      'Roboto',
+      'Noto',
+      '"Segoe UI"',
+      'Arial',
+      'sans-serif',
+    ],
+    monospace: ['Menlo', 'Consolas', 'Monaco', '"Liberation Mono"', '"Lucida Console"', 'monospace'],
+  },
   styles: {
     h1: {
       fontWeight: 800,
@@ -79,12 +88,36 @@ const transitions = {
   basic: `300ms ease`,
 }
 
+const prism = {
+  prePadding: {
+    basic: 1,
+    top: 1.5,
+  },
+  codePadding: {
+    vertical: 0.125,
+    horizontal: 0.25,
+  },
+  highlight: {
+    border: 0.25,
+    transparency: 0.9,
+  },
+  commandLine: {
+    border: 0.1,
+    padding: 0.5,
+  },
+  language: {
+    border: 0.125,
+    padding: 0.5,
+  },
+}
+
 const theme = {
   colors,
   breakpoints,
   typography,
   shadows,
   transitions,
+  prism,
 }
 
 // Use this type with useTheme hook

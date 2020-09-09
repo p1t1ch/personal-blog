@@ -67,7 +67,7 @@ console.log(sum(1, 2)) // 3
 }
 ```
 
-```javascript
+```js
 // In your gatsby-config.js
 plugins: [
   {
@@ -79,7 +79,7 @@ plugins: [
 ]
 ```
 
-```javascript{numberLines: true}
+```js
 // In your gatsby-config.js
 plugins: [
   {
@@ -91,7 +91,7 @@ plugins: [
 ]
 ```
 
-```javascript{numberLines: 5}
+```js
 // In your gatsby-config.js
 plugins: [
   {
@@ -145,7 +145,7 @@ class FlavorForm extends React.Component { // highlight-line
 }
 ```
 
-```javascript{1,4-6}
+```js{1,4-6}
 // In your gatsby-config.js
 plugins: [
   {
@@ -157,7 +157,7 @@ plugins: [
 ]
 ```
 
-```shell{promptUser: alice}{promptHost: dev.localhost}
+```bash
 cd project-name
 yarn
 yarn dev

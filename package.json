@@ -80,6 +80,7 @@
     "gatsby-transformer-sharp": "^2.5.13",
     "netlify-cms-app": "^2.12.19",
     "polished": "^3.6.5",
+    "prism-themes": "^1.4.0",
     "prismjs": "^1.21.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",

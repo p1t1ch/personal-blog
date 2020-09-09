@@ -55,7 +55,7 @@ Also here another possible way:
 - Continue
 - Finish
 
-```typescript
+```ts{1}
 const sum = (a: number, b: number) => a + b
 console.log(sum(1, 2)) // 3
 ```

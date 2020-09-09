@@ -8,6 +8,8 @@ interface ContentProps {
   content: string
 }
 
+// TODO Move container width and paddings to theme
+
 const Content = ({ content }: ContentProps) => {
   const theme = useTheme<Theme>()
 
@@ -20,7 +22,7 @@ const Content = ({ content }: ContentProps) => {
         h4: theme.typography.styles.h4,
         h5: theme.typography.styles.h5,
         h6: theme.typography.styles.h6,
-        'h2, h3, h4, h5, h6, p, blockquote': {
+        'h2, h3, h4, h5, h6, p, blockquote, ul, ol, li:not(:last-child), .gatsby-highlight': {
           marginBottom: '1rem',
         },
         blockquote: {
@@ -37,14 +39,8 @@ const Content = ({ content }: ContentProps) => {
             color: theme.colors.active,
           },
         },
-        code: {
-          padding: '2px 4px',
-          color: theme.colors.secondary,
-          backgroundColor: theme.colors.primary,
-        },
-        pre: {
-          color: theme.colors.secondary,
-          backgroundColor: theme.colors.primary,
+        '.gatsby-highlight': {
+          ...margin(null, '-1.5rem'),
         },
       }}
     />
