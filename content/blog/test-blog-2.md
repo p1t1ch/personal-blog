@@ -5,6 +5,12 @@ description: Test description
 featuredImage: /assets/keyboard.jpg
 ---
 
+[Inner link](/test-blog/)
+
+[Inner link 2](/)
+
+[Outer link](https://www.google.com/)
+
 Hi folks!
 
 **Bold text**

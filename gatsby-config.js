@@ -23,11 +23,10 @@ module.exports = {
       },
     },
     {
-      // Do i even need this?
       resolve: 'gatsby-source-filesystem',
       options: {
-        path: `${__dirname}/src`,
-        name: 'src',
+        path: `${__dirname}/static/assets`,
+        name: 'assets',
       },
     },
     {
@@ -38,10 +37,11 @@ module.exports = {
       },
     },
     {
+      // Do i even need this?
       resolve: 'gatsby-source-filesystem',
       options: {
-        path: `${__dirname}/static/assets`,
-        name: 'assets',
+        path: `${__dirname}/src`,
+        name: 'src',
       },
     },
     {
@@ -69,6 +69,7 @@ module.exports = {
           },
           'gatsby-remark-copy-linked-files',
           'gatsby-remark-responsive-iframe',
+          'gatsby-remark-external-links',
           {
             resolve: 'gatsby-remark-prismjs',
             options: {
@@ -81,6 +82,7 @@ module.exports = {
         ],
       },
     },
+    'gatsby-plugin-catch-links',
     {
       resolve: 'gatsby-plugin-svgr',
       options: {
