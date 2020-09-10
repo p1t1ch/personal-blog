@@ -4,6 +4,7 @@ import { Link } from 'gatsby'
 import { ThemeProps } from '@theme'
 import styled from '@emotion/styled'
 import singleGridCell from '@/utils/singleGridCell'
+import declOfNum from '@/utils/declOfNum'
 
 const Article = styled.article(({ theme }: ThemeProps) => ({
   backgroundColor: theme.colors.secondary,
@@ -49,7 +50,7 @@ export interface ArticleCardProps {
   /** Date of article publication in DD.MM.YYYY format */
   releaseDate: string
   /** Calculated minutes to read based on article size */
-  minutesRead: number
+  timeToRead: number
 }
 
 const ArticleCard = ({
@@ -58,7 +59,7 @@ const ArticleCard = ({
   name,
   description,
   /*image,*/ releaseDate,
-  minutesRead,
+  timeToRead,
   ...props
 }: ArticleCardProps) => {
   return (
@@ -75,7 +76,9 @@ const ArticleCard = ({
           <time aria-label="Дата выхода" dateTime={releaseDate.replace(/(\d{2})\.(\d{2})\.(\d{4})/, '$3-$2-$1')}>
             {releaseDate}
           </time>
-          <div aria-label="Примерное время чтения">{minutesRead} минут</div>
+          <div aria-label="Примерное время чтения">
+            {timeToRead} {declOfNum(timeToRead, ['минута', 'минуты', 'минут'])}
+          </div>
         </Meta>
       </Link>
       <Description>{description}</Description>

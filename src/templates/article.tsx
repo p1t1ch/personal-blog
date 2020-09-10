@@ -10,6 +10,7 @@ import Content from '@/components/Content'
 interface ArticleTemplateQuery {
   markdownRemark: {
     html: string
+    timeToRead: number
     frontmatter: {
       date: string
       // featuredImage: {
@@ -23,7 +24,7 @@ interface ArticleTemplateQuery {
 }
 
 const ArticleTemplate = ({ data }: PageProps<ArticleTemplateQuery>) => {
-  const { html, frontmatter } = data.markdownRemark
+  const { html, timeToRead, frontmatter } = data.markdownRemark
 
   return (
     <Layout>
@@ -31,7 +32,7 @@ const ArticleTemplate = ({ data }: PageProps<ArticleTemplateQuery>) => {
       <article>
         <ArticleHead
           // image={frontmatter.featuredImage.childImageSharp.fluid}
-          minutesRead={12}
+          timeToRead={timeToRead}
           name={frontmatter.title}
           releaseDate={frontmatter.date}
         />
@@ -47,6 +48,7 @@ export const pageQuery = graphql`
   query articleById($id: String!) {
     markdownRemark(id: { eq: $id }) {
       html
+      timeToRead
       frontmatter {
         date(formatString: "DD.MM.YYYY")
         # featuredImage {

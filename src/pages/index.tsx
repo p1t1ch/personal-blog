@@ -11,8 +11,8 @@ interface IndexPageQuery {
   allMarkdownRemark: {
     edges: {
       node: {
-        excerpt: string
         id: number
+        timeToRead: number
         fields: {
           slug: string
         }
@@ -37,9 +37,9 @@ const IndexPage = ({ data }: PageProps<IndexPageQuery>) => {
     slug: node.fields.slug,
     name: node.frontmatter.title,
     // image: node.frontmatter.featuredImage.childImageSharp.fluid,
-    description: node.excerpt,
+    description: node.frontmatter.description,
     releaseDate: node.frontmatter.date,
-    minutesRead: 12,
+    timeToRead: node.timeToRead,
   }))
   return (
     <Layout isHome>
@@ -57,7 +57,7 @@ export const pageQuery = graphql`
     allMarkdownRemark {
       edges {
         node {
-          excerpt
+          timeToRead
           id
           fields {
             slug

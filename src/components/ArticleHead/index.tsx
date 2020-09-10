@@ -3,6 +3,7 @@ import React from 'react'
 import { ThemeProps } from '@theme'
 import styled from '@emotion/styled'
 import singleGridCell from '@/utils/singleGridCell'
+import declOfNum from '@/utils/declOfNum'
 
 // TODO Separate common parts between article head and preview in component
 
@@ -36,10 +37,10 @@ export interface ArticleHeadProps {
   /** Date of article publication in DD.MM.YYYY format */
   releaseDate: string
   /** Calculated minutes to read based on article size */
-  minutesRead: number
+  timeToRead: number
 }
 
-const ArticleHead = ({ name, /*image,*/ releaseDate, minutesRead }: ArticleHeadProps) => {
+const ArticleHead = ({ name, /*image,*/ releaseDate, timeToRead }: ArticleHeadProps) => {
   return (
     <section css={singleGridCell}>
       {/* <Img
@@ -53,7 +54,9 @@ const ArticleHead = ({ name, /*image,*/ releaseDate, minutesRead }: ArticleHeadP
         <time aria-label="Дата выхода" dateTime={releaseDate.replace(/(\d{2})\.(\d{2})\.(\d{4})/, '$3-$2-$1')}>
           {releaseDate}
         </time>
-        <div aria-label="Примерное время чтения">{minutesRead} минут</div>
+        <div aria-label="Примерное время чтения">
+          {timeToRead} {declOfNum(timeToRead, ['минута', 'минуты', 'минут'])}
+        </div>
       </Meta>
     </section>
   )
