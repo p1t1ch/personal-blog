@@ -2,7 +2,7 @@
 title: Test blog 2
 date: 2020-09-07T16:43:49.535Z
 description: Test description
-# featuredImage: /assets/gatsby.png
+featuredImage: /assets/keyboard.jpg
 ---
 
 Hi folks!
@@ -54,6 +54,17 @@ Also here another possible way:
 - Start
 - Continue
 - Finish
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/eMx5ZCkIwfQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+Test text
+
+<iframe height="600" style="width: 100%;" scrolling="no" title="DrawSvg test" src="https://codepen.io/p1t1ch/embed/preview/gJKQWQ?height=323&theme-id=dark&default-tab=html,result" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+  See the Pen <a href='https://codepen.io/p1t1ch/pen/gJKQWQ'>DrawSvg test</a> by p1t1ch
+  (<a href='https://codepen.io/p1t1ch'>@p1t1ch</a>) on <a href='https://codepen.io'>CodePen</a>.
+</iframe>
+
+Test text
 
 ```ts{1-2}
 const sum = (firstVariableName: number, secondVariableName: number) => firstVariableName + secondVariableName

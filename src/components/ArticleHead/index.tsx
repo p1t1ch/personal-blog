@@ -1,5 +1,5 @@
 import React from 'react'
-// import Img, { FluidObject } from 'gatsby-image'
+import Img, { FluidObject } from 'gatsby-image'
 import { ThemeProps } from '@theme'
 import styled from '@emotion/styled'
 import singleGridCell from '@/utils/singleGridCell'
@@ -33,22 +33,22 @@ export interface ArticleHeadProps {
   /** Article title */
   name: string
   /** Article preview image */
-  // image: FluidObject
+  image: FluidObject
   /** Date of article publication in DD.MM.YYYY format */
   releaseDate: string
   /** Calculated minutes to read based on article size */
   timeToRead: number
 }
 
-const ArticleHead = ({ name, /*image,*/ releaseDate, timeToRead }: ArticleHeadProps) => {
+const ArticleHead = ({ name, image, releaseDate, timeToRead }: ArticleHeadProps) => {
   return (
     <section css={singleGridCell}>
-      {/* <Img
+      <Img
         fluid={image}
         alt={`Превью для статьи ${name}`}
         imgStyle={{ height: '25rem', objectFit: 'cover' }}
         css={{ height: '25rem', clipPath: 'polygon(0 0, 100% 0%, 100% 100%, 0 calc(100% - 2rem))' }}
-      /> */}
+      />
       <Title>{name}</Title>
       <Meta>
         <time aria-label="Дата выхода" dateTime={releaseDate.replace(/(\d{2})\.(\d{2})\.(\d{4})/, '$3-$2-$1')}>

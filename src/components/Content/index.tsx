@@ -22,7 +22,7 @@ const Content = ({ content }: ContentProps) => {
         h4: theme.typography.styles.h4,
         h5: theme.typography.styles.h5,
         h6: theme.typography.styles.h6,
-        'h2, h3, h4, h5, h6, p, blockquote, ul, ol, li:not(:last-child), .gatsby-highlight': {
+        'h2, h3, h4, h5, h6, p, blockquote, ul, ol, li:not(:last-child), .gatsby-highlight, .gatsby-resp-iframe-wrapper, :not(.gatsby-resp-iframe-wrapper) > iframe': {
           marginBottom: '1rem',
         },
         blockquote: {
