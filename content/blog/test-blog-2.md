@@ -1,8 +1,9 @@
 ---
 title: Test blog 2
-date: 2020-09-07T16:43:49.535Z
+date: 2020-09-12T15:29:26.134Z
 description: Test description
 featuredImage: /assets/keyboard.jpg
+thumbnail: /assets/keyboard.jpg
 ---
 
 [Inner link](/test-blog/)
