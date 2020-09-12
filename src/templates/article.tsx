@@ -52,7 +52,7 @@ export const pageQuery = graphql`
       timeToRead
       frontmatter {
         title
-        date
+        date(formatString: "DD.MM.YYYY")
         tags
         thumbnail {
           childImageSharp {
