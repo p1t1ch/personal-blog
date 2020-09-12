@@ -37,14 +37,6 @@ module.exports = {
       },
     },
     {
-      // Do i even need this?
-      resolve: 'gatsby-source-filesystem',
-      options: {
-        path: `${__dirname}/src`,
-        name: 'src',
-      },
-    },
-    {
       resolve: 'gatsby-plugin-sharp',
       options: {
         defaultQuality: 75,
@@ -99,13 +91,6 @@ module.exports = {
       },
     },
     {
-      resolve: 'gatsby-plugin-netlify-cms',
-      options: {
-        // modulePath: `${__dirname}/src/cms/index.js`,
-        enableIdentityWidget: false,
-      },
-    },
-    {
       resolve: 'gatsby-plugin-manifest',
       options: {
         start_url: '/',
@@ -117,6 +102,12 @@ module.exports = {
         icon: config.favicon,
         theme_color: config.themeColor,
         background_color: config.backgroundColor,
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-netlify-cms',
+      options: {
+        enableIdentityWidget: false,
       },
     },
     'gatsby-plugin-offline',

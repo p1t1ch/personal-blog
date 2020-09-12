@@ -18,7 +18,7 @@ interface IndexPageQuery {
         }
         frontmatter: {
           title: string
-          date: string
+          publishDate: string
           description: string
           thumbnail: {
             childImageSharp: {
@@ -38,7 +38,7 @@ const IndexPage = ({ data }: PageProps<IndexPageQuery>) => {
     name: node.frontmatter.title,
     image: node.frontmatter.thumbnail.childImageSharp.fluid,
     description: node.frontmatter.description,
-    releaseDate: node.frontmatter.date,
+    publishDate: node.frontmatter.publishDate,
     timeToRead: node.timeToRead,
   }))
   return (
@@ -64,7 +64,7 @@ export const pageQuery = graphql`
           }
           frontmatter {
             title
-            date
+            publishDate(formatString: "DD.MM.YYYY")
             description
             thumbnail {
               childImageSharp {

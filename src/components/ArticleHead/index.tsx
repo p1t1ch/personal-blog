@@ -35,12 +35,12 @@ export interface ArticleHeadProps {
   /** Article preview image */
   image: FluidObject
   /** Date of article publication in DD.MM.YYYY format */
-  releaseDate: string
+  publishDate: string
   /** Calculated minutes to read based on article size */
   timeToRead: number
 }
 
-const ArticleHead = ({ name, image, releaseDate, timeToRead }: ArticleHeadProps) => {
+const ArticleHead = ({ name, image, publishDate, timeToRead }: ArticleHeadProps) => {
   return (
     <section css={singleGridCell}>
       <Img
@@ -51,8 +51,8 @@ const ArticleHead = ({ name, image, releaseDate, timeToRead }: ArticleHeadProps)
       />
       <Title>{name}</Title>
       <Meta>
-        <time aria-label="Дата выхода" dateTime={releaseDate.replace(/(\d{2})\.(\d{2})\.(\d{4})/, '$3-$2-$1')}>
-          {releaseDate}
+        <time aria-label="Дата выхода" dateTime={publishDate.replace(/(\d{2})\.(\d{2})\.(\d{4})/, '$3-$2-$1')}>
+          {publishDate}
         </time>
         <div aria-label="Примерное время чтения">
           {timeToRead} {declOfNum(timeToRead, ['минута', 'минуты', 'минут'])}

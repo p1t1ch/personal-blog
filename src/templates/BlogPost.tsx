@@ -1,19 +1,17 @@
 import React from 'react'
 import { graphql, PageProps } from 'gatsby'
+import { FluidObject } from 'gatsby-image'
 import Layout from '@/components/Layout'
 import Seo from '@/components/Seo'
-import ArticleHead from '@/components/ArticleHead'
-import Container from '@/components/Container'
-import Content from '@/components/Content'
-import { FluidObject } from 'gatsby-image'
+import BlogPost from '@/components/BlogPost'
 
-interface ArticleTemplateQuery {
+interface BlogPostTemplateQuery {
   markdownRemark: {
     html: string
     timeToRead: number
     frontmatter: {
       title: string
-      date: string
+      publishDate: string
       tags: string[]
       thumbnail: {
         childImageSharp: {
@@ -24,23 +22,19 @@ interface ArticleTemplateQuery {
   }
 }
 
-const ArticleTemplate = ({ data }: PageProps<ArticleTemplateQuery>) => {
+const BlogPostTemplate = ({ data }: PageProps<BlogPostTemplateQuery>) => {
   const { html, timeToRead, frontmatter } = data.markdownRemark
 
   return (
     <Layout>
       <Seo />
-      <article>
-        <ArticleHead
-          image={frontmatter.thumbnail.childImageSharp.fluid}
-          timeToRead={timeToRead}
-          name={frontmatter.title}
-          releaseDate={frontmatter.date}
-        />
-        <Container>
-          <Content content={html} />
-        </Container>
-      </article>
+      <BlogPost
+        content={html}
+        title={frontmatter.title}
+        thumbnail={frontmatter.thumbnail.childImageSharp.fluid}
+        publishDate={frontmatter.publishDate}
+        timeToRead={timeToRead}
+      />
     </Layout>
   )
 }
@@ -52,7 +46,7 @@ export const pageQuery = graphql`
       timeToRead
       frontmatter {
         title
-        date
+        publishDate(formatString: "DD.MM.YYYY")
         tags
         thumbnail {
           childImageSharp {
@@ -66,4 +60,4 @@ export const pageQuery = graphql`
   }
 `
 
-export default ArticleTemplate
+export default BlogPostTemplate
