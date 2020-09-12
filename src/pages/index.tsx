@@ -19,7 +19,7 @@ interface IndexPageQuery {
         frontmatter: {
           date: string
           description: string
-          featuredImage: {
+          thumbnail: {
             childImageSharp: {
               fluid: FluidObject
             }
@@ -36,7 +36,7 @@ const IndexPage = ({ data }: PageProps<IndexPageQuery>) => {
     id: node.id,
     slug: node.fields.slug,
     name: node.frontmatter.title,
-    image: node.frontmatter.featuredImage.childImageSharp.fluid,
+    image: node.frontmatter.thumbnail.childImageSharp.fluid,
     description: node.frontmatter.description,
     releaseDate: node.frontmatter.date,
     timeToRead: node.timeToRead,
@@ -63,9 +63,9 @@ export const pageQuery = graphql`
             slug
           }
           frontmatter {
-            date(formatString: "DD.MM.YYYY")
+            date
             description
-            featuredImage {
+            thumbnail {
               childImageSharp {
                 fluid(grayscale: true, traceSVG: { color: "#333" }) {
                   ...GatsbyImageSharpFluid_withWebp_tracedSVG

@@ -13,7 +13,7 @@ interface ArticleTemplateQuery {
     timeToRead: number
     frontmatter: {
       date: string
-      featuredImage: {
+      thumbnail: {
         childImageSharp: {
           fluid: FluidObject
         }
@@ -31,7 +31,7 @@ const ArticleTemplate = ({ data }: PageProps<ArticleTemplateQuery>) => {
       <Seo />
       <article>
         <ArticleHead
-          image={frontmatter.featuredImage.childImageSharp.fluid}
+          image={frontmatter.thumbnail.childImageSharp.fluid}
           timeToRead={timeToRead}
           name={frontmatter.title}
           releaseDate={frontmatter.date}
@@ -50,8 +50,8 @@ export const pageQuery = graphql`
       html
       timeToRead
       frontmatter {
-        date(formatString: "DD.MM.YYYY")
-        featuredImage {
+        date
+        thumbnail {
           childImageSharp {
             fluid(grayscale: true, traceSVG: { color: "#333" }) {
               ...GatsbyImageSharpFluid_withWebp_tracedSVG
