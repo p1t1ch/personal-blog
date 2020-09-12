@@ -10,6 +10,7 @@ tags:
   - тестовая
   - демо
 ---
+
 [Inner link](/test-blog/)
 
 [Inner link 2](/)
@@ -20,9 +21,9 @@ Hi folks!
 
 **Bold text**
 
-*Italic text*
+_Italic text_
 
-***And italic bold***
+**_And italic bold_**
 
 `Thats going on? Insert gatsby-node.js in your codebase, ok?`
 
@@ -62,9 +63,9 @@ text
 
 Also here another possible way:
 
-* Start
-* Continue
-* Finish
+- Start
+- Continue
+- Finish
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/eMx5ZCkIwfQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
@@ -151,6 +152,6 @@ yarn dev
 
 Aaaand `console.log('vadyan', x);` image `js>console.log('vadyan', x);`!
 
-![Альтернативный текст](/assets/gatsby.png "Текст для figcaption")
+![Альтернативный текст](/assets/gatsby.png 'Текст для figcaption')
 
 ![svg не обрабатывается через remark плагин](/assets/github.svg)

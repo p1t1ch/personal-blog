@@ -22,7 +22,7 @@
     "coverage": "open ./coverage/lcov-report/index.html",
     "stats": "open ./public/report.html",
     "lint": "eslint . --ext .tsx,.ts,.mdx,.js --fix",
-    "format": "prettier  . --write --ignore-path .gitignore",
+    "format": "prettier . --write --ignore-path .gitignore",
     "type-check": "tsc --noEmit",
     "validate": "yarn lint && yarn format && yarn type-check && yarn test:coverage && yarn test:e2e:run",
     "clean": "gatsby clean"
