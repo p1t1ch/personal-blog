@@ -1,7 +1,7 @@
 ---
 title: Тестовая статья
 slug: demo-title
-publishDate: 09/12/2020
+publishDate: 2020-09-12T15:29:26.134Z
 thumbnail: /assets/keyboard.jpg
 description: Тестовая статья для всякого рода тестов тестового происхождения по
   своей природе

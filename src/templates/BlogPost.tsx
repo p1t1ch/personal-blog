@@ -9,8 +9,12 @@ interface BlogPostTemplateQuery {
   markdownRemark: {
     html: string
     timeToRead: number
+    fields: {
+      slug: string
+    }
     frontmatter: {
       title: string
+      description: string
       publishDate: string
       tags: string[]
       thumbnail: {
@@ -23,11 +27,17 @@ interface BlogPostTemplateQuery {
 }
 
 const BlogPostTemplate = ({ data }: PageProps<BlogPostTemplateQuery>) => {
-  const { html, timeToRead, frontmatter } = data.markdownRemark
+  const { html, timeToRead, fields, frontmatter } = data.markdownRemark
 
   return (
     <Layout>
-      <Seo />
+      <Seo
+        title={frontmatter.title}
+        description={frontmatter.description}
+        keywords={frontmatter.tags}
+        image={frontmatter.thumbnail.childImageSharp.fluid.src}
+        pathname={fields.slug}
+      />
       <BlogPost
         content={html}
         title={frontmatter.title}
@@ -44,8 +54,12 @@ export const pageQuery = graphql`
     markdownRemark(id: { eq: $id }) {
       html
       timeToRead
+      fields {
+        slug
+      }
       frontmatter {
         title
+        description
         publishDate(formatString: "DD.MM.YYYY")
         tags
         thumbnail {
