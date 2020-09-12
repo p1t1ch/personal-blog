@@ -17,6 +17,7 @@ interface IndexPageQuery {
           slug: string
         }
         frontmatter: {
+          title: string
           date: string
           description: string
           thumbnail: {
@@ -24,7 +25,6 @@ interface IndexPageQuery {
               fluid: FluidObject
             }
           }
-          title: string
         }
       }
     }[]
@@ -63,6 +63,7 @@ export const pageQuery = graphql`
             slug
           }
           frontmatter {
+            title
             date
             description
             thumbnail {
@@ -72,7 +73,6 @@ export const pageQuery = graphql`
                 }
               }
             }
-            title
           }
         }
       }

@@ -12,13 +12,14 @@ interface ArticleTemplateQuery {
     html: string
     timeToRead: number
     frontmatter: {
+      title: string
       date: string
+      tags: string[]
       thumbnail: {
         childImageSharp: {
           fluid: FluidObject
         }
       }
-      title: string
     }
   }
 }
@@ -50,7 +51,9 @@ export const pageQuery = graphql`
       html
       timeToRead
       frontmatter {
+        title
         date
+        tags
         thumbnail {
           childImageSharp {
             fluid(grayscale: true, traceSVG: { color: "#333" }) {
@@ -58,7 +61,6 @@ export const pageQuery = graphql`
             }
           }
         }
-        title
       }
     }
   }

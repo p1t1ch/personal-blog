@@ -13,11 +13,20 @@ collections:
     label: 'Blog'
     folder: 'content/blog'
     create: true
-    slug: '{{year}}-{{month}}-{{day}}-{{slug}}'
-    preview_path: 'blog/{{slug}}/{{filename}}'
+    slug: '{{year}}-{{month}}-{{day}}-{{fields.slug}}'
+    preview_path: 'blog/{{fields.slug}}'
     fields:
       - { label: 'Title', name: 'title', widget: 'string' }
-      - { label: 'Publish Date', name: 'date', widget: 'datetime', date_format: 'DD.MM.YYYY', time_format: false }
+      - { label: 'Slug', name: 'slug', widget: 'string' }
+      - {
+          label: 'Publish Date',
+          name: 'date',
+          widget: 'datetime',
+          dateFormat: 'DD.MM.YYYY',
+          timeFormat: false,
+          format: 'L',
+        }
       - { label: 'Featured Image', name: 'thumbnail', widget: 'image' }
-      - { label: 'Description', name: 'description', widget: 'string' }
+      - { label: 'Description', name: 'description', widget: 'text' }
+      - { label: 'Tags', name: 'tags', widget: 'list' }
       - { label: 'Body', name: 'body', widget: 'markdown' }
