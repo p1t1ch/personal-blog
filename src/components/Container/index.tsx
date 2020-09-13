@@ -12,7 +12,7 @@ const Container = ({ children, isHome = false }: ContainerProps) => {
     <section
       css={{
         margin: '0 auto',
-        padding: '1.5rem',
+        padding: '2rem',
         maxWidth: !isHome ? '50rem' : '90rem',
       }}
     >

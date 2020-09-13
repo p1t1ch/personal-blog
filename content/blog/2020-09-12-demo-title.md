@@ -29,10 +29,6 @@ _Italic text_
 
 Look 👀 [new Gatsby website](https://www.gatsbyjs.com/)
 
-# Heading 1
-
-text
-
 ## Heading 2
 
 text
@@ -61,7 +57,7 @@ text
 2. Cool
 3. Deploy
 
-Also here another possible way:
+Also here 'another' possible way -- add it "just like" that:
 
 - Start
 - Continue

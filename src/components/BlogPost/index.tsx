@@ -2,7 +2,7 @@ import React from 'react'
 import { FluidObject } from 'gatsby-image'
 import { Theme } from '@theme'
 import { useTheme } from 'emotion-theming'
-import { margin } from 'polished'
+import { margin, padding } from 'polished'
 import ArticleHead from '@/components/ArticleHead'
 import Container from '@/components/Container'
 
@@ -55,6 +55,19 @@ const BlogPost = ({ content, title, thumbnail, publishDate, timeToRead }: BlogPo
             },
             '.gatsby-highlight': {
               ...margin(null, '-1.5rem'),
+            },
+            '.anchor.before': {
+              top: '50%',
+              transform: 'translate(-100%, -50%)',
+              ...padding(null, '0.25rem'),
+              ':focus': {
+                outlineOffset: '-0.125rem',
+              },
+              svg: {
+                display: 'block',
+                width: '1.5rem',
+                height: '1.5rem',
+              },
             },
           }}
         />

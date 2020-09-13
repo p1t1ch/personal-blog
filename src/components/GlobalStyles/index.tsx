@@ -27,6 +27,12 @@ const GlobalStyles = () => {
           '*, *::before, *::after': {
             boxSizing: 'border-box',
           },
+          html: {
+            scrollBehavior: 'smooth',
+            '@media (prefers-reduced-motion)': {
+              scrollBehavior: 'auto',
+            },
+          },
           body: {
             fontFamily: [theme.typography.family, ...theme.typography.stacks.sansSerif].join(', '),
             ...theme.typography.styles.body,
@@ -51,7 +57,7 @@ const GlobalStyles = () => {
           a: {
             textDecoration: 'none',
             color: theme.colors.primary,
-            ...transitions('color', theme.transitions.basic),
+            ...transitions(['color'], theme.transitions.basic),
           },
           svg: {
             fill: 'currentColor',
