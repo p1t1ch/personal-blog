@@ -18,9 +18,9 @@ module.exports = {
   // Path to main favicon. Recommended size: 512x512. Other sizes are generated automatically
   favicon: 'src/images/favicon.png',
   // Theme color. Used as color of device toolbar in supported browsers
-  themeColor: '#333',
+  themeColor: '#2b2b2b',
   // Background color. Used as background on PWA launch screen. Recommended to make it the same as body color
-  backgroundColor: '#333',
+  backgroundColor: '#2b2b2b',
   // Color for traced SVG placeholders for content images
   tracedSVGColor: '#6d4672',
   // Width of blogpost page container to generate fluid images

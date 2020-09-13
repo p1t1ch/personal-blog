@@ -38,7 +38,7 @@ const Description = styled.p(() => ({
 
 export interface ArticleCardProps {
   /** Unique id */
-  id: number
+  id: string
   /** Page path */
   slug: string
   /** Article title */

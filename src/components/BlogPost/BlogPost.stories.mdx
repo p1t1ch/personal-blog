@@ -9,104 +9,75 @@ import BlogPost from '.'
   <Story
     name="Basic"
     args={{
+      title: 'Заголовок статьи',
+      thumbnail: {
+        src: 'https://dummyimage.com/1920x1080/2b2b2b/fff.png&text=+',
+      },
+      publishDate: '04.09.2020',
+      timeToRead: 12,
       content: `
+        <p><a href="/test-blog/">Inner link</a></p>
+        <p><a href="/">Inner link 2</a></p>
+        <p><a href="https://www.google.com/" target="_blank" rel="nofollow noopener noreferrer">Outer link</a></p>
+        <p>Hi folks!</p>
+        <p><strong>Bold text</strong></p>
+        <p><em>Italic text</em></p>
+        <p><strong><em>And italic bold</em></strong></p>
+        <p><code class="language-text">Thats going on? Insert gatsby-node.js in your codebase, ok?</code></p>
+        <p>Look 👀 <a href="https://www.gatsbyjs.com/" target="_blank" rel="nofollow noopener noreferrer">new Gatsby website</a></p>
+        <h2>Heading 2</h2>
+        <p>text</p>
+        <h3>Heading 3</h3>
+        <p>text</p>
+        <h4>Heading 4</h4>
+        <p>text</p>
+        <h5>Heading 5</h5>
+        <p>text</p>
+        <h6>Heading 6</h6>
+        <p>text</p>
         <blockquote>
-          Съешь же ещё этих мягких французских булок, да выпей чаю. Съешь же ещё этих мягких французских булок, да
-          выпей чаю. Съешь же ещё этих мягких французских булок, да выпей чаю. Съешь же ещё этих мягких французских
-          булок, да выпей чаю.
+        <p>I think this is the beginning of a beautiful friendship</p>
         </blockquote>
-        <h2># Заголовок раздела</h2>
-        <p>
-          Съешь же ещё этих <strong>мягких французских булок</strong>, да выпей чаю.
-          <em>Съешь же ещё этих мягких французских булок</em>, да выпей чаю. Съешь же ещё
-          <a href="https://github.com/p1t1ch/gatsby-starter" target="_blank" rel="noopener noreferrer">
-            этих мягких французских булок
-          </a>
-          , да выпей чаю. Съешь же ещё этих мягких французских булок, да выпей чаю. Съешь же ещё этих мягких
-          французских булок, да выпей чаю. Съешь же ещё этих мягких французских булок, да выпей чаю.
-        </p>
-        <p>
-          Съешь же ещё этих мягких французских булок, да выпей чаю. Съешь же ещё этих мягких французских булок, да
-          выпей чаю. Съешь же ещё <code>const x:string = 'vadyan'</code>, да выпей чаю. Съешь же ещё этих мягких
-          французских булок, да выпей чаю. Съешь же ещё этих мягких французских булок, да выпей чаю. Съешь же ещё этих
-          мягких французских булок, да выпей чаю.
-        </p>
-        <h3># Заголовок подраздела</h3>
-        <p>
-          Съешь же ещё этих мягких французских булок, да выпей чаю. Съешь же ещё этих мягких французских булок, да
-          выпей чаю.
-          <ol>
-            <li>Съешь же ещё этих мягких французских булок, да выпей чаю.</li>
-            <li>Съешь же ещё этих мягких французских булок, да выпей чаю.</li>
-            <li>Съешь же ещё этих мягких французских булок, да выпей чаю.</li>
-          </ol>
-          Съешь же ещё этих мягких французских булок, да выпей чаю.
-        </p>
-        <p>
-          Съешь же ещё этих мягких французских булок, да выпей чаю. Съешь же ещё этих мягких французских булок, да
-          выпей чаю.
-          <ul>
-            <li>Съешь же ещё этих мягких французских булок, да выпей чаю.</li>
-            <li>Съешь же ещё этих мягких французских булок, да выпей чаю.</li>
-            <li>Съешь же ещё этих мягких французских булок, да выпей чаю.</li>
-          </ul>
-          Съешь же ещё этих мягких французских булок, да выпей чаю.
-        </p>
-        <h4># Подзаголовок</h3>
-        <p>
-          <table>
-            <caption>Съешь же ещё этих мягких французских булок, да выпей чаю.</caption>
-            <thead>
-              <tr>
-                <th>Съешь же ещё</th>
-                <th>этих мягких</th>
-                <th>французских булок</th>
-                <th>да выпей чаю</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Съешь же ещё</td>
-                <td>этих мягких</td>
-                <td>французских булок</td>
-                <td>да выпей чаю</td>
-              </tr>
-              <tr>
-                <td>Съешь же ещё</td>
-                <td>этих мягких</td>
-                <td>французских булок</td>
-                <td>да выпей чаю</td>
-              </tr>
-            </tbody>
-          </table>
-        </p>
-        <p>
-          <pre>
-            <code>
-              function App() {
-                const sum = (a, b) => a + b;
-                const first = sum(1, 2);
-                const second = sum(3, 4); // Comment
-                console.log(first, second);
-              }
-              App();
-            </code>
-          </pre>
-        </p>
-        <h4># Подзаголовок</h3>
-        <p>
-          Съешь же ещё этих мягких французских булок, да выпей чаю. Съешь же ещё этих мягких французских булок, да
-          выпей чаю. Съешь же ещё этих мягких французских булок, да выпей чаю. Съешь же ещё этих мягких французских
-          булок, да выпей чаю. Съешь же ещё этих мягких французских булок, да выпей чаю. Съешь же ещё этих мягких
-          французских булок, да выпей чаю.
-        </p>
-        <hr />
-        <p>
-          Съешь же ещё этих мягких французских булок, да выпей чаю. Съешь же ещё этих мягких французских булок, да
-          выпей чаю. Съешь же ещё этих мягких французских булок, да выпей чаю. Съешь же ещё этих мягких французских
-          булок, да выпей чаю. Съешь же ещё этих мягких французских булок, да выпей чаю. Съешь же ещё этих мягких
-          французских булок, да выпей чаю.
-        </p>
+        <p>3 steps to something:</p>
+        <ol>
+          <li>Fight</li>
+          <li>Cool</li>
+          <li>Deploy</li>
+        </ol>
+        <p>Also here ‘another’ possible way — add it “just like” that:</p>
+        <ul>
+          <li>Start</li>
+          <li>Continue</li>
+          <li>Finish</li>
+        </ul>
+        <div class="gatsby-resp-iframe-wrapper" style="padding-bottom: 56.25%; position: relative; height: 0; overflow: hidden; ">
+          <iframe src="https://www.youtube.com/embed/eMx5ZCkIwfQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" style=" position: absolute; top: 0; left: 0; width: 100%; height: 100%; "></iframe>
+        </div>
+        <p>Test text</p>
+        <iframe height="600" style="width: 100%;" scrolling="no" title="DrawSvg test" src="https://codepen.io/p1t1ch/embed/preview/gJKQWQ?height=323&amp;theme-id=dark&amp;default-tab=html,result" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+          See the Pen <a href='https://codepen.io/p1t1ch/pen/gJKQWQ'>DrawSvg test</a> by p1t1ch
+          (<a href='https://codepen.io/p1t1ch'>@p1t1ch</a>) on <a href='https://codepen.io'>CodePen</a>.
+        </iframe>
+        <p>Test text</p>
+        <div class="gatsby-highlight" data-language="typescript">
+          <pre class="language-typescript"><code class="language-typescript"><span class="token keyword">const</span> <span class="token function-variable function">sum</span> <span class="token operator">=</span> <span class="token punctuation">(</span>firstVariableName<span class="token operator">:</span> <span class="token builtin">number</span><span class="token punctuation">,</span> secondVariableName<span class="token operator">:</span> <span class="token builtin">number</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> firstVariableName <span class="token operator">+</span> secondVariableName
+<span class="token builtin">console</span><span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token function">sum</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment">// df</span></code></pre>
+        </div>
+        <div class="gatsby-highlight" data-language="bash">
+          <pre class="language-bash"><code class="language-bash"><span class="command-line-prompt"><span data-user="root" data-host="localhost"></span><span data-user="root" data-host="localhost"></span><span data-user="root" data-host="localhost"></span></span><span class="token builtin class-name">cd</span> project-name
+<span class="token function">yarn</span>
+<span class="token function">yarn</span> dev</code></pre>
+        </div>
+        <p>Aaaand <code class="language-text">console.log('vadyan', x);</code> image <code class="language-js">console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'vadyan'</span><span class="token punctuation">,</span> x<span class="token punctuation">)</span><span class="token punctuation">;</span></code>!</p>
+        <figure class="gatsby-resp-image-figure">
+          <span class="gatsby-resp-image-wrapper">
+            <picture>
+              <img class="gatsby-resp-image-image" src="https://dummyimage.com/1920x1080/2b2b2b/fff.png&text=+" alt="Обработанное изображение" title="Текст под изображением" style="max-width: 100%">
+            </picture>
+          </span>
+          <figcaption class="gatsby-resp-image-figcaption">Текст под изображением</figcaption>
+        </figure>
+        <p><img src="https://dummyimage.com/1920x1080/2b2b2b/fff.png&text=+" alt="Обычное изображение" style="max-width: 100%"></p>
       `,
     }}
   >

@@ -36,7 +36,7 @@ const BlogPost = ({ content, title, thumbnail, publishDate, timeToRead }: BlogPo
             h4: theme.typography.styles.h4,
             h5: theme.typography.styles.h5,
             h6: theme.typography.styles.h6,
-            'h2, h3, h4, h5, h6, p, blockquote, ul, ol, li:not(:last-child), .gatsby-highlight, .gatsby-resp-iframe-wrapper, :not(.gatsby-resp-iframe-wrapper) > iframe': {
+            'h2, h3, h4, h5, h6, p, blockquote, ul, ol, li:not(:last-child), figure, .gatsby-highlight, .gatsby-resp-iframe-wrapper, :not(.gatsby-resp-iframe-wrapper) > iframe': {
               marginBottom: '1rem',
             },
             blockquote: {
@@ -54,7 +54,7 @@ const BlogPost = ({ content, title, thumbnail, publishDate, timeToRead }: BlogPo
               },
             },
             '.gatsby-highlight': {
-              ...margin(null, '-1.5rem'),
+              ...margin(null, '-2rem'),
             },
             '.anchor.before': {
               top: '50%',

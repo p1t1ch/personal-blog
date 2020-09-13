@@ -11,7 +11,7 @@ interface IndexPageQuery {
   allMarkdownRemark: {
     edges: {
       node: {
-        id: number
+        id: string
         timeToRead: number
         fields: {
           slug: string
@@ -68,7 +68,7 @@ export const pageQuery = graphql`
             description
             thumbnail {
               childImageSharp {
-                fluid(grayscale: true, traceSVG: { color: "#333" }) {
+                fluid(grayscale: true, traceSVG: { color: "#2b2b2b" }) {
                   ...GatsbyImageSharpFluid_withWebp_tracedSVG
                 }
               }

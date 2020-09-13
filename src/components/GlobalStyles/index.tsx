@@ -68,6 +68,9 @@ const GlobalStyles = () => {
           blockquote: {
             margin: 0,
           },
+          figure: {
+            margin: 0,
+          },
         },
       ]}
     />

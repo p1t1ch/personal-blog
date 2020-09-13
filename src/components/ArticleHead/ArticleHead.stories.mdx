@@ -10,9 +10,11 @@ import ArticleHead from '.'
     name="Basic"
     args={{
       name: 'Заголовок статьи',
-      alt: 'Клавиатура',
+      image: {
+        src: 'https://dummyimage.com/1920x1080/2b2b2b/fff.png&text=+',
+      },
       publishDate: '04.09.2020',
-      minutesRead: 12,
+      timeToRead: 12,
     }}
   >
     {args => <ArticleHead {...args} />}
