@@ -1,5 +1,5 @@
 ---
-title: Тестовая статья
+title: Тестовая статья c довольно-таки длинным заголовком
 slug: demo-title
 publishDate: 2020-09-12T15:29:26.134Z
 thumbnail: /assets/keyboard.jpg
@@ -17,7 +17,7 @@ tags:
 
 [Outer link](https://www.google.com/)
 
-Hi folks!
+Hi folks! 1/2 Патлатый дуралей Жозеф Kinda difficult «hello» (if u know витамин)
 
 **Bold text**
 
@@ -57,7 +57,7 @@ text
 2. Cool
 3. Deploy
 
-Also here 'another' possible way -- add it "just like" that:
+Also... here 'another' possible way -- add it "just like" that:
 
 - Start
 - Continue
@@ -67,7 +67,7 @@ Also here 'another' possible way -- add it "just like" that:
 
 Test text
 
-<iframe height="600" style="width: 100%;" scrolling="no" title="DrawSvg test" src="https://codepen.io/p1t1ch/embed/preview/gJKQWQ?height=323&theme-id=dark&default-tab=html,result" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+<iframe height="600" scrolling="no" title="DrawSvg test" src="https://codepen.io/p1t1ch/embed/preview/gJKQWQ?height=323&theme-id=dark&default-tab=html,result" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
   See the Pen <a href='https://codepen.io/p1t1ch/pen/gJKQWQ'>DrawSvg test</a> by p1t1ch
   (<a href='https://codepen.io/p1t1ch'>@p1t1ch</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>

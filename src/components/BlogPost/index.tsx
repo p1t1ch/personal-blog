@@ -53,8 +53,11 @@ const BlogPost = ({ content, title, thumbnail, publishDate, timeToRead }: BlogPo
                 color: theme.colors.active,
               },
             },
-            '.gatsby-highlight': {
+            '.gatsby-highlight, .gatsby-resp-iframe-wrapper, :not(.gatsby-resp-iframe-wrapper) > iframe': {
               ...margin(null, '-2rem'),
+            },
+            ':not(.gatsby-resp-iframe-wrapper) > iframe': {
+              width: 'calc(100% + 4rem)',
             },
             '.anchor.before': {
               top: '50%',

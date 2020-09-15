@@ -12,6 +12,7 @@ const Title = styled.h1(({ theme }: ThemeProps) => ({
   color: theme.colors.secondary,
   textShadow: theme.shadows.title,
   justifySelf: 'center',
+  textAlign: 'center',
   zIndex: 1,
 }))
 

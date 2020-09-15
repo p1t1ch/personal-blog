@@ -36,40 +36,40 @@ const typography = {
   styles: {
     h1: {
       fontWeight: 800,
-      fontSize: 'clamp(4.1875rem, 1rem + 2vw, 5.25rem)',
-      lineHeight: 1.5,
+      fontSize: 'clamp(2.125rem, 5vw, 5.25rem)',
+      lineHeight: 1.2,
     },
     h2: {
       fontWeight: 700,
-      fontSize: 'clamp(4.1875rem, 1rem + 2vw, 3.375rem)',
+      fontSize: 'clamp(3.375rem, 1rem + 4vw, 4.1875rem)',
       lineHeight: 1.5,
     },
     h3: {
       fontWeight: 700,
-      fontSize: 'clamp(3.375rem, 1rem + 2vw, 2.6875rem)',
+      fontSize: 'clamp(2.6875rem, 1rem + 4vw, 3.375rem)',
       lineHeight: 1.5,
     },
     h4: {
       fontWeight: 700,
-      fontSize: 'clamp(2.6875rem, 1rem + 2vw, 2.125rem)',
+      fontSize: 'clamp(2.125rem, 1rem + 4vw, 2.6875rem)',
       lineHeight: 1.5,
     },
     h5: {
       fontWeight: 600,
-      fontSize: 'clamp(2.125rem, 1rem + 2vw, 1.6875rem)',
+      fontSize: 'clamp(1.6875rem, 1rem + 4vw, 2.125rem)',
       lineHeight: 1.5,
     },
     h6: {
       fontWeight: 500,
-      fontSize: 'clamp(1.6875rem, 1rem + 2vw, 1.375rem)',
+      fontSize: 'clamp(1.375rem, 1rem + 4vw, 1.6875rem)',
       lineHeight: 1.5,
     },
     body: {
-      fontSize: 'clamp(1.375rem, 1rem + 2vw, 1.125rem)',
+      fontSize: 'clamp(1.125rem, 2vw, 1.375rem)',
       lineHeight: 1.5,
     },
     small: {
-      fontSize: 'clamp(1.125rem, 1rem + 2vw, 0.875rem)',
+      fontSize: 'clamp(0.875rem, 1rem + 4vw, 1.125rem)',
       lineHeight: 1.5,
     },
     extrasmall: {

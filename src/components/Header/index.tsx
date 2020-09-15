@@ -10,19 +10,19 @@ interface HeaderProps {
 }
 
 const Header = ({ isHome = false }: HeaderProps) => {
-  const { colors } = useTheme<Theme>()
+  const { colors, typography } = useTheme<Theme>()
   const [isDarkMode, setIsDarkMode] = useState(false)
 
   return (
-    <header css={{ backgroundColor: colors.primary, color: colors.secondary, padding: '1.5rem' }}>
+    <header css={{ backgroundColor: colors.primary, color: colors.secondary, padding: '1rem' }}>
       <section css={{ display: 'flex', justifyContent: 'space-between' }}>
         <Link to="/">p1t1ch</Link>
         <button onClick={() => setIsDarkMode(!isDarkMode)}>{!isDarkMode ? 'Dark mode' : 'Light mode'}</button>
       </section>
       {isHome && (
         <section css={{ marginTop: '1.5rem', ...padding('6rem', null), textAlign: 'center' }}>
-          <h1 css={{ marginBottom: '1rem' }}>Main title</h1>
-          <p>Some text about website</p>
+          <h1 css={typography.styles.h1}>Короткий основной заголовок</h1>
+          <p css={typography.styles.h6}>Текст под заголовком, который я ещё не придумал, хотя стоило бы</p>
         </section>
       )}
     </header>

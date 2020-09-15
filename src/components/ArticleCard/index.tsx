@@ -13,8 +13,10 @@ const Article = styled.article(({ theme }: ThemeProps) => ({
 }))
 
 const Title = styled.h3(({ theme }: ThemeProps) => ({
+  ...theme.typography.styles.h4,
   color: theme.colors.secondary,
   justifySelf: 'center',
+  textAlign: 'center',
   zIndex: 1,
 }))
 
