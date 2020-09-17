@@ -2,7 +2,7 @@
 title: Тестовая статья c довольно-таки длинным заголовком, я бы даже сказал длинее, чем нужно
 slug: demo-title
 publishDate: 2020-09-12T15:29:26.134Z
-thumbnail: /assets/keyboard.jpg
+thumbnail: /assets/test.jpg
 description: Тестовая статья для всякого рода тестов тестового происхождения по
   своей природе
 tags:

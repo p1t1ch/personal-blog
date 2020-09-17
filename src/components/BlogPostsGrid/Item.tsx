@@ -1,18 +1,26 @@
 import React from 'react'
 import { Link } from 'gatsby'
 import Img, { FluidObject } from 'gatsby-image'
-import { ThemeProps } from '@theme'
 import styled from '@emotion/styled'
+import { transitions, transparentize } from 'polished'
+import { ThemeProps } from '@theme'
 import singleGridCell from '@/utils/singleGridCell'
 
-const PreviewContainer = styled.article(({ theme }: ThemeProps) => ({
+const BlogPostLink = styled(Link)(({ theme }: ThemeProps) => ({
+  display: 'block',
   backgroundColor: theme.colors.secondary,
   color: theme.colors.primary,
   boxShadow: theme.shadows.preview,
-  transition: 'transform 400ms ease',
-  ':hover': {
-    transform: 'translateY(-1rem)',
-    transition: 'transform 200ms ease',
+  filter: 'grayscale(1)',
+  ...transitions(['filter', 'transform'], theme.transitions.out),
+  transition: 'all 400ms ease',
+  ':hover, :focus': {
+    filter: 'grayscale(0)',
+    transform: 'translateY(-0.5rem)',
+    '@media (prefers-reduced-motion)': {
+      transform: 'none',
+    },
+    ...transitions(['filter', 'transform'], theme.transitions.in),
   },
 }))
 
@@ -25,8 +33,11 @@ const Wrapper = styled.div(({ theme }: ThemeProps) => ({
 const Title = styled.h3(({ theme }: ThemeProps) => ({
   padding: `2rem ${theme.sizes.pagePadding} ${2 + parseFloat(theme.sizes.clipSize)}rem`,
   color: theme.colors.secondary,
-  justifySelf: 'center',
+  textShadow: theme.shadows.title,
+  display: 'grid',
+  placeItems: 'center',
   textAlign: 'center',
+  backgroundColor: transparentize(0.5, theme.colors.primary),
   zIndex: 1,
 }))
 
@@ -73,24 +84,10 @@ const BlogPostsGridItem = ({
   ...props
 }: BlogPostsGridItemProps) => {
   return (
-    <PreviewContainer {...props}>
-      <Link
-        to={slug}
-        css={{
-          display: 'block',
-          img: {
-            filter: 'grayscale(1)',
-            transition: '400ms all ease !important',
-          },
-          ':hover img': {
-            filter: 'grayscale(0)',
-            // transform: 'scale(1.05) translate(-1rem, -1rem)',
-            transition: '200ms all ease !important',
-          },
-        }}
-      >
+    <article {...props}>
+      <BlogPostLink to={slug}>
         <Wrapper>
-          <Img fluid={image} alt={`Превью для статьи ${name}`} css={{ alignSelf: 'stretch' }} />
+          <Img fluid={image} alt={`Превью для статьи ${name}`} />
           <Title>{name}</Title>
         </Wrapper>
         {/* <Meta>
@@ -100,8 +97,8 @@ const BlogPostsGridItem = ({
           <div aria-label="Примерное время чтения">{timeToRead} мин.</div>
         </Meta> */}
         <Description>{description}</Description>
-      </Link>
-    </PreviewContainer>
+      </BlogPostLink>
+    </article>
   )
 }
 

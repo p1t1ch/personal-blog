@@ -90,12 +90,13 @@ const typography = {
 }
 
 const shadows = {
-  title: `6px 6px 0 ${colors.primary}`,
+  title: `0.075em 0.075em 0 ${colors.primary}`,
   preview: `inset 0 0 0 4px ${colors.primary}, 2px 2px 0 ${colors.secondary}, 10px 8px 0 ${colors.primary}`,
 }
 
 const transitions = {
-  basic: `300ms ease`,
+  in: `200ms ease`,
+  out: `400ms ease`,
 }
 
 const prism = {

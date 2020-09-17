@@ -44,7 +44,7 @@ export interface ArticleHeadProps {
 
 const ArticleHead = ({ name, image, publishDate, timeToRead }: ArticleHeadProps) => {
   return (
-    <section css={singleGridCell}>
+    <section css={{ ...singleGridCell, alignItems: 'center' }}>
       <Img
         fluid={image}
         alt={`Превью для статьи ${name}`}

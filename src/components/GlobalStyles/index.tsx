@@ -53,12 +53,12 @@ const GlobalStyles = () => {
           },
           [buttons()]: {
             border: 'none',
-            ...transitions(['color', 'background-color'], theme.transitions.basic),
+            ...transitions(['color', 'background-color'], theme.transitions.in),
           },
           a: {
             textDecoration: 'none',
             color: theme.colors.primary,
-            ...transitions(['color'], theme.transitions.basic),
+            ...transitions(['color'], theme.transitions.in),
           },
           'h1, h2, h3, h4, h5, h6': {
             fontVariationSettings: '"FLAR" 100, "VOLM" 100',
