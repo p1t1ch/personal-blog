@@ -3,7 +3,7 @@ import { graphql, PageProps } from 'gatsby'
 import { hideVisually } from 'polished'
 import Layout from '@/components/Layout'
 import Seo from '@/components/Seo'
-import ArticlesGrid from '@/components/ArticlesGrid'
+import BlogPostsGrid from '@/components/BlogPostsGrid'
 import Container from '@/components/Container'
 import { FluidObject } from 'gatsby-image'
 
@@ -32,12 +32,12 @@ interface IndexPageQuery {
 }
 
 const IndexPage = ({ data }: PageProps<IndexPageQuery>) => {
-  const articles = data.allMarkdownRemark.edges.map(({ node }) => ({
+  const blogPosts = data.allMarkdownRemark.edges.map(({ node }) => ({
     id: node.id,
     slug: node.fields.slug,
     name: node.frontmatter.title,
-    image: node.frontmatter.thumbnail.childImageSharp.fluid,
     description: node.frontmatter.description,
+    image: node.frontmatter.thumbnail.childImageSharp.fluid,
     publishDate: node.frontmatter.publishDate,
     timeToRead: node.timeToRead,
   }))
@@ -46,7 +46,19 @@ const IndexPage = ({ data }: PageProps<IndexPageQuery>) => {
       <Seo />
       <Container>
         <h2 css={hideVisually()}>Список статей</h2>
-        <ArticlesGrid articles={articles} />
+        <BlogPostsGrid>
+          {blogPosts.map(blogPost => (
+            <BlogPostsGrid.Item
+              key={blogPost.id}
+              slug={blogPost.slug}
+              name={blogPost.name}
+              description={blogPost.description}
+              image={blogPost.image}
+              publishDate={blogPost.publishDate}
+              timeToRead={blogPost.timeToRead}
+            />
+          ))}
+        </BlogPostsGrid>
       </Container>
     </Layout>
   )
@@ -54,7 +66,7 @@ const IndexPage = ({ data }: PageProps<IndexPageQuery>) => {
 
 export const pageQuery = graphql`
   query articlesList {
-    allMarkdownRemark {
+    allMarkdownRemark(sort: { fields: frontmatter___publishDate, order: DESC }) {
       edges {
         node {
           timeToRead
@@ -68,7 +80,7 @@ export const pageQuery = graphql`
             description
             thumbnail {
               childImageSharp {
-                fluid(grayscale: true, traceSVG: { color: "#2b2b2b" }) {
+                fluid(maxWidth: 1376, traceSVG: { color: "#2b2b2b" }) {
                   ...GatsbyImageSharpFluid_withWebp_tracedSVG
                 }
               }

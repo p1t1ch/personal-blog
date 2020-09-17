@@ -1,8 +1,42 @@
 import React, { useState } from 'react'
 import { Link } from 'gatsby'
-import { Theme } from '@theme'
-import { useTheme } from 'emotion-theming'
-import { padding } from 'polished'
+import styled from '@emotion/styled'
+import { ThemeProps } from '@theme'
+
+const HeaderContainer = styled.header(({ theme }: ThemeProps) => ({
+  backgroundColor: theme.colors.secondary,
+  color: theme.colors.secondary,
+}))
+
+const MainSection = styled.section(({ theme }: ThemeProps) => ({
+  display: 'flex',
+  justifyContent: 'space-between',
+  backgroundColor: theme.colors.primary,
+  padding: `2rem ${theme.sizes.pagePadding} ${2 + parseFloat(theme.sizes.clipSize)}rem`,
+  clipPath: `polygon(0 0, 100% 0%, 100% 100%, 0 calc(100% - ${theme.sizes.clipSize}))`,
+}))
+
+const HomeSection = styled.section(({ theme }: ThemeProps) => ({
+  backgroundColor: theme.colors.primary,
+  marginTop: `-${theme.sizes.clipSize}`,
+  padding: `2rem ${theme.sizes.pagePadding} ${6 + parseFloat(theme.sizes.clipSize)}rem`,
+  clipPath: `polygon(0 0, 100% 0%, 100% 100%, 0 calc(100% - ${theme.sizes.clipSize}))`,
+  textAlign: 'center',
+}))
+
+const HomeLink = styled(Link)(({ theme }: ThemeProps) => ({
+  ...theme.typography.styles.h5,
+  color: theme.colors.secondary,
+}))
+
+const Title = styled.h1(({ theme }: ThemeProps) => ({
+  ...theme.typography.styles.h1,
+  marginBottom: '1rem',
+}))
+
+const Subheading = styled.p(({ theme }: ThemeProps) => ({
+  ...theme.typography.styles.h6,
+}))
 
 interface HeaderProps {
   /** Add special section for the home page */
@@ -10,22 +44,21 @@ interface HeaderProps {
 }
 
 const Header = ({ isHome = false }: HeaderProps) => {
-  const { colors, typography, sizes } = useTheme<Theme>()
   const [isDarkMode, setIsDarkMode] = useState(false)
 
   return (
-    <header css={{ backgroundColor: colors.primary, color: colors.secondary, padding: sizes.pagePadding }}>
-      <section css={{ display: 'flex', justifyContent: 'space-between' }}>
-        <Link to="/">p1t1ch</Link>
+    <HeaderContainer>
+      <MainSection>
+        <HomeLink to="/">p1t1ch.com</HomeLink>
         <button onClick={() => setIsDarkMode(!isDarkMode)}>{!isDarkMode ? 'Dark mode' : 'Light mode'}</button>
-      </section>
+      </MainSection>
       {isHome && (
-        <section css={{ marginTop: '1.5rem', ...padding('6rem', null), textAlign: 'center' }}>
-          <h1 css={{ ...typography.styles.h1, marginBottom: '1rem' }}>Короткий основной заголовок</h1>
-          <p css={typography.styles.h6}>Текст под заголовком, который я ещё не придумал, хотя стоило бы</p>
-        </section>
+        <HomeSection>
+          <Title>Короткий основной заголовок</Title>
+          <Subheading>Текст под заголовком, который я ещё не придумал, хотя стоило бы</Subheading>
+        </HomeSection>
       )}
-    </header>
+    </HeaderContainer>
   )
 }
 

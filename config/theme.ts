@@ -22,6 +22,8 @@ const sizes = {
   pagePadding: '2rem',
   // Headings anchors offsets
   anchorPadding: '0.25rem',
+  // Difference of heights in clip-path
+  clipSize: '2rem',
 }
 
 const typography = {
