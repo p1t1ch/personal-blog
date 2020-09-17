@@ -1,19 +1,23 @@
 import React from 'react'
+import { useTheme } from 'emotion-theming'
+import { Theme } from '@theme'
 
 interface ContainerProps {
   /** Page content */
   children?: React.ReactNode
-  /** Change container size for home page */
-  isHome?: boolean
+  /** Change container size for blog post page */
+  isBlogPost?: boolean
 }
 
-const Container = ({ children, isHome = false }: ContainerProps) => {
+const Container = ({ children, isBlogPost = false }: ContainerProps) => {
+  const { sizes } = useTheme<Theme>()
+
   return (
     <section
       css={{
         margin: '0 auto',
-        padding: '2rem',
-        maxWidth: !isHome ? '50rem' : '90rem',
+        padding: sizes.pagePadding,
+        maxWidth: isBlogPost ? sizes.blogPostContainerWidth : sizes.mainContainerWidth,
       }}
     >
       {children}

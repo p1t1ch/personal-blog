@@ -19,15 +19,13 @@ interface BlogPostProps {
   timeToRead: number
 }
 
-// TODO Move container width and paddings to theme
-
 const BlogPost = ({ content, title, thumbnail, publishDate, timeToRead }: BlogPostProps) => {
   const theme = useTheme<Theme>()
 
   return (
     <article>
       <ArticleHead image={thumbnail} name={title} publishDate={publishDate} timeToRead={timeToRead} />
-      <Container>
+      <Container isBlogPost>
         <div
           dangerouslySetInnerHTML={{ __html: content }}
           css={{
@@ -54,22 +52,22 @@ const BlogPost = ({ content, title, thumbnail, publishDate, timeToRead }: BlogPo
               },
             },
             '.gatsby-highlight, .gatsby-resp-iframe-wrapper, :not(.gatsby-resp-iframe-wrapper) > iframe': {
-              ...margin(null, '-2rem'),
+              ...margin(null, `-${theme.sizes.pagePadding}`),
             },
             ':not(.gatsby-resp-iframe-wrapper) > iframe': {
-              width: 'calc(100% + 4rem)',
+              width: `calc(100% + ${theme.sizes.pagePadding} + ${theme.sizes.pagePadding})`,
             },
             '.anchor.before': {
               top: '50%',
               transform: 'translate(-100%, -50%)',
-              ...padding(null, '0.25rem'),
+              ...padding(null, theme.sizes.anchorPadding),
               ':focus': {
-                outlineOffset: '-0.125rem',
+                outlineOffset: `-${parseFloat(theme.sizes.anchorPadding) / 2}rem`,
               },
               svg: {
                 display: 'block',
-                width: '1.5rem',
-                height: '1.5rem',
+                width: `${parseFloat(theme.sizes.pagePadding) - parseFloat(theme.sizes.anchorPadding) * 2}rem`,
+                height: `${parseFloat(theme.sizes.pagePadding) - parseFloat(theme.sizes.anchorPadding) * 2}rem`,
               },
             },
           }}

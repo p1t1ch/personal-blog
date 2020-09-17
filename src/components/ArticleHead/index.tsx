@@ -9,6 +9,7 @@ import declOfNum from '@/utils/declOfNum'
 
 const Title = styled.h1(({ theme }: ThemeProps) => ({
   ...theme.typography.styles.h1,
+  padding: `0 ${theme.sizes.pagePadding}`,
   color: theme.colors.secondary,
   textShadow: theme.shadows.title,
   justifySelf: 'center',

@@ -4,14 +4,14 @@ import { Theme } from '@theme'
 import { useTheme } from 'emotion-theming'
 
 const Footer = () => {
-  const { colors } = useTheme<Theme>()
+  const { colors, sizes } = useTheme<Theme>()
 
   return (
     <footer
       css={{
         backgroundColor: colors.primary,
         color: colors.secondary,
-        padding: '1.5rem',
+        padding: sizes.pagePadding,
         textAlign: 'center',
       }}
     >
