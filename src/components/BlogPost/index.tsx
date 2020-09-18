@@ -11,15 +11,27 @@ interface BlogPostProps {
   content: string
   /** Blog post name */
   title: string
+  /** Blog post description */
+  description: string
   /** Featured image */
   thumbnail: FluidObject
+  /** HTML with Unsplash image author credits */
+  unsplashCredits: string
   /** Publish date in DD/MM/YYYY format */
   publishDate: string
   /** Time to read in minutes */
   timeToRead: number
 }
 
-const BlogPost = ({ content, title, thumbnail, publishDate, timeToRead }: BlogPostProps) => {
+const BlogPost = ({
+  content,
+  title,
+  description,
+  thumbnail,
+  unsplashCredits,
+  publishDate,
+  timeToRead,
+}: BlogPostProps) => {
   const theme = useTheme<Theme>()
 
   return (
@@ -31,51 +43,68 @@ const BlogPost = ({ content, title, thumbnail, publishDate, timeToRead }: BlogPo
         timeToRead={timeToRead}
         css={{ marginTop: `calc(-${theme.sizes.clipSize} + ${theme.sizes.headOffset})` }}
       />
-      <Container isBlogPost>
+      <Container
+        isBlogPost
+        css={{
+          h2: theme.typography.styles.h2,
+          h3: theme.typography.styles.h3,
+          h4: theme.typography.styles.h4,
+          h5: theme.typography.styles.h5,
+          h6: theme.typography.styles.h6,
+          'h2, h3, h4, h5, h6, p, blockquote, ul, ol, li:not(:last-child), figure, .gatsby-highlight, .gatsby-resp-iframe-wrapper, :not(.gatsby-resp-iframe-wrapper) > iframe': {
+            marginBottom: '1rem',
+          },
+          blockquote: {
+            borderLeft: `0.5rem solid ${theme.colors.primary}`,
+            padding: '1rem',
+            paddingRight: 0,
+          },
+          hr: {
+            border: `2px solid ${theme.colors.primary}`,
+            ...margin('2rem', null),
+          },
+          a: {
+            textDecoration: 'underline',
+            ':hover': {
+              color: theme.colors.active,
+            },
+          },
+          '.gatsby-highlight, .gatsby-resp-iframe-wrapper, :not(.gatsby-resp-iframe-wrapper) > iframe': {
+            ...margin(null, `-${theme.sizes.pagePadding}`),
+          },
+          ':not(.gatsby-resp-iframe-wrapper) > iframe': {
+            width: `calc(100% + ${theme.sizes.pagePadding} + ${theme.sizes.pagePadding})`,
+          },
+          '.anchor.before': {
+            top: '50%',
+            transform: 'translate(-100%, -50%)',
+            ...padding(null, theme.sizes.anchorPadding),
+            ':focus': {
+              outlineOffset: `-${parseFloat(theme.sizes.anchorPadding) / 2}rem`,
+            },
+            svg: {
+              display: 'block',
+              width: `${parseFloat(theme.sizes.pagePadding) - parseFloat(theme.sizes.anchorPadding) * 2}rem`,
+              height: `${parseFloat(theme.sizes.pagePadding) - parseFloat(theme.sizes.anchorPadding) * 2}rem`,
+            },
+          },
+        }}
+      >
+        <blockquote
+          css={{
+            display: 'grid',
+            gridGap: '0.5rem',
+            marginBottom: '2rem',
+            '> :last-child': { marginBottom: 0 },
+          }}
+        >
+          <em dangerouslySetInnerHTML={{ __html: unsplashCredits }} css={{ ...theme.typography.styles.small }} />
+          <p>{description}</p>
+        </blockquote>
         <div
           dangerouslySetInnerHTML={{ __html: content }}
           css={{
-            h2: theme.typography.styles.h2,
-            h3: theme.typography.styles.h3,
-            h4: theme.typography.styles.h4,
-            h5: theme.typography.styles.h5,
-            h6: theme.typography.styles.h6,
-            'h2, h3, h4, h5, h6, p, blockquote, ul, ol, li:not(:last-child), figure, .gatsby-highlight, .gatsby-resp-iframe-wrapper, :not(.gatsby-resp-iframe-wrapper) > iframe': {
-              marginBottom: '1rem',
-            },
-            blockquote: {
-              borderLeft: `1rem solid ${theme.colors.primary}`,
-              paddingLeft: '1rem',
-            },
-            hr: {
-              border: `2px solid ${theme.colors.primary}`,
-              ...margin('2rem', null),
-            },
-            a: {
-              textDecoration: 'underline',
-              ':hover': {
-                color: theme.colors.active,
-              },
-            },
-            '.gatsby-highlight, .gatsby-resp-iframe-wrapper, :not(.gatsby-resp-iframe-wrapper) > iframe': {
-              ...margin(null, `-${theme.sizes.pagePadding}`),
-            },
-            ':not(.gatsby-resp-iframe-wrapper) > iframe': {
-              width: `calc(100% + ${theme.sizes.pagePadding} + ${theme.sizes.pagePadding})`,
-            },
-            '.anchor.before': {
-              top: '50%',
-              transform: 'translate(-100%, -50%)',
-              ...padding(null, theme.sizes.anchorPadding),
-              ':focus': {
-                outlineOffset: `-${parseFloat(theme.sizes.anchorPadding) / 2}rem`,
-              },
-              svg: {
-                display: 'block',
-                width: `${parseFloat(theme.sizes.pagePadding) - parseFloat(theme.sizes.anchorPadding) * 2}rem`,
-                height: `${parseFloat(theme.sizes.pagePadding) - parseFloat(theme.sizes.anchorPadding) * 2}rem`,
-              },
-            },
+            '> :last-child': { marginBottom: 0 },
           }}
         />
       </Container>

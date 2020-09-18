@@ -97,7 +97,8 @@ const typography = {
 
 const shadows = {
   title: `0.075em 0.075em 0 ${colors.primary}`,
-  preview: `inset 0 0 0 4px ${colors.primary}, 2px 2px 0 ${colors.secondary}, 10px 8px 0 ${colors.primary}`,
+  preview: `inset 0 0 0 0.25rem ${colors.primary}, 0.125rem 0.125rem 0 ${colors.secondary}, 0.625rem 0.5rem 0 ${colors.primary}`,
+  meta: `0 0 0 0.125rem ${colors.secondary}`,
 }
 
 const transitions = {

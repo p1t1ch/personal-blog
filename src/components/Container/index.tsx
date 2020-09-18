@@ -9,16 +9,17 @@ interface ContainerProps {
   isBlogPost?: boolean
 }
 
-const Container = ({ children, isBlogPost = false }: ContainerProps) => {
+const Container = ({ children, isBlogPost = false, ...props }: ContainerProps) => {
   const theme = useTheme<Theme>()
 
   return (
     <section
       css={{
         margin: '0 auto',
-        padding: `1rem ${theme.sizes.pagePadding} 3rem`,
+        padding: `2rem ${theme.sizes.pagePadding} 4rem`,
         maxWidth: isBlogPost ? theme.sizes.blogPostContainerWidth : theme.sizes.mainContainerWidth,
       }}
+      {...props}
     >
       {children}
     </section>

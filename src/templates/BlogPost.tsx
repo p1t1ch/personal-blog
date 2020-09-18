@@ -22,6 +22,7 @@ interface BlogPostTemplateQuery {
           fluid: FluidObject
         }
       }
+      unsplashCredits: string
     }
   }
 }
@@ -41,7 +42,9 @@ const BlogPostTemplate = ({ data }: PageProps<BlogPostTemplateQuery>) => {
       <BlogPost
         content={html}
         title={frontmatter.title}
+        description={frontmatter.description}
         thumbnail={frontmatter.thumbnail.childImageSharp.fluid}
+        unsplashCredits={frontmatter.unsplashCredits}
         publishDate={frontmatter.publishDate}
         timeToRead={timeToRead}
       />
@@ -69,6 +72,7 @@ export const pageQuery = graphql`
             }
           }
         }
+        unsplashCredits
       }
     }
   }

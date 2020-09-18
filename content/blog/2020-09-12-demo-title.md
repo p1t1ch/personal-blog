@@ -5,6 +5,7 @@ publishDate: 2020-09-12T15:29:26.134Z
 thumbnail: /assets/test.jpg
 description: Тестовая статья для всякого рода тестов тестового происхождения по
   своей природе
+unsplashCredits: <span>Photo by <a href="https://unsplash.com/@karsten116?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Karsten Winegeart</a> on <a href="https://unsplash.com/?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></span>
 tags:
   - демка тесты
   - тестовая
