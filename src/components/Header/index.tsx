@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { Link } from 'gatsby'
 import styled from '@emotion/styled'
 import { ThemeProps } from '@theme'
+import { BsMoon, BsSun } from 'react-icons/bs'
 
 const HeaderContainer = styled.header(({ theme }: ThemeProps) => ({
   backgroundColor: theme.colors.secondary,
@@ -14,7 +15,7 @@ const MainSection = styled.section(({ theme }: ThemeProps) => ({
   display: 'flex',
   justifyContent: 'space-between',
   backgroundColor: theme.colors.primary,
-  padding: `2rem ${theme.sizes.pagePadding} ${2 + parseFloat(theme.sizes.clipSize)}rem`,
+  padding: `2rem ${theme.sizes.pagePadding} ${1 + parseFloat(theme.sizes.clipSize)}rem`,
   clipPath: `polygon(0 0, 100% 0%, 100% 100%, 0 calc(100% - ${theme.sizes.clipSize}))`,
 }))
 
@@ -22,7 +23,6 @@ const HomeSection = styled.section(({ theme }: ThemeProps) => ({
   display: 'grid',
   placeItems: 'center',
   backgroundColor: theme.colors.primary,
-  // backgroundColor: theme.colors.active,
   marginTop: `calc(-${theme.sizes.clipSize} + ${theme.sizes.headOffset})`,
   height: theme.sizes.headHeight,
   padding: `2rem ${theme.sizes.pagePadding} ${2 + parseFloat(theme.sizes.clipSize)}rem`,
@@ -32,6 +32,11 @@ const HomeSection = styled.section(({ theme }: ThemeProps) => ({
 
 const HomeLink = styled(Link)(({ theme }: ThemeProps) => ({
   ...theme.typography.styles.h5,
+  color: theme.colors.secondary,
+}))
+
+const Button = styled.button(({ theme }: ThemeProps) => ({
+  ...theme.typography.styles.h4,
   color: theme.colors.secondary,
 }))
 
@@ -56,7 +61,9 @@ const Header = ({ isHome = false }: HeaderProps) => {
     <HeaderContainer>
       <MainSection>
         <HomeLink to="/">p1t1ch.com</HomeLink>
-        <button onClick={() => setIsDarkMode(!isDarkMode)}>{!isDarkMode ? 'Dark mode' : 'Light mode'}</button>
+        <Button onClick={() => setIsDarkMode(!isDarkMode)}>
+          {!isDarkMode ? <BsMoon title="Перейти в dark mode" /> : <BsSun title="Перейти в light mode" />}
+        </Button>
       </MainSection>
       {isHome && (
         <HomeSection>

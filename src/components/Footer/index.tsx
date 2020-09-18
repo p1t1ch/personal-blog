@@ -3,7 +3,7 @@ import { Link } from 'gatsby'
 import styled from '@emotion/styled'
 import { ThemeProps } from '@theme'
 
-const FooterContainer = styled.header(({ theme }: ThemeProps) => ({
+const FooterContainer = styled.footer(({ theme }: ThemeProps) => ({
   backgroundColor: theme.colors.secondary,
   color: theme.colors.secondary,
 }))

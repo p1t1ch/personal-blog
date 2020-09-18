@@ -53,6 +53,9 @@ const GlobalStyles = () => {
           },
           [buttons()]: {
             border: 'none',
+            padding: 0,
+            background: 'none',
+            cursor: 'pointer',
             ...transitions(['color', 'background-color'], theme.transitions.in),
           },
           a: {

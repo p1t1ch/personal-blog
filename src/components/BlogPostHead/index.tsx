@@ -4,6 +4,7 @@ import { ThemeProps } from '@theme'
 import styled from '@emotion/styled'
 import singleGridCell from '@/utils/singleGridCell'
 import { transparentize } from 'polished'
+import { BsCalendar, BsClock } from 'react-icons/bs'
 
 const HeadContainer = styled.section(({ theme, isPreview }: ThemeProps & { isPreview: boolean }) => ({
   position: 'relative',
@@ -37,11 +38,18 @@ const Meta = styled.div(({ theme }: ThemeProps) => ({
   display: 'grid',
   gridTemplateColumns: 'repeat(2, auto)',
   gridGap: '1rem',
-  padding: '0.5rem 1rem',
+  padding: '0.5rem',
   backgroundColor: theme.colors.primary,
   color: theme.colors.secondary,
   boxShadow: theme.shadows.meta,
   transform: `translate(-50%, calc(${theme.sizes.clipSize} - 50%))`,
+}))
+
+const MetaItem = styled.div(() => ({
+  display: 'grid',
+  gridTemplateColumns: 'repeat(2, auto)',
+  gridGap: '0.5rem',
+  alignItems: 'center',
 }))
 
 export interface BlogPostHeadProps {
@@ -59,6 +67,7 @@ export interface BlogPostHeadProps {
 
 const BlogPostHead = ({ isPreview = false, name, thumbnail, publishDate, timeToRead, ...props }: BlogPostHeadProps) => {
   const BlogPostTitle = !isPreview ? Title : Title.withComponent('h3')
+  const Time = MetaItem.withComponent('time')
   return (
     <HeadContainer isPreview={isPreview} {...props}>
       <Wrapper isPreview={isPreview}>
@@ -66,10 +75,14 @@ const BlogPostHead = ({ isPreview = false, name, thumbnail, publishDate, timeToR
         <BlogPostTitle isPreview={isPreview}>{name}</BlogPostTitle>
       </Wrapper>
       <Meta>
-        <time aria-label="Дата публикации" dateTime={publishDate.replace(/(\d{2})\.(\d{2})\.(\d{4})/, '$3-$2-$1')}>
+        <Time dateTime={publishDate.replace(/(\d{2})\.(\d{2})\.(\d{4})/, '$3-$2-$1')}>
+          <BsCalendar title="Дата публикации" />
           {publishDate}
-        </time>
-        <div aria-label="Приблизительное время чтения">{timeToRead}&nbsp;мин.</div>
+        </Time>
+        <MetaItem>
+          <BsClock title="Приблизительное время чтения" />
+          {timeToRead}&nbsp;мин.
+        </MetaItem>
       </Meta>
     </HeadContainer>
   )
