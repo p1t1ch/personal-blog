@@ -53,7 +53,7 @@ const IndexPage = ({ data }: PageProps<IndexPageQuery>) => {
               slug={blogPost.slug}
               name={blogPost.name}
               description={blogPost.description}
-              image={blogPost.image}
+              thumbnail={blogPost.image}
               publishDate={blogPost.publishDate}
               timeToRead={blogPost.timeToRead}
             />

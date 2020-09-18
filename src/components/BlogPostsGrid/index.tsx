@@ -15,7 +15,6 @@ const List = styled.ol(({ theme }: ThemeProps) => ({
     gridTemplateColumns: '1fr',
   },
   gridGap: '2rem',
-  h3: theme.typography.styles.h4,
   'li:first-child': {
     gridColumn: '1/-1',
     h3: theme.typography.styles.h3,

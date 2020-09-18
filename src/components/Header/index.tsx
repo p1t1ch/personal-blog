@@ -9,6 +9,8 @@ const HeaderContainer = styled.header(({ theme }: ThemeProps) => ({
 }))
 
 const MainSection = styled.section(({ theme }: ThemeProps) => ({
+  position: 'relative',
+  zIndex: 1,
   display: 'flex',
   justifyContent: 'space-between',
   backgroundColor: theme.colors.primary,
@@ -17,10 +19,14 @@ const MainSection = styled.section(({ theme }: ThemeProps) => ({
 }))
 
 const HomeSection = styled.section(({ theme }: ThemeProps) => ({
+  display: 'grid',
+  placeItems: 'center',
   backgroundColor: theme.colors.primary,
-  marginTop: `-${theme.sizes.clipSize}`,
-  padding: `2rem ${theme.sizes.pagePadding} ${6 + parseFloat(theme.sizes.clipSize)}rem`,
-  clipPath: `polygon(0 0, 100% 0%, 100% 100%, 0 calc(100% - ${theme.sizes.clipSize}))`,
+  // backgroundColor: theme.colors.active,
+  marginTop: `calc(-${theme.sizes.clipSize} + ${theme.sizes.headOffset})`,
+  height: theme.sizes.headHeight,
+  padding: `2rem ${theme.sizes.pagePadding} ${2 + parseFloat(theme.sizes.clipSize)}rem`,
+  clipPath: `polygon(0 0, 100% ${theme.sizes.clipSize}, 100% 100%, 0 calc(100% - ${theme.sizes.clipSize}))`,
   textAlign: 'center',
 }))
 
@@ -54,8 +60,10 @@ const Header = ({ isHome = false }: HeaderProps) => {
       </MainSection>
       {isHome && (
         <HomeSection>
-          <Title>Короткий основной заголовок</Title>
-          <Subheading>Текст под заголовком, который я ещё не придумал, хотя стоило бы</Subheading>
+          <div>
+            <Title>Короткий основной заголовок</Title>
+            <Subheading>Текст под заголовком, который я ещё не придумал, хотя стоило бы</Subheading>
+          </div>
         </HomeSection>
       )}
     </HeaderContainer>

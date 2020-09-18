@@ -24,6 +24,12 @@ const sizes = {
   anchorPadding: '0.25rem',
   // Difference of heights in clip-path
   clipSize: '2rem',
+  // Height of blog post head and home page section
+  headHeight: '25rem',
+  // Height of blog post head in preview block
+  previewHeight: '18rem',
+  // Offset between header and head block
+  headOffset: '0.25rem',
 }
 
 const typography = {

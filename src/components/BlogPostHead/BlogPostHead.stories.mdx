@@ -1,23 +1,21 @@
 import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks'
-import ArticleHead from '.'
+import BlogPostHead from '.'
 
-<Meta title="ArticleHead" component={ArticleHead} />
+<Meta title="BlogPostHead" component={BlogPostHead} />
 
-# ArticleHead
+# BlogPostHead
 
 <Canvas>
   <Story
     name="Basic"
     args={{
       name: 'Заголовок статьи',
-      image: {
-        src: 'https://dummyimage.com/1920x1080/2b2b2b/fff.png&text=+',
-      },
+      thumbnail: { src: 'https://dummyimage.com/1920x1080/2b2b2b/fff.png&text=+' },
       publishDate: '04.09.2020',
       timeToRead: 12,
     }}
   >
-    {args => <ArticleHead {...args} />}
+    {args => <BlogPostHead {...args} />}
   </Story>
 </Canvas>
 

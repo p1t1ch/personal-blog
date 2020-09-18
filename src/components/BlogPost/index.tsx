@@ -3,7 +3,7 @@ import { FluidObject } from 'gatsby-image'
 import { Theme } from '@theme'
 import { useTheme } from 'emotion-theming'
 import { margin, padding } from 'polished'
-import ArticleHead from '@/components/ArticleHead'
+import BlogPostHead from '@/components/BlogPostHead'
 import Container from '@/components/Container'
 
 interface BlogPostProps {
@@ -24,7 +24,13 @@ const BlogPost = ({ content, title, thumbnail, publishDate, timeToRead }: BlogPo
 
   return (
     <article>
-      <ArticleHead image={thumbnail} name={title} publishDate={publishDate} timeToRead={timeToRead} />
+      <BlogPostHead
+        thumbnail={thumbnail}
+        name={title}
+        publishDate={publishDate}
+        timeToRead={timeToRead}
+        css={{ marginTop: `calc(-${theme.sizes.clipSize} + ${theme.sizes.headOffset})` }}
+      />
       <Container isBlogPost>
         <div
           dangerouslySetInnerHTML={{ __html: content }}
