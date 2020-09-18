@@ -68,8 +68,8 @@ const Header = ({ isHome = false }: HeaderProps) => {
       {isHome && (
         <HomeSection>
           <div>
-            <Title>Короткий основной заголовок</Title>
-            <Subheading>Текст под заголовком, который я ещё не придумал, хотя стоило бы</Subheading>
+            <Title>Личный сайт Кирилла Васильевича</Title>
+            <Subheading>Периодически публикую здесь мысли на тему фронтенд-разработки</Subheading>
           </div>
         </HomeSection>
       )}
