@@ -16,7 +16,7 @@ const Container = ({ children, isBlogPost = false, ...props }: ContainerProps) =
     <section
       css={{
         margin: '0 auto',
-        padding: `2rem ${theme.sizes.pagePadding} 4rem`,
+        padding: `2rem ${theme.sizes.pagePadding} 3rem`,
         maxWidth: isBlogPost ? theme.sizes.blogPostContainerWidth : theme.sizes.mainContainerWidth,
       }}
       {...props}

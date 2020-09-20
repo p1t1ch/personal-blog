@@ -9,7 +9,7 @@ const highlightStyles: CSSObject = {
     backgroundColor: transparentize(theme.prism.highlight.transparency, theme.colors.light),
     ...margin(null, `-${theme.prism.prePadding.basic}`),
     paddingRight: theme.prism.prePadding.basic,
-    paddingLeft: parseFloat(theme.prism.prePadding.basic) - parseFloat(theme.prism.highlight.border),
+    paddingLeft: `${parseFloat(theme.prism.prePadding.basic) - parseFloat(theme.prism.highlight.border)}em`,
     borderLeft: `${theme.prism.highlight.border} solid ${theme.colors.light}`,
   },
   '.gatsby-highlight': {
@@ -62,12 +62,8 @@ const languageStyles: CSSObject = {
     content: '""attr(data-language)""',
     position: 'absolute',
     top: 0,
-    right: theme.prism.prePadding.basic,
-    fontSize: '0.75em',
+    right: '0.5em',
     color: theme.colors.secondary,
-    border: `${theme.prism.language.border} solid ${theme.colors.secondary}`,
-    borderTop: 'none',
-    padding: `0 ${theme.prism.language.padding}`,
     textTransform: 'uppercase',
   },
 }

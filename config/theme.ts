@@ -19,7 +19,7 @@ const sizes = {
   // Blog post container max width
   blogPostContainerWidth: '55ch',
   // Horizontal paddings for all page containers
-  pagePadding: '2rem',
+  pagePadding: '1rem',
   // Headings anchors offsets
   anchorPadding: '0.25rem',
   // Difference of heights in clip-path
@@ -111,7 +111,7 @@ const prism = {
   fontSize: '0.9em',
   prePadding: {
     basic: '1em',
-    top: '1.5em',
+    top: '2em',
   },
   codePadding: {
     vertical: '0.125em',

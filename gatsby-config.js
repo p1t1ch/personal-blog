@@ -61,7 +61,12 @@ module.exports = {
           },
           'gatsby-remark-copy-linked-files',
           'gatsby-remark-responsive-iframe',
-          'gatsby-remark-autolink-headers',
+          {
+            resolve: 'gatsby-remark-autolink-headers',
+            options: {
+              isIconAfterHeader: true,
+            },
+          },
           {
             resolve: 'gatsby-remark-prismjs',
             options: {

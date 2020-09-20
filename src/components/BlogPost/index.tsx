@@ -2,7 +2,7 @@ import React from 'react'
 import { FluidObject } from 'gatsby-image'
 import { Theme } from '@theme'
 import { useTheme } from 'emotion-theming'
-import { margin, padding } from 'polished'
+import { margin, padding, size } from 'polished'
 import BlogPostHead from '@/components/BlogPostHead'
 import Container from '@/components/Container'
 
@@ -54,13 +54,33 @@ const BlogPost = ({
           h4: theme.typography.styles.h4,
           h5: theme.typography.styles.h5,
           h6: theme.typography.styles.h6,
-          'h2, h3, h4, h5, h6, p, blockquote, ul, ol, li:not(:last-child), figure, .gatsby-highlight, .gatsby-resp-iframe-wrapper, :not(.gatsby-resp-iframe-wrapper) > iframe': {
+          'h2, h3, h4, h5, h6, p, blockquote, ul, ol, figure, .gatsby-highlight, .gatsby-resp-iframe-wrapper, :not(.gatsby-resp-iframe-wrapper) > iframe': {
             marginBottom: '1rem',
           },
+          'li:not(:last-child)': {
+            marginBottom: '0.5rem',
+          },
+          'ul > li': {
+            listStyleType: 'square',
+            listStylePosition: 'inside',
+          },
+          ol: {
+            counterReset: 'orderedlist',
+            '> li::before': {
+              counterIncrement: 'orderedlist',
+              content: 'counter(orderedlist)',
+              padding: '0 0.25rem',
+              marginRight: '1rem',
+              border: `0.125rem solid ${theme.colors.primary}`,
+            },
+          },
           blockquote: {
+            display: 'grid',
+            gridGap: '0.5rem',
             borderLeft: `0.5rem solid ${theme.colors.primary}`,
-            padding: '1rem',
+            padding: '0.5rem 1rem',
             paddingRight: 0,
+            '> :last-child': { marginBottom: 0 },
           },
           hr: {
             border: `2px solid ${theme.colors.primary}`,
@@ -72,35 +92,27 @@ const BlogPost = ({
               color: theme.colors.active,
             },
           },
-          '.gatsby-highlight, .gatsby-resp-iframe-wrapper, :not(.gatsby-resp-iframe-wrapper) > iframe': {
+          '.gatsby-highlight, .gatsby-resp-iframe-wrapper': {
             ...margin(null, `-${theme.sizes.pagePadding}`),
           },
-          ':not(.gatsby-resp-iframe-wrapper) > iframe': {
-            width: `calc(100% + ${theme.sizes.pagePadding} + ${theme.sizes.pagePadding})`,
+          '.gatsby-resp-image-figcaption': {
+            paddingTop: '0.5rem',
+            textAlign: 'center',
+            ...theme.typography.styles.small,
+            fontVariationSettings: '"slnt" -12',
           },
-          '.anchor.before': {
-            top: '50%',
-            transform: 'translate(-100%, -50%)',
-            ...padding(null, theme.sizes.anchorPadding),
-            ':focus': {
-              outlineOffset: `-${parseFloat(theme.sizes.anchorPadding) / 2}rem`,
-            },
+          '.anchor.after': {
+            paddingLeft: 0,
+            marginLeft: '0.25em',
+            verticalAlign: 'middle',
             svg: {
               display: 'block',
-              width: `${parseFloat(theme.sizes.pagePadding) - parseFloat(theme.sizes.anchorPadding) * 2}rem`,
-              height: `${parseFloat(theme.sizes.pagePadding) - parseFloat(theme.sizes.anchorPadding) * 2}rem`,
+              ...size('0.75em'),
             },
           },
         }}
       >
-        <blockquote
-          css={{
-            display: 'grid',
-            gridGap: '0.5rem',
-            marginBottom: '2rem',
-            '> :last-child': { marginBottom: 0 },
-          }}
-        >
+        <blockquote css={{ marginBottom: '2rem' }}>
           <em css={{ ...theme.typography.styles.small }}>
             Респект за фото{' '}
             <a href={unsplashLink} target="_blank" rel="nofollow noopener noreferrer">

@@ -27,6 +27,10 @@ const GlobalStyles = () => {
           '*, *::before, *::after': {
             boxSizing: 'border-box',
           },
+          '::selection': {
+            backgroundColor: theme.colors.primary,
+            color: theme.colors.secondary,
+          },
           html: {
             fontFamily: [theme.typography.family, ...theme.typography.stacks.sansSerif].join(', '),
             fontFeatureSettings: '"frac"',
@@ -56,12 +60,18 @@ const GlobalStyles = () => {
             padding: 0,
             background: 'none',
             cursor: 'pointer',
-            ...transitions(['color', 'background-color'], theme.transitions.in),
+            ...transitions(['color', 'background-color'], theme.transitions.out),
+            ':hover': {
+              ...transitions(['color', 'background-color'], theme.transitions.in),
+            },
           },
           a: {
             textDecoration: 'none',
             color: theme.colors.primary,
-            ...transitions(['color'], theme.transitions.in),
+            ...transitions(['color'], theme.transitions.out),
+            ':hover': {
+              ...transitions(['color'], theme.transitions.in),
+            },
           },
           'h1, h2, h3, h4, h5, h6': {
             fontVariationSettings: '"FLAR" 100, "VOLM" 100',
