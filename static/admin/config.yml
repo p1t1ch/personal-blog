@@ -22,7 +22,8 @@ collections:
       - { label: 'Slug', name: 'slug', widget: 'string' }
       - { label: 'Publish Date', name: 'publishDate', widget: 'datetime', dateFormat: 'DD.MM.YYYY', timeFormat: false }
       - { label: 'Featured Image', name: 'thumbnail', widget: 'image' }
-      - { label: 'Unsplash Credits', name: 'unsplashCredits', widget: 'text' }
+      - { label: 'Unsplash Link', name: 'unsplashLink', widget: 'string' }
+      - { label: 'Unsplash Author', name: 'unsplashAuthor', widget: 'string' }
       - { label: 'Description', name: 'description', widget: 'text' }
       - { label: 'Tags', name: 'tags', widget: 'list' }
       - { label: 'Body', name: 'body', widget: 'markdown' }

@@ -15,8 +15,10 @@ interface BlogPostProps {
   description: string
   /** Featured image */
   thumbnail: FluidObject
-  /** HTML with Unsplash image author credits */
-  unsplashCredits: string
+  /** Link to Unsplash author page */
+  unsplashLink: string
+  /** Unsplash author name */
+  unsplashAuthor: string
   /** Publish date in DD/MM/YYYY format */
   publishDate: string
   /** Time to read in minutes */
@@ -28,7 +30,8 @@ const BlogPost = ({
   title,
   description,
   thumbnail,
-  unsplashCredits,
+  unsplashLink,
+  unsplashAuthor,
   publishDate,
   timeToRead,
 }: BlogPostProps) => {
@@ -98,7 +101,12 @@ const BlogPost = ({
             '> :last-child': { marginBottom: 0 },
           }}
         >
-          <em dangerouslySetInnerHTML={{ __html: unsplashCredits }} css={{ ...theme.typography.styles.small }} />
+          <em css={{ ...theme.typography.styles.small }}>
+            Респект за фото{' '}
+            <a href={unsplashLink} target="_blank" rel="nofollow noopener noreferrer">
+              {unsplashAuthor}
+            </a>
+          </em>
           <p>{description}</p>
         </blockquote>
         <div
