@@ -36,7 +36,7 @@ const HomeLink = styled(Link)(({ theme }: ThemeProps) => ({
 }))
 
 const Button = styled.button(({ theme }: ThemeProps) => ({
-  ...theme.typography.styles.h4,
+  ...theme.typography.styles.h3,
   color: theme.colors.secondary,
 }))
 

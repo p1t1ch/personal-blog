@@ -19,16 +19,20 @@ const Wrapper = styled.div(({ theme, isPreview }: ThemeProps & { isPreview: bool
   }))`,
 }))
 
-const Title = styled.h1(({ theme, isPreview }: ThemeProps & { isPreview: boolean }) => ({
-  ...(!isPreview ? theme.typography.styles.h1 : theme.typography.styles.h5),
-  padding: `2rem ${theme.sizes.pagePadding} ${2 + parseFloat(theme.sizes.clipSize)}rem`,
-  color: theme.colors.secondary,
-  textShadow: theme.shadows.title,
+const TitleWrapper = styled.div(({ theme }: ThemeProps) => ({
   display: 'grid',
   placeItems: 'center',
   textAlign: 'center',
   backgroundColor: transparentize(0.5, theme.colors.primary),
   zIndex: 1,
+}))
+
+const Title = styled.h1(({ theme, isPreview }: ThemeProps & { isPreview: boolean }) => ({
+  ...(!isPreview ? theme.typography.styles.h1 : theme.typography.styles.h5),
+  maxWidth: theme.sizes.mainContainerWidth,
+  padding: `2rem ${theme.sizes.pagePadding} ${2 + parseFloat(theme.sizes.clipSize)}rem`,
+  color: theme.colors.secondary,
+  textShadow: theme.shadows.title,
 }))
 
 const Meta = styled.div(({ theme }: ThemeProps) => ({
@@ -71,8 +75,14 @@ const BlogPostHead = ({ isPreview = false, name, thumbnail, publishDate, timeToR
   return (
     <HeadContainer isPreview={isPreview} {...props}>
       <Wrapper isPreview={isPreview}>
-        <Img fluid={thumbnail} alt={`Превью для статьи ${name}`} />
-        <BlogPostTitle isPreview={isPreview}>{name}</BlogPostTitle>
+        <Img
+          fluid={thumbnail}
+          alt={`Превью для статьи ${name}`}
+          imgStyle={!isPreview ? { position: 'fixed', objectPosition: '50% 100%' } : {}}
+        />
+        <TitleWrapper>
+          <BlogPostTitle isPreview={isPreview}>{name}</BlogPostTitle>
+        </TitleWrapper>
       </Wrapper>
       <Meta>
         <Time dateTime={publishDate.replace(/(\d{2})\.(\d{2})\.(\d{4})/, '$3-$2-$1')}>
