@@ -70,7 +70,7 @@ module.exports = {
           {
             resolve: 'gatsby-remark-prismjs',
             options: {
-              inlineCodeMarker: '>',
+              noInlineHighlight: true,
               prompt: {
                 global: true,
               },

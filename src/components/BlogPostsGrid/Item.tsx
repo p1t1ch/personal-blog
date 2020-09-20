@@ -7,10 +7,11 @@ import { ThemeProps } from '@theme'
 import BlogPostHead from '../BlogPostHead'
 
 const BlogPostLink = styled(Link)(({ theme }: ThemeProps) => ({
+  position: 'relative',
   display: 'block',
-  backgroundColor: theme.colors.secondary,
-  color: theme.colors.primary,
-  boxShadow: theme.shadows.preview,
+  backgroundColor: theme.colors.static.white,
+  color: theme.colors.dynamic.primary,
+  border: `0.25rem solid ${theme.colors.dynamic.primary}`,
   filter: 'grayscale(1)',
   ...transitions(['filter', 'transform'], theme.transitions.out),
   transition: 'all 400ms ease',
@@ -24,8 +25,11 @@ const BlogPostLink = styled(Link)(({ theme }: ThemeProps) => ({
   },
 }))
 
-const Description = styled.p(({ theme }: ThemeProps) => ({
-  padding: theme.sizes.pagePadding,
+const Description = styled.section(({ theme }: ThemeProps) => ({
+  padding: `2.5rem 1rem 1rem`,
+  clipPath: `polygon(0 0, 100% ${theme.sizes.clipSize}, 100% 100%, 0 100%)`,
+  marginTop: `calc(-${theme.sizes.clipSize} + ${theme.sizes.headOffset})`,
+  backgroundColor: theme.colors.dynamic.secondary,
 }))
 
 export interface BlogPostsGridItemProps {

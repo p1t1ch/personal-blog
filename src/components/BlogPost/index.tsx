@@ -2,7 +2,7 @@ import React from 'react'
 import { FluidObject } from 'gatsby-image'
 import { Theme } from '@theme'
 import { useTheme } from 'emotion-theming'
-import { margin, padding, size } from 'polished'
+import { margin, size } from 'polished'
 import BlogPostHead from '@/components/BlogPostHead'
 import Container from '@/components/Container'
 
@@ -38,7 +38,7 @@ const BlogPost = ({
   const theme = useTheme<Theme>()
 
   return (
-    <article>
+    <article css={{ position: 'relative' }}>
       <BlogPostHead
         thumbnail={thumbnail}
         name={title}
@@ -71,25 +71,25 @@ const BlogPost = ({
               content: 'counter(orderedlist)',
               padding: '0 0.25rem',
               marginRight: '1rem',
-              border: `0.125rem solid ${theme.colors.primary}`,
+              border: `0.125rem solid ${theme.colors.dynamic.primary}`,
             },
           },
           blockquote: {
             display: 'grid',
             gridGap: '0.5rem',
-            borderLeft: `0.5rem solid ${theme.colors.primary}`,
+            borderLeft: `0.5rem solid ${theme.colors.dynamic.primary}`,
             padding: '0.5rem 1rem',
             paddingRight: 0,
             '> :last-child': { marginBottom: 0 },
           },
           hr: {
-            border: `2px solid ${theme.colors.primary}`,
+            border: `2px solid ${theme.colors.dynamic.primary}`,
             ...margin('2rem', null),
           },
           a: {
             textDecoration: 'underline',
             ':hover': {
-              color: theme.colors.active,
+              color: theme.colors.dynamic.active,
             },
           },
           '.gatsby-highlight, .gatsby-resp-iframe-wrapper': {

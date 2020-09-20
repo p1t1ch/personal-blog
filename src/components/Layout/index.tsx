@@ -12,12 +12,12 @@ interface LayoutProps {
 }
 
 const Layout = ({ children, isHome }: LayoutProps) => {
-  const { colors } = useTheme<Theme>()
+  const theme = useTheme<Theme>()
 
   return (
     <div css={{ /*display: 'grid', gridTemplateRows: 'auto 1fr auto',*/ minHeight: '100vh' }}>
       <Header isHome={isHome} />
-      <main css={{ backgroundColor: colors.secondary }}>{children}</main>
+      <main css={{ backgroundColor: theme.colors.static.white }}>{children}</main>
       <Footer />
     </div>
   )

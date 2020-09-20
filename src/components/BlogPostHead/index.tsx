@@ -7,8 +7,8 @@ import { transparentize } from 'polished'
 import { BsCalendar, BsClock } from 'react-icons/bs'
 
 const HeadContainer = styled.section(({ theme, isPreview }: ThemeProps & { isPreview: boolean }) => ({
-  position: 'relative',
   height: !isPreview ? theme.sizes.headHeight : theme.sizes.previewHeight,
+  backgroundColor: theme.colors.static.white,
 }))
 
 const Wrapper = styled.div(({ theme, isPreview }: ThemeProps & { isPreview: boolean }) => ({
@@ -23,7 +23,7 @@ const TitleWrapper = styled.div(({ theme }: ThemeProps) => ({
   display: 'grid',
   placeItems: 'center',
   textAlign: 'center',
-  backgroundColor: transparentize(0.5, theme.colors.primary),
+  backgroundColor: transparentize(0.5, theme.colors.static.black),
   zIndex: 1,
 }))
 
@@ -31,22 +31,25 @@ const Title = styled.h1(({ theme, isPreview }: ThemeProps & { isPreview: boolean
   ...(!isPreview ? theme.typography.styles.h1 : theme.typography.styles.h5),
   maxWidth: theme.sizes.mainContainerWidth,
   padding: `2rem ${theme.sizes.pagePadding} ${2 + parseFloat(theme.sizes.clipSize)}rem`,
-  color: theme.colors.secondary,
-  textShadow: theme.shadows.title,
+  color: theme.colors.static.white,
+  textShadow: `0.075em 0.075em 0 ${theme.colors.static.black}`,
 }))
 
-const Meta = styled.div(({ theme }: ThemeProps) => ({
+const Meta = styled.section(({ theme, isPreview }: ThemeProps & { isPreview: boolean }) => ({
   position: 'absolute',
-  bottom: 0,
+  zIndex: 1,
+  top: `${
+    parseFloat(!isPreview ? theme.sizes.headHeight : theme.sizes.previewHeight) - parseFloat(theme.sizes.clipSize)
+  }rem`,
   left: '50%',
   display: 'grid',
   gridTemplateColumns: 'repeat(2, auto)',
   gridGap: '1rem',
   padding: '0.5rem',
-  backgroundColor: theme.colors.primary,
-  color: theme.colors.secondary,
-  boxShadow: theme.shadows.meta,
-  transform: `translate(-50%, calc(${theme.sizes.clipSize} - 50%))`,
+  backgroundColor: theme.colors.static.black,
+  color: theme.colors.static.white,
+  boxShadow: `0 0 0 0.125rem ${theme.colors.static.white}`,
+  transform: 'translate(-50%, -0.75rem)',
 }))
 
 const MetaItem = styled.div(() => ({
@@ -73,18 +76,20 @@ const BlogPostHead = ({ isPreview = false, name, thumbnail, publishDate, timeToR
   const BlogPostTitle = !isPreview ? Title : Title.withComponent('h3')
   const Time = MetaItem.withComponent('time')
   return (
-    <HeadContainer isPreview={isPreview} {...props}>
-      <Wrapper isPreview={isPreview}>
-        <Img
-          fluid={thumbnail}
-          alt={`Превью для статьи ${name}`}
-          imgStyle={!isPreview ? { position: 'fixed', objectPosition: '50% 100%' } : {}}
-        />
-        <TitleWrapper>
-          <BlogPostTitle isPreview={isPreview}>{name}</BlogPostTitle>
-        </TitleWrapper>
-      </Wrapper>
-      <Meta>
+    <>
+      <HeadContainer isPreview={isPreview} {...props}>
+        <Wrapper isPreview={isPreview}>
+          <Img
+            fluid={thumbnail}
+            alt={`Превью для статьи ${name}`}
+            imgStyle={!isPreview ? { position: 'fixed', objectPosition: '50% 100%' } : {}}
+          />
+          <TitleWrapper>
+            <BlogPostTitle isPreview={isPreview}>{name}</BlogPostTitle>
+          </TitleWrapper>
+        </Wrapper>
+      </HeadContainer>
+      <Meta isPreview={isPreview}>
         <Time dateTime={publishDate.replace(/(\d{2})\.(\d{2})\.(\d{4})/, '$3-$2-$1')}>
           <BsCalendar title="Дата публикации" />
           {publishDate}
@@ -94,7 +99,7 @@ const BlogPostHead = ({ isPreview = false, name, thumbnail, publishDate, timeToR
           {timeToRead}&nbsp;мин.
         </MetaItem>
       </Meta>
-    </HeadContainer>
+    </>
   )
 }
 

@@ -5,8 +5,8 @@ import { ThemeProps } from '@theme'
 import { BsMoon, BsSun } from 'react-icons/bs'
 
 const HeaderContainer = styled.header(({ theme }: ThemeProps) => ({
-  backgroundColor: theme.colors.secondary,
-  color: theme.colors.secondary,
+  backgroundColor: theme.colors.static.white,
+  color: theme.colors.static.white,
 }))
 
 const MainSection = styled.section(({ theme }: ThemeProps) => ({
@@ -14,7 +14,7 @@ const MainSection = styled.section(({ theme }: ThemeProps) => ({
   zIndex: 1,
   display: 'flex',
   justifyContent: 'space-between',
-  backgroundColor: theme.colors.primary,
+  backgroundColor: theme.colors.static.black,
   padding: `2rem ${theme.sizes.pagePadding} ${1 + parseFloat(theme.sizes.clipSize)}rem`,
   clipPath: `polygon(0 0, 100% 0%, 100% 100%, 0 calc(100% - ${theme.sizes.clipSize}))`,
 }))
@@ -22,7 +22,7 @@ const MainSection = styled.section(({ theme }: ThemeProps) => ({
 const HomeSection = styled.section(({ theme }: ThemeProps) => ({
   display: 'grid',
   placeItems: 'center',
-  backgroundColor: theme.colors.primary,
+  backgroundColor: theme.colors.static.black,
   marginTop: `calc(-${theme.sizes.clipSize} + ${theme.sizes.headOffset})`,
   height: theme.sizes.headHeight,
   padding: `2rem ${theme.sizes.pagePadding} ${2 + parseFloat(theme.sizes.clipSize)}rem`,
@@ -32,12 +32,12 @@ const HomeSection = styled.section(({ theme }: ThemeProps) => ({
 
 const HomeLink = styled(Link)(({ theme }: ThemeProps) => ({
   ...theme.typography.styles.h5,
-  color: theme.colors.secondary,
+  color: theme.colors.static.white,
 }))
 
 const Button = styled.button(({ theme }: ThemeProps) => ({
   ...theme.typography.styles.h3,
-  color: theme.colors.secondary,
+  color: theme.colors.static.white,
 }))
 
 const Title = styled.h1(({ theme }: ThemeProps) => ({

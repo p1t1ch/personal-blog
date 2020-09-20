@@ -14,7 +14,7 @@ export const parameters = {
   grid: { cellSize: 8 },
   // Use backgrounds from colors field of project theme
   backgrounds: {
-    values: Object.entries(theme.colors).map(([name, value]) => ({ name, value })),
+    values: Object.entries(theme.colors.static).map(([name, value]) => ({ name, value })),
   },
 }
 

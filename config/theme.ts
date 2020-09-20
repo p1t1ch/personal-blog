@@ -1,11 +1,30 @@
 // All defined here properties are passed to Emotion ThemeProvider
 // In project they are available via useTheme hook or prop in styled components
 
+const palette = {
+  black: '#2b2b2b',
+  white: '#fff',
+  purple: '#6d4672',
+  yellow: '#d4d0ab',
+}
+
+export const lightTheme = {
+  primary: palette.black,
+  secondary: palette.white,
+  active: palette.purple,
+  light: palette.yellow,
+}
+
+export const darkTheme = {
+  primary: palette.white,
+  secondary: palette.black,
+  active: palette.purple,
+  light: palette.yellow,
+}
+
 const colors = {
-  primary: '#2b2b2b',
-  secondary: '#fff',
-  active: '#6d4672',
-  light: '#d4d0ab',
+  static: palette,
+  dynamic: lightTheme,
 }
 
 const breakpoints = {
@@ -95,12 +114,6 @@ const typography = {
   },
 }
 
-const shadows = {
-  title: `0.075em 0.075em 0 ${colors.primary}`,
-  preview: `inset 0 0 0 0.25rem ${colors.primary}, 0.125rem 0.125rem 0 ${colors.secondary}, 0.625rem 0.5rem 0 ${colors.primary}`,
-  meta: `0 0 0 0.125rem ${colors.secondary}`,
-}
-
 const transitions = {
   in: `200ms ease`,
   out: `400ms ease`,
@@ -136,7 +149,6 @@ const theme = {
   breakpoints,
   sizes,
   typography,
-  shadows,
   transitions,
   prism,
 }
