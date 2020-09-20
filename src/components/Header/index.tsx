@@ -1,8 +1,9 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { Link } from 'gatsby'
 import styled from '@emotion/styled'
 import { ThemeProps } from '@theme'
 import { BsMoon, BsSun } from 'react-icons/bs'
+import useRootWrapperContext from '@/components/RootWrapper/useRootWrapperContext'
 
 const HeaderContainer = styled.header(({ theme }: ThemeProps) => ({
   backgroundColor: theme.colors.static.white,
@@ -55,14 +56,18 @@ interface HeaderProps {
 }
 
 const Header = ({ isHome = false }: HeaderProps) => {
-  const [isDarkMode, setIsDarkMode] = useState(false)
+  const { darkMode, setDarkMode } = useRootWrapperContext()
 
   return (
     <HeaderContainer>
       <MainSection>
         <HomeLink to="/">p1t1ch.com</HomeLink>
-        <Button onClick={() => setIsDarkMode(!isDarkMode)}>
-          {!isDarkMode ? <BsMoon title="Перейти в dark mode" /> : <BsSun title="Перейти в light mode" />}
+        <Button
+          onClick={() => {
+            if (typeof setDarkMode === 'function') setDarkMode(!darkMode)
+          }}
+        >
+          {!darkMode ? <BsMoon title="Перейти в dark mode" /> : <BsSun title="Перейти в light mode" />}
         </Button>
       </MainSection>
       {isHome && (
