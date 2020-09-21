@@ -37,6 +37,7 @@ module.exports = {
     '@typescript-eslint/no-use-before-define': 0,
     'jsx-a11y/no-onchange': 0,
     'import/no-named-as-default': 0,
+    'no-empty': [2, { allowEmptyCatch: true }],
     'react/prop-types': 0,
     'react/display-name': 0,
   },

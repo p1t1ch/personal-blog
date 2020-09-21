@@ -56,7 +56,7 @@ interface HeaderProps {
 }
 
 const Header = ({ isHome = false }: HeaderProps) => {
-  const { darkMode, setDarkMode } = useRootWrapperContext()
+  const { isDarkMode, setIsDarkMode } = useRootWrapperContext()
 
   return (
     <HeaderContainer>
@@ -64,10 +64,10 @@ const Header = ({ isHome = false }: HeaderProps) => {
         <HomeLink to="/">p1t1ch.com</HomeLink>
         <Button
           onClick={() => {
-            if (typeof setDarkMode === 'function') setDarkMode(!darkMode)
+            if (typeof setIsDarkMode === 'function') setIsDarkMode(!isDarkMode)
           }}
         >
-          {!darkMode ? <BsMoon title="Перейти в dark mode" /> : <BsSun title="Перейти в light mode" />}
+          {!isDarkMode ? <BsMoon title="Перейти в dark mode" /> : <BsSun title="Перейти в light mode" />}
         </Button>
       </MainSection>
       {isHome && (

@@ -1,27 +1,31 @@
 import { useState } from 'react'
+import isClient from '@/utils/isClient'
 
-const useLocalStorage = <T>(key: string, initialValue: T) => {
-  const [storedValue, setStoredValue] = useState<T>(() => {
+const useLocalStorage = <T>(key: string, initialValue?: T) => {
+  const [storedValue, setStoredValue] = useState<T | undefined>(() => {
+    if (!isClient) return initialValue
+
     try {
-      const item = window.localStorage.getItem(key)
-      return item ? JSON.parse(item) : initialValue
-    } catch (error) {
-      console.log(error)
+      const localStorageValue = window.localStorage.getItem(key)
+      if (localStorageValue) {
+        return JSON.parse(localStorageValue)
+      } else {
+        if (initialValue) window.localStorage.setItem(key, JSON.stringify(initialValue))
+        return initialValue
+      }
+    } catch {
       return initialValue
     }
   })
 
-  const setValue = (value: T | ((val: T) => T)) => {
+  const setValue = (value: T) => {
     try {
-      const valueToStore = value instanceof Function ? value(storedValue) : value
-      setStoredValue(valueToStore)
-      window.localStorage.setItem(key, JSON.stringify(valueToStore))
-    } catch (error) {
-      console.log(error)
-    }
+      setStoredValue(value)
+      window.localStorage.setItem(key, JSON.stringify(value))
+    } catch {}
   }
 
-  return [storedValue, setValue]
+  return [storedValue, setValue] as [T | undefined, (value: T) => void]
 }
 
 export default useLocalStorage

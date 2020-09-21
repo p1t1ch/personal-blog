@@ -1,27 +1,23 @@
-import { useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import useLocalStorage from '@/utils/useLocalStorage'
-import useMedia from '@/utils/useMedia'
+import isClient from '@/utils/isClient'
 
 const useDarkMode = () => {
-  const [enabledState, setEnabledState] = useLocalStorage('dark-mode-enabled', undefined)
+  const [savedMode, setSavedMode] = useLocalStorage<boolean>('darkMode')
 
-  const prefersDarkMode = usePrefersDarkMode()
-  const enabled = enabledState ?? prefersDarkMode
-  console.log(enabled, enabledState, prefersDarkMode)
+  const query = '(prefers-color-scheme: dark)'
+  const [prefersDarkMode, setPrefersDarkMode] = useState(isClient ? window.matchMedia(query).matches : false)
 
   useEffect(() => {
-    const className = 'dark-mode'
-    const element = window.document.body
-    if (enabled) {
-      element.classList.add(className)
-    } else {
-      element.classList.remove(className)
-    }
-  }, [enabled])
+    const mql = window.matchMedia(query)
+    const handler = () => setPrefersDarkMode(mql.matches)
+    mql.addEventListener('change', handler)
+    return () => mql.removeEventListener('change', handler)
+  }, [])
 
-  return [enabled, setEnabledState]
+  const isDarkMode = savedMode ?? prefersDarkMode
+
+  return [isDarkMode, setSavedMode]
 }
-
-const usePrefersDarkMode = () => useMedia<boolean>(['(prefers-color-scheme: dark)'], [true], false)
 
 export default useDarkMode

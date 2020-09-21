@@ -2,9 +2,9 @@ import { createContext, useContext } from 'react'
 
 interface RootWrapperContextProps {
   /** Is dark mode enabled */
-  darkMode: boolean | undefined | ((value: boolean | ((val: boolean) => boolean)) => void)
+  isDarkMode: boolean
   /** Dark mode state setter function */
-  setDarkMode: boolean | undefined | ((value: boolean | ((val: boolean) => boolean)) => void)
+  setIsDarkMode: (value: boolean) => void
 }
 
 export const RootWrapperContext = createContext<RootWrapperContextProps | undefined>(undefined)

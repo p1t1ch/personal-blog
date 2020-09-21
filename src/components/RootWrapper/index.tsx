@@ -13,11 +13,11 @@ interface RootWrapperProps {
 }
 
 const RootWrapper = ({ children }: RootWrapperProps) => {
-  const [darkMode, setDarkMode] = useDarkMode()
+  const [isDarkMode, setIsDarkMode] = useDarkMode()
 
   return (
-    <RootWrapperContext.Provider value={{ darkMode, setDarkMode } as any}>
-      <ThemeProvider theme={{ ...theme, colors: { ...theme.colors, dynamic: !darkMode ? lightTheme : darkTheme } }}>
+    <RootWrapperContext.Provider value={{ isDarkMode, setIsDarkMode } as any}>
+      <ThemeProvider theme={{ ...theme, colors: { ...theme.colors, dynamic: !isDarkMode ? lightTheme : darkTheme } }}>
         <GlobalStyles />
         {children}
       </ThemeProvider>
