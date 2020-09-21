@@ -60,7 +60,7 @@ export const BlogPostsGridItem = ({
   return (
     <article {...props}>
       <BlogPostLink to={slug}>
-        <BlogPostHead thumbnail={thumbnail} title={name} publishDate={publishDate} timeToRead={timeToRead} isPreview />
+        <BlogPostHead thumbnail={thumbnail} title={title} publishDate={publishDate} timeToRead={timeToRead} isPreview />
         <Description>{description}</Description>
       </BlogPostLink>
     </article>
