@@ -11,17 +11,15 @@ interface LayoutProps {
   isHome?: boolean
 }
 
-// TODO Порешать проблему с минимальной высотой
-
 const Layout = ({ children, isHome }: LayoutProps) => {
   const theme = useTheme<Theme>()
 
   return (
-    <div css={{ /*display: 'grid', gridTemplateRows: 'auto 1fr auto',*/ minHeight: '100vh' }}>
+    <>
       <Header isHome={isHome} />
       <main css={{ backgroundColor: theme.colors.static.white }}>{children}</main>
       <Footer />
-    </div>
+    </>
   )
 }
 

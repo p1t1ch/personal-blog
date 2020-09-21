@@ -24,5 +24,5 @@ module.exports = {
   // Color for traced SVG placeholders for content images
   tracedSVGColor: '#2b2b2b',
   // Width of blogpost page container to generate fluid images
-  containerWidth: 758,
+  containerWidth: 790,
 }

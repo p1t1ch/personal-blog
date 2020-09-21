@@ -101,8 +101,9 @@ const GlobalStyles = () => {
           '.gatsby-highlight': {
             position: 'relative',
             backgroundColor: theme.colors.static.black,
-            border: `0.25rem solid ${theme.colors.static.white}`,
+            border: `0.25rem solid ${theme.colors.dynamic.primary}`,
             fontSize: theme.prism.fontSize,
+            ...transitions(['border-color'], theme.transitions.long),
           },
           '.gatsby-highlight pre[class*="language-"]': {
             backgroundColor: 'transparent',
@@ -115,8 +116,6 @@ const GlobalStyles = () => {
             float: 'left',
             minWidth: '100%',
           },
-        },
-        {
           // Override some theme styles
           'code[class*="language-"], pre[class*="language-"]': {
             fontFamily: theme.typography.stacks.monospace.join(', '),
@@ -127,8 +126,6 @@ const GlobalStyles = () => {
             backgroundColor: theme.colors.dynamic.primary,
             color: theme.colors.dynamic.secondary,
           },
-        },
-        {
           // Add styles for bash code blocks
           '.command-line-prompt': {
             borderRight: `${theme.prism.commandLine.border} solid ${theme.colors.static.yellow}`,
@@ -141,8 +138,6 @@ const GlobalStyles = () => {
           '.command-line-prompt > span[data-user]::before': {
             content: '"$"',
           },
-        },
-        {
           // Add language mark
           '[data-language]::after': {
             content: '""attr(data-language)""',

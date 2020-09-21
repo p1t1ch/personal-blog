@@ -54,7 +54,7 @@ const Content = styled(Container)(({ theme }: ThemeProps) => ({
       color: theme.colors.dynamic.active,
     },
   },
-  '.gatsby-highlight, .gatsby-resp-iframe-wrapper': {
+  '.gatsby-highlight, .gatsby-resp-iframe-wrapper, .gatsby-resp-image-figure': {
     ...margin(null, `-${theme.sizes.pagePadding}`),
   },
   '.gatsby-resp-image-figcaption': {

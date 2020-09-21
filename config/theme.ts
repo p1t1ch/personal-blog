@@ -13,14 +13,12 @@ export const lightTheme = {
   primary: palette.black,
   secondary: palette.white,
   active: palette.darkPurple,
-  light: palette.yellow,
 }
 
 export const darkTheme = {
   primary: palette.white,
   secondary: palette.black,
   active: palette.lightPurple,
-  light: palette.yellow,
 }
 
 const colors = {
@@ -40,8 +38,6 @@ const sizes = {
   blogPostContainerWidth: '55ch',
   // Horizontal paddings for all page containers
   pagePadding: '1rem',
-  // Headings anchors offsets
-  anchorPadding: '0.25rem',
   // Difference of heights in clip-path
   clipSize: '2rem',
   // Height of blog post head and home page section
@@ -51,6 +47,8 @@ const sizes = {
   // Offset between header and head block
   headOffset: '0.25rem',
 }
+
+// TODO Play a little bit more with typography
 
 const typography = {
   family: 'Commissioner',
