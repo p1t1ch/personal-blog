@@ -3,12 +3,13 @@ import Img, { FluidObject } from 'gatsby-image'
 import { ThemeProps } from '@theme'
 import styled from '@emotion/styled'
 import singleGridCell from '@/utils/singleGridCell'
-import { transparentize } from 'polished'
+import { transitions, transparentize } from 'polished'
 import { BsCalendar, BsClock } from 'react-icons/bs'
 
 const HeadContainer = styled.section(({ theme, isPreview }: ThemeProps & { isPreview: boolean }) => ({
   height: !isPreview ? theme.sizes.headHeight : theme.sizes.previewHeight,
-  backgroundColor: theme.colors.static.white,
+  backgroundColor: !isPreview ? theme.colors.static.white : theme.colors.dynamic.primary,
+  ...transitions(['background-color'], theme.transitions.long),
 }))
 
 const Wrapper = styled.div(({ theme, isPreview }: ThemeProps & { isPreview: boolean }) => ({

@@ -15,6 +15,7 @@ const MainSection = styled.section(({ theme }: ThemeProps) => ({
   zIndex: 1,
   display: 'flex',
   justifyContent: 'space-between',
+  alignItems: 'flex-start',
   backgroundColor: theme.colors.static.black,
   padding: `2rem ${theme.sizes.pagePadding} ${1 + parseFloat(theme.sizes.clipSize)}rem`,
   clipPath: `polygon(0 0, 100% 0%, 100% 100%, 0 calc(100% - ${theme.sizes.clipSize}))`,

@@ -4,21 +4,22 @@
 const palette = {
   black: '#2b2b2b',
   white: '#fff',
-  purple: '#6d4672',
+  darkPurple: '#6d4672',
+  lightPurple: '#ea9ff4',
   yellow: '#d4d0ab',
 }
 
 export const lightTheme = {
   primary: palette.black,
   secondary: palette.white,
-  active: palette.purple,
+  active: palette.darkPurple,
   light: palette.yellow,
 }
 
 export const darkTheme = {
   primary: palette.white,
   secondary: palette.black,
-  active: palette.purple,
+  active: palette.lightPurple,
   light: palette.yellow,
 }
 
@@ -115,8 +116,8 @@ const typography = {
 }
 
 const transitions = {
-  in: `200ms ease`,
-  out: `400ms ease`,
+  short: `200ms ease-in-out`,
+  long: `500ms ease-in-out`,
 }
 
 const prism = {

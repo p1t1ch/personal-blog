@@ -2,7 +2,7 @@ import React from 'react'
 import { FluidObject } from 'gatsby-image'
 import { Theme } from '@theme'
 import { useTheme } from 'emotion-theming'
-import { margin, size } from 'polished'
+import { margin, size, transitions } from 'polished'
 import BlogPostHead from '@/components/BlogPostHead'
 import Container from '@/components/Container'
 
@@ -72,6 +72,7 @@ const BlogPost = ({
               padding: '0 0.25rem',
               marginRight: '1rem',
               border: `0.125rem solid ${theme.colors.dynamic.primary}`,
+              ...transitions(['border-color'], theme.transitions.long),
             },
           },
           blockquote: {
@@ -80,11 +81,13 @@ const BlogPost = ({
             borderLeft: `0.5rem solid ${theme.colors.dynamic.primary}`,
             padding: '0.5rem 1rem',
             paddingRight: 0,
+            ...transitions(['border-color'], theme.transitions.long),
             '> :last-child': { marginBottom: 0 },
           },
           hr: {
             border: `2px solid ${theme.colors.dynamic.primary}`,
             ...margin('2rem', null),
+            ...transitions(['border-color'], theme.transitions.long),
           },
           a: {
             textDecoration: 'underline',

@@ -33,7 +33,7 @@ exports.onCreateNode = ({ node, actions }) => {
     actions.createNodeField({
       name: 'slug',
       node,
-      value: `/blog/${node.frontmatter.slug}`,
+      value: `/blog/${node.frontmatter.slug}/`,
     })
   }
 }

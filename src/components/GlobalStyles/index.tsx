@@ -26,7 +26,7 @@ const GlobalStyles = () => {
             boxSizing: 'border-box',
           },
           '::selection': {
-            backgroundColor: theme.colors.dynamic.primary,
+            backgroundColor: theme.colors.dynamic.active,
             color: theme.colors.dynamic.secondary,
           },
           html: {
@@ -41,6 +41,7 @@ const GlobalStyles = () => {
             ...theme.typography.styles.body,
             backgroundColor: theme.colors.static.black,
             color: theme.colors.dynamic.primary,
+            ...transitions(['color'], theme.transitions.long),
           },
           'h1, h2, h3, h4, h5, h6, p, ol, ul, dl, dd, hr': {
             margin: 0,
@@ -50,25 +51,25 @@ const GlobalStyles = () => {
             outline: 'none',
           },
           ':focus': {
-            outline: `3px solid ${theme.colors.dynamic.primary}`,
-            outlineOffset: 2,
+            outline: `0.25rem solid ${theme.colors.dynamic.active}`,
+            outlineOffset: '0.125rem',
           },
           [buttons()]: {
             border: 'none',
             padding: 0,
             background: 'none',
             cursor: 'pointer',
-            ...transitions(['color', 'background-color'], theme.transitions.out),
+            ...transitions(['color', 'background-color'], theme.transitions.long),
             ':hover': {
-              ...transitions(['color', 'background-color'], theme.transitions.in),
+              ...transitions(['color', 'background-color'], theme.transitions.short),
             },
           },
           a: {
             textDecoration: 'none',
             color: theme.colors.dynamic.primary,
-            ...transitions(['color'], theme.transitions.out),
+            ...transitions(['color'], theme.transitions.long),
             ':hover': {
-              ...transitions(['color'], theme.transitions.in),
+              ...transitions(['color'], theme.transitions.short),
             },
           },
           'h1, h2, h3, h4, h5, h6': {
