@@ -26,7 +26,7 @@ const GlobalStyles = () => {
             boxSizing: 'border-box',
           },
           '::selection': {
-            backgroundColor: theme.colors.dynamic.active,
+            backgroundColor: theme.colors.dynamic.primary,
             color: theme.colors.dynamic.secondary,
           },
           html: {
@@ -43,7 +43,7 @@ const GlobalStyles = () => {
             color: theme.colors.dynamic.primary,
             ...transitions(['color'], theme.transitions.long),
           },
-          'h1, h2, h3, h4, h5, h6, p, ol, ul, dl, dd, hr': {
+          'h1, h2, h3, h4, h5, h6, p, ol, ul, dl, dd, hr, blockquote, figure': {
             margin: 0,
             padding: 0,
           },
@@ -86,12 +86,6 @@ const GlobalStyles = () => {
           },
           li: {
             listStyle: 'none',
-          },
-          blockquote: {
-            margin: 0,
-          },
-          figure: {
-            margin: 0,
           },
         },
         {

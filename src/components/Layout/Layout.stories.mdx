@@ -6,21 +6,19 @@ import Layout from '.'
 # Layout
 
 <Canvas>
-  <Story name="Basic" args={{ children: 'Page content', isHome: false }}>
+  <Story name="Basic" args={{ children: 'Съешь ещё этих мягких французских булок, да выпей же чаю', isHome: false }}>
     {args => <Layout {...args} />}
   </Story>
 </Canvas>
 
-Wrapper for page components. Contains common blocks like header and footer. Start new page with this component as render root.
+Обёртка для компонентов страниц. Включает в себя хэдер и футер, оборачивает `children` в **main**. Флаг `isHome` пробрасывается до хэдера.
 
 <ArgsTable />
 
 ## Home page
 
-Home page has its own version of header
-
 <Canvas>
-  <Story name="Home page" args={{ children: 'Page content', isHome: true }}>
+  <Story name="Home page" args={{ children: 'Съешь ещё этих мягких французских булок, да выпей же чаю', isHome: true }}>
     {args => <Layout {...args} />}
   </Story>
 </Canvas>

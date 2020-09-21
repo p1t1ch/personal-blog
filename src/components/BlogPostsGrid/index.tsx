@@ -27,6 +27,8 @@ interface BlogPostsGridProps {
   children: React.ReactNode
 }
 
+// TODO Порешать проблему с несовпадающей высотой карточек с разным описанием
+
 const BlogPostsGrid: React.FC<BlogPostsGridProps> & BlogPostsGridCompositionProps = ({ children }) => {
   return (
     <List>

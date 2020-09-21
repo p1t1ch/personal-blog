@@ -24,7 +24,7 @@ const BlogPostLink = styled(Link)(({ theme }: ThemeProps) => ({
 }))
 
 const Description = styled.section(({ theme }: ThemeProps) => ({
-  padding: `2.5rem 1rem 1rem`,
+  padding: `3rem 1rem 1rem`,
   clipPath: `polygon(0 0, 100% ${theme.sizes.clipSize}, 100% 100%, 0 100%)`,
   marginTop: `calc(-${theme.sizes.clipSize} + ${theme.sizes.headOffset})`,
   backgroundColor: theme.colors.dynamic.secondary,
@@ -37,30 +37,30 @@ export interface BlogPostsGridItemProps {
   /** Page path */
   slug: string
   /** Article title */
-  name: string
-  /** Article short description */
-  description: string
+  title: string
   /** Article preview image */
   thumbnail: FluidObject
   /** Date of article publication in DD.MM.YYYY format */
   publishDate: string
   /** Calculated minutes to read based on article size */
   timeToRead: number
+  /** Article short description */
+  description: string
 }
 
-const BlogPostsGridItem = ({
+export const BlogPostsGridItem = ({
   slug,
-  name,
-  description,
+  title,
   thumbnail,
   publishDate,
   timeToRead,
+  description,
   ...props
 }: BlogPostsGridItemProps) => {
   return (
     <article {...props}>
       <BlogPostLink to={slug}>
-        <BlogPostHead thumbnail={thumbnail} name={name} publishDate={publishDate} timeToRead={timeToRead} isPreview />
+        <BlogPostHead thumbnail={thumbnail} title={name} publishDate={publishDate} timeToRead={timeToRead} isPreview />
         <Description>{description}</Description>
       </BlogPostLink>
     </article>

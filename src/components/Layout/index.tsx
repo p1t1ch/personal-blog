@@ -11,6 +11,8 @@ interface LayoutProps {
   isHome?: boolean
 }
 
+// TODO Порешать проблему с минимальной высотой
+
 const Layout = ({ children, isHome }: LayoutProps) => {
   const theme = useTheme<Theme>()
 

@@ -9,14 +9,36 @@ import BlogPostHead from '.'
   <Story
     name="Basic"
     args={{
-      name: 'Заголовок статьи',
-      thumbnail: { src: 'https://dummyimage.com/1920x1080/2b2b2b/fff.png&text=+' },
+      title: 'Заголовок статьи',
+      thumbnail: { src: 'assets/test-2.jpg' },
       publishDate: '04.09.2020',
       timeToRead: 12,
+      isPreview: false,
     }}
   >
     {args => <BlogPostHead {...args} />}
   </Story>
 </Canvas>
 
+Заголовок поста из блога с мета-информацией. Представлен в 2 вариациях: для статей и для карточек превью.
+
 <ArgsTable />
+
+## Preview card
+
+Вариация для карточек отличается стилями: размерами, фоном и отключением фиксации изображения.
+
+<Canvas>
+  <Story
+    name="Preview card"
+    args={{
+      title: 'Заголовок статьи',
+      thumbnail: { src: 'assets/test-2.jpg' },
+      publishDate: '04.09.2020',
+      timeToRead: 12,
+      isPreview: true,
+    }}
+  >
+    {args => <BlogPostHead {...args} />}
+  </Story>
+</Canvas>

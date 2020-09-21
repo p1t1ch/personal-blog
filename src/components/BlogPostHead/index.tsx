@@ -61,19 +61,26 @@ const MetaItem = styled.div(() => ({
 }))
 
 export interface BlogPostHeadProps {
-  /** Use inside blog post preview */
-  isPreview?: boolean
   /** Article title */
-  name: string
+  title: string
   /** Article preview image */
   thumbnail: FluidObject
   /** Date of article publication in DD.MM.YYYY format */
   publishDate: string
   /** Calculated minutes to read based on article size */
   timeToRead: number
+  /** Use inside blog post preview */
+  isPreview?: boolean
 }
 
-const BlogPostHead = ({ isPreview = false, name, thumbnail, publishDate, timeToRead, ...props }: BlogPostHeadProps) => {
+const BlogPostHead = ({
+  title,
+  thumbnail,
+  publishDate,
+  timeToRead,
+  isPreview = false,
+  ...props
+}: BlogPostHeadProps) => {
   const BlogPostTitle = !isPreview ? Title : Title.withComponent('h3')
   const Time = MetaItem.withComponent('time')
   return (
@@ -82,11 +89,11 @@ const BlogPostHead = ({ isPreview = false, name, thumbnail, publishDate, timeToR
         <Wrapper isPreview={isPreview}>
           <Img
             fluid={thumbnail}
-            alt={`Превью для статьи ${name}`}
+            alt={`Превью для статьи ${title}`}
             imgStyle={!isPreview ? { position: 'fixed', objectPosition: '50% 100%' } : {}}
           />
           <TitleWrapper>
-            <BlogPostTitle isPreview={isPreview}>{name}</BlogPostTitle>
+            <BlogPostTitle isPreview={isPreview}>{title}</BlogPostTitle>
           </TitleWrapper>
         </Wrapper>
       </HeadContainer>

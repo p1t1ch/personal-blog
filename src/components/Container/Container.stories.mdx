@@ -6,19 +6,27 @@ import Container from '.'
 # Container
 
 <Canvas>
-  <Story name="Basic" args={{ children: 'Page content', isHome: false }}>
+  <Story
+    name="Basic"
+    args={{ children: 'Съешь ещё этих мягких французских булок, да выпей же чаю', isBlogPost: false }}
+  >
     {args => <Container {...args} />}
   </Story>
 </Canvas>
 
+Контейнер основной части страницы: задаёт ограничения по ширине и отступы. Вариация для страницы поста из блога имеет уменьшенные размеры для удобства восприятия текстового контента.
+
+Компонент не включён в `Layout`, т.к. его вставка для страниц блога идёт не на верхнем уровне, а уже внутри **article**, чтобы позволить заголовочной части занимать полную ширину.
+
 <ArgsTable />
 
-## Home page
-
-Home page has another container size
+## Blog post
 
 <Canvas>
-  <Story name="Home page" args={{ children: 'Page content', isHome: true }}>
+  <Story
+    name="Blog post"
+    args={{ children: 'Съешь ещё этих мягких французских булок, да выпей же чаю', isBlogPost: true }}
+  >
     {args => <Container {...args} />}
   </Story>
 </Canvas>

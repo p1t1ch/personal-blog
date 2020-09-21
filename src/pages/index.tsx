@@ -35,7 +35,7 @@ const IndexPage = ({ data }: PageProps<IndexPageQuery>) => {
   const blogPosts = data.allMarkdownRemark.edges.map(({ node }) => ({
     id: node.id,
     slug: node.fields.slug,
-    name: node.frontmatter.title,
+    title: node.frontmatter.title,
     description: node.frontmatter.description,
     image: node.frontmatter.thumbnail.childImageSharp.fluid,
     publishDate: node.frontmatter.publishDate,
@@ -51,7 +51,7 @@ const IndexPage = ({ data }: PageProps<IndexPageQuery>) => {
             <BlogPostsGrid.Item
               key={blogPost.id}
               slug={blogPost.slug}
-              name={blogPost.name}
+              title={blogPost.title}
               description={blogPost.description}
               thumbnail={blogPost.image}
               publishDate={blogPost.publishDate}
