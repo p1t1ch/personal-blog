@@ -8,7 +8,7 @@
   </a>
 </p>
 
-<p align="center"><strong align="center">Frontend developer's personal website</strong></p>
+<p align="center"><strong align="center">My personal website</strong></p>
 
 <p align="center">
   <a href="https://app.netlify.com/sites/p1t1ch-personal-blog/deploys">

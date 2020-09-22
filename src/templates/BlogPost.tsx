@@ -69,7 +69,7 @@ export const pageQuery = graphql`
         tags
         thumbnail {
           childImageSharp {
-            fluid(traceSVG: { color: "#2b2b2b" }) {
+            fluid(quality: 100, traceSVG: { color: "#2b2b2b" }) {
               ...GatsbyImageSharpFluid_withWebp_tracedSVG
             }
           }

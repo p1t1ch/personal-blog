@@ -4,7 +4,7 @@ module.exports = {
   /** Project short name. Used by PWA */
   shortTitle: 'p1t1ch',
   /** Project description. Used in SEO meta tag and by PWA */
-  description: 'Личный сайт фронтенд-разработчика',
+  description: 'Персональный блог на тему фронтенд-разработки',
   /** Keywords describing the project. Used in SEO meta tag */
   keywords: ['p1t1ch', 'blog', 'gatsby'],
   /** Absolute deployment path (without trailing slash). Used as base URL in SEO meta tags */

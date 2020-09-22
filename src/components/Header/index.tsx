@@ -64,19 +64,15 @@ const Header = ({ isHome = false }: HeaderProps) => {
     <HeaderContainer>
       <MainSection>
         <HomeLink to="/">p1t1ch.com</HomeLink>
-        <Button
-          onClick={() => {
-            if (typeof setIsDarkMode === 'function') setIsDarkMode(!isDarkMode)
-          }}
-        >
+        <Button onClick={() => setIsDarkMode(!isDarkMode)}>
           {!isDarkMode ? <BsMoon title="Перейти в dark mode" /> : <BsSun title="Перейти в light mode" />}
         </Button>
       </MainSection>
       {isHome && (
         <HomeSection>
           <div>
-            <Title>Личный сайт фронтенд-разработчика</Title>
-            <Subheading>Периодически публикую здесь мысли на тему профессиональной деятельности</Subheading>
+            <Title>Блог Кирилла Васильевича</Title>
+            <Subheading>Периодически публикую здесь мысли на тему фронтенд-разработки</Subheading>
           </div>
         </HomeSection>
       )}

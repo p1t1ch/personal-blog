@@ -43,7 +43,7 @@ const IndexPage = ({ data }: PageProps<IndexPageQuery>) => {
   }))
   return (
     <Layout isHome>
-      <Seo />
+      <Seo title="p1t1ch – Персональный блог" />
       <Container>
         <h2 css={hideVisually()}>Список статей</h2>
         <BlogPostsGrid>
