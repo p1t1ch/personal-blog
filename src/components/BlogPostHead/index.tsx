@@ -49,7 +49,7 @@ const Meta = styled.section(({ theme, isPreview }: ThemeProps & { isPreview: boo
   padding: '0.5rem',
   backgroundColor: theme.colors.static.black,
   color: theme.colors.static.white,
-  boxShadow: `0 0 0 0.125rem ${theme.colors.static.white}`,
+  boxShadow: `0 0 0 ${theme.sizes.linesWidth} ${theme.colors.static.white}`,
   transform: 'translate(-50%, -0.75rem)',
 }))
 

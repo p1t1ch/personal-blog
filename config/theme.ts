@@ -44,8 +44,8 @@ const sizes = {
   headHeight: '25rem',
   // Height of blog post head in preview block
   previewHeight: '18rem',
-  // Offset between header and head block
-  headOffset: '0.25rem',
+  // Size of borders and sections offsets
+  linesWidth: '0.125rem',
 }
 
 // TODO Play a little bit more with typography

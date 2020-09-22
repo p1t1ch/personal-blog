@@ -6,9 +6,15 @@ import { transitions } from 'polished'
 import { ThemeProps } from '@theme'
 import BlogPostHead from '../BlogPostHead'
 
+const Article = styled.article(() => ({
+  height: '100%',
+}))
+
 const BlogPostLink = styled(Link)(({ theme }: ThemeProps) => ({
   position: 'relative',
-  display: 'block',
+  display: 'flex',
+  flexDirection: 'column',
+  height: '100%',
   backgroundColor: theme.colors.dynamic.primary,
   color: theme.colors.dynamic.primary,
   filter: 'grayscale(1)',
@@ -24,11 +30,12 @@ const BlogPostLink = styled(Link)(({ theme }: ThemeProps) => ({
 }))
 
 const Description = styled.section(({ theme }: ThemeProps) => ({
+  flexGrow: 1,
   padding: `3rem 1rem 1rem`,
   clipPath: `polygon(0 0, 100% ${theme.sizes.clipSize}, 100% 100%, 0 100%)`,
-  marginTop: `calc(-${theme.sizes.clipSize} + ${theme.sizes.headOffset})`,
+  marginTop: `calc(-${theme.sizes.clipSize} + ${theme.sizes.linesWidth})`,
   backgroundColor: theme.colors.dynamic.secondary,
-  border: `0.25rem solid ${theme.colors.dynamic.primary}`,
+  border: `${theme.sizes.linesWidth} solid ${theme.colors.dynamic.primary}`,
   borderTop: 'none',
   ...transitions(['background-color', 'border-color'], theme.transitions.long),
 }))
@@ -58,12 +65,12 @@ export const BlogPostsGridItem = ({
   ...props
 }: BlogPostsGridItemProps) => {
   return (
-    <article {...props}>
+    <Article {...props}>
       <BlogPostLink to={slug}>
         <BlogPostHead thumbnail={thumbnail} title={title} publishDate={publishDate} timeToRead={timeToRead} isPreview />
         <Description>{description}</Description>
       </BlogPostLink>
-    </article>
+    </Article>
   )
 }
 

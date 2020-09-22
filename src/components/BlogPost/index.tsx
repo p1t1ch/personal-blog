@@ -117,7 +117,7 @@ const BlogPost = ({
         title={title}
         publishDate={publishDate}
         timeToRead={timeToRead}
-        css={{ marginTop: `calc(-${theme.sizes.clipSize} + ${theme.sizes.headOffset})` }}
+        css={{ marginTop: `calc(-${theme.sizes.clipSize} + ${theme.sizes.linesWidth})` }}
       />
       <Content isBlogPost>
         <Tldr>

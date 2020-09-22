@@ -25,7 +25,7 @@ const HomeSection = styled.section(({ theme }: ThemeProps) => ({
   display: 'grid',
   placeItems: 'center',
   backgroundColor: theme.colors.static.black,
-  marginTop: `calc(-${theme.sizes.clipSize} + ${theme.sizes.headOffset})`,
+  marginTop: `calc(-${theme.sizes.clipSize} + ${theme.sizes.linesWidth})`,
   height: theme.sizes.headHeight,
   padding: `2rem ${theme.sizes.pagePadding} ${2 + parseFloat(theme.sizes.clipSize)}rem`,
   clipPath: `polygon(0 0, 100% ${theme.sizes.clipSize}, 100% 100%, 0 calc(100% - ${theme.sizes.clipSize}))`,

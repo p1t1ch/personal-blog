@@ -93,7 +93,7 @@ const GlobalStyles = () => {
           '.gatsby-highlight': {
             position: 'relative',
             backgroundColor: theme.colors.static.black,
-            border: `0.25rem solid ${theme.colors.dynamic.primary}`,
+            boxShadow: `inset 0 0 0 ${theme.sizes.linesWidth} ${theme.colors.dynamic.primary}`,
             fontSize: theme.prism.fontSize,
             ...transitions(['border-color'], theme.transitions.long),
           },
