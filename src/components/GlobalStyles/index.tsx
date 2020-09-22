@@ -3,8 +3,8 @@ import 'focus-visible'
 import { Global } from '@emotion/core'
 import { useTheme } from 'emotion-theming'
 import { buttons, transitions, normalize, margin, transparentize } from 'polished'
-import Commissioner from '@/fonts/Commissioner.woff2'
 import { Theme } from '@theme'
+import '@/fonts/index.css'
 
 const GlobalStyles = () => {
   const theme = useTheme<Theme>()
@@ -13,14 +13,6 @@ const GlobalStyles = () => {
     <Global
       styles={[
         ...normalize(),
-        {
-          '@font-face': {
-            fontFamily: 'Commissioner',
-            src: `url(${Commissioner}) format('woff2-variations')`,
-            fontDisplay: 'swap',
-            fontWeight: '100 900' as any,
-          },
-        },
         {
           '*, *::before, *::after': {
             boxSizing: 'border-box',
