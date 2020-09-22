@@ -11,6 +11,12 @@ module.exports = {
     twitterUsername: config.twitterUsername,
   },
   plugins: [
+    {
+      resolve: 'gatsby-plugin-google-analytics',
+      options: {
+        trackingId: config.trackingID,
+      },
+    },
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-emotion',
     {
