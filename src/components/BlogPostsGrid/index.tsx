@@ -17,7 +17,7 @@ const List = styled.ol(({ theme }: ThemeProps) => ({
   gridGap: '2rem',
   'li:first-of-type': {
     gridColumn: '1/-1',
-    h3: theme.typography.styles.h3,
+    h3: theme.typography.styles.lastBlogPostPreview,
     'a:hover, a:focus': { transform: 'none' },
   },
 }))
@@ -26,8 +26,6 @@ interface BlogPostsGridProps {
   /** Blog posts list */
   children: React.ReactNode
 }
-
-// TODO Порешать проблему с несовпадающей высотой карточек с разным описанием
 
 const BlogPostsGrid: React.FC<BlogPostsGridProps> & BlogPostsGridCompositionProps = ({ children }) => {
   return (

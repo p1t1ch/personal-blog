@@ -29,7 +29,7 @@ const TitleWrapper = styled.div(({ theme }: ThemeProps) => ({
 }))
 
 const Title = styled.h1(({ theme, isPreview }: ThemeProps & { isPreview: boolean }) => ({
-  ...(!isPreview ? theme.typography.styles.h1 : theme.typography.styles.h5),
+  ...(!isPreview ? theme.typography.styles.h1 : theme.typography.styles.blogPostPreview),
   maxWidth: theme.sizes.mainContainerWidth,
   padding: `2rem ${theme.sizes.pagePadding} ${2 + parseFloat(theme.sizes.clipSize)}rem`,
   color: theme.colors.static.white,

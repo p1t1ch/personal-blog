@@ -16,7 +16,7 @@ const Wrapper = styled.div(({ theme }: ThemeProps) => ({
 }))
 
 const HomeLink = styled(Link)(({ theme }: ThemeProps) => ({
-  ...theme.typography.styles.h6,
+  ...theme.typography.styles.h4,
   color: theme.colors.static.white,
 }))
 

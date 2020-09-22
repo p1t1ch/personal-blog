@@ -10,9 +10,7 @@ import Container from '@/components/Container'
 const Content = styled(Container)(({ theme }: ThemeProps) => ({
   h2: theme.typography.styles.h2,
   h3: theme.typography.styles.h3,
-  h4: theme.typography.styles.h4,
-  h5: theme.typography.styles.h5,
-  h6: theme.typography.styles.h6,
+  'h4, h5, h6': theme.typography.styles.h4,
   'h2, h3, h4, h5, h6, p, blockquote, ul, ol, figure, .gatsby-highlight, .gatsby-resp-iframe-wrapper, :not(.gatsby-resp-iframe-wrapper) > iframe': {
     marginBottom: '1rem',
   },
@@ -75,7 +73,7 @@ const Content = styled(Container)(({ theme }: ThemeProps) => ({
 }))
 
 const Tldr = styled.blockquote(({ theme }: ThemeProps) => ({
-  marginBottom: '2rem',
+  marginBottom: '2rem !important',
   em: theme.typography.styles.small,
 }))
 

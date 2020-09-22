@@ -35,7 +35,7 @@ const sizes = {
   // Main container max width
   mainContainerWidth: '90rem',
   // Blog post container max width
-  blogPostContainerWidth: '55ch',
+  blogPostContainerWidth: '60ch',
   // Horizontal paddings for all page containers
   pagePadding: '1rem',
   // Difference of heights in clip-path
@@ -45,10 +45,8 @@ const sizes = {
   // Height of blog post head in preview block
   previewHeight: '18rem',
   // Size of borders and sections offsets
-  linesWidth: '0.125rem',
+  linesWidth: '0.175rem',
 }
-
-// TODO Play a little bit more with typography
 
 const typography = {
   family: 'Commissioner',
@@ -71,44 +69,57 @@ const typography = {
     monospace: ['Menlo', 'Consolas', 'Monaco', '"Liberation Mono"', '"Lucida Console"', 'monospace'],
   },
   styles: {
-    // Sizes are calculated with Major Third scale: 84 67 54 43 34 27 22 18 14
+    // Sizes are calculated with Major Third scale with slight changes: 76 61 49 39 31 25 20 18 16
     h1: {
       fontWeight: 800,
-      fontSize: 'clamp(2.6875rem, 5.5vw, 5.25rem)', // 84-43
+      fontSize: 'clamp(2.4375rem, 5vw, 4.75rem)', // 76-39
       lineHeight: 1.1,
     },
     h2: {
       fontWeight: 700,
-      fontSize: 'clamp(2.125rem, 4.5vw, 4.1875rem)', // 67-34
-      lineHeight: 1.1,
+      fontSize: 'clamp(1.5626rem, 3.25vw, 2.4375rem)', // 39-25
+      lineHeight: 1.2,
     },
     h3: {
       fontWeight: 700,
-      fontSize: 'clamp(1.6875rem, 3.5vw, 3.375rem)', // 54-27
-      lineHeight: 1.2,
+      fontSize: 'clamp(1.25rem, 2.5vw, 1.9375rem)', // 31-20
+      lineHeight: 1.3,
     },
     h4: {
-      fontWeight: 700,
-      fontSize: 'clamp(1.375rem, 3vw, 2.6875rem)', // 43-22
-      lineHeight: 1.3,
-    },
-    h5: {
       fontWeight: 600,
-      fontSize: 'clamp(1.125rem, 2.5vw, 2.125rem)', // 34-18
-      lineHeight: 1.3,
-    },
-    h6: {
-      fontWeight: 500,
-      fontSize: 'clamp(1.125rem, 2vw, 1.6875rem)', // 27-18
-      lineHeight: 1.3,
+      fontSize: 'clamp(1.125rem, 2.5vw, 1.5625rem)', // 25-18
+      lineHeight: 1.4,
     },
     body: {
-      fontSize: 'clamp(1.125rem, 1.5vw, 1.375rem)', // 22-18
+      fontSize: 'clamp(1.125rem, 2.5vw, 1.25rem)', // 20-18
       lineHeight: 1.6,
     },
     small: {
-      fontSize: 'clamp(0.875rem, 1.5vw, 1.125rem)', // 18-14
+      fontSize: 'clamp(1rem, 2.5vw, 1.125rem)', // 18-16
       lineHeight: 1.6,
+    },
+    subheading: {
+      fontWeight: 500,
+      fontSize: 'clamp(1.25rem, 2.5vw, 1.5626rem)', // 25-18
+      lineHeight: 1.4,
+    },
+    homeLink: {
+      fontWeight: 600,
+      fontSize: '1.9375rem', // 31
+      lineHeight: 1.3,
+    },
+    darkMode: {
+      fontSize: '3.0625rem', // 49
+    },
+    blogPostPreview: {
+      fontWeight: 600,
+      fontSize: 'clamp(1.5625rem, 3vw, 1.9375rem)', // 31-25
+      lineHeight: 1.3,
+    },
+    lastBlogPostPreview: {
+      fontWeight: 700,
+      fontSize: 'clamp(1.9375rem, 3vw, 3.0625rem)', // 49-31
+      lineHeight: 1.3,
     },
   },
 }
@@ -120,7 +131,7 @@ const transitions = {
 
 const prism = {
   // Font size is set in ems relative to blog post text, and all inner sizes calculated in ems
-  fontSize: '0.9em',
+  fontSize: '0.85em',
   prePadding: {
     basic: '1em',
     top: '2em',

@@ -15,9 +15,9 @@ const MainSection = styled.section(({ theme }: ThemeProps) => ({
   zIndex: 1,
   display: 'flex',
   justifyContent: 'space-between',
-  alignItems: 'flex-start',
+  alignItems: 'center',
   backgroundColor: theme.colors.static.black,
-  padding: `2rem ${theme.sizes.pagePadding} ${1 + parseFloat(theme.sizes.clipSize)}rem`,
+  padding: `2rem ${theme.sizes.pagePadding} ${1.5 + parseFloat(theme.sizes.clipSize)}rem`,
   clipPath: `polygon(0 0, 100% 0%, 100% 100%, 0 calc(100% - ${theme.sizes.clipSize}))`,
 }))
 
@@ -33,12 +33,13 @@ const HomeSection = styled.section(({ theme }: ThemeProps) => ({
 }))
 
 const HomeLink = styled(Link)(({ theme }: ThemeProps) => ({
-  ...theme.typography.styles.h5,
+  ...theme.typography.styles.homeLink,
   color: theme.colors.static.white,
 }))
 
 const Button = styled.button(({ theme }: ThemeProps) => ({
-  ...theme.typography.styles.h3,
+  display: 'inline-flex',
+  ...theme.typography.styles.darkMode,
   color: theme.colors.static.white,
 }))
 
@@ -48,7 +49,7 @@ const Title = styled.h1(({ theme }: ThemeProps) => ({
 }))
 
 const Subheading = styled.p(({ theme }: ThemeProps) => ({
-  ...theme.typography.styles.h6,
+  ...theme.typography.styles.subheading,
 }))
 
 interface HeaderProps {

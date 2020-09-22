@@ -117,6 +117,7 @@ const GlobalStyles = () => {
             borderRadius: 0,
             backgroundColor: theme.colors.dynamic.primary,
             color: theme.colors.dynamic.secondary,
+            ...transitions(['background-color', 'color'], theme.transitions.long),
           },
           // Add styles for bash code blocks
           '.command-line-prompt': {
