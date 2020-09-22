@@ -1,12 +1,12 @@
 module.exports = {
   /** Project title. Used as SEO title and PWA name */
-  title: 'Personal Blog',
+  title: 'p1t1ch',
   /** Project short name. Used by PWA */
-  shortTitle: 'Personal Blog',
+  shortTitle: 'p1t1ch',
   /** Project description. Used in SEO meta tag and by PWA */
-  description: 'Personal blog on Gatsby',
+  description: 'Личный сайт фронтенд-разработчика',
   /** Keywords describing the project. Used in SEO meta tag */
-  keywords: ['gatsby'],
+  keywords: ['p1t1ch', 'blog', 'gatsby'],
   /** Absolute deployment path (without trailing slash). Used as base URL in SEO meta tags */
   baseUrl: 'https://p1t1ch-personal-blog.netlify.app',
   /** Site language. Added in html tag and PWA manifest */

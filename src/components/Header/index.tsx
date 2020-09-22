@@ -74,8 +74,8 @@ const Header = ({ isHome = false }: HeaderProps) => {
       {isHome && (
         <HomeSection>
           <div>
-            <Title>Личный сайт Кирилла Васильевича</Title>
-            <Subheading>Периодически публикую здесь мысли на тему фронтенд-разработки</Subheading>
+            <Title>Личный сайт фронтенд-разработчика</Title>
+            <Subheading>Периодически публикую здесь мысли на тему профессиональной деятельности</Subheading>
           </div>
         </HomeSection>
       )}
