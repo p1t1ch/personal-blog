@@ -100,7 +100,7 @@ const typography = {
     },
     subheading: {
       fontWeight: 500,
-      fontSize: 'clamp(1.25rem, 2.5vw, 1.5626rem)', // 25-18
+      fontSize: 'clamp(1.25rem, 2.5vw, 1.5626rem)', // 25-20
       lineHeight: 1.4,
     },
     homeLink: {

@@ -1,9 +1,10 @@
 import React from 'react'
-import { Link } from 'gatsby'
+import { graphql, Link, useStaticQuery } from 'gatsby'
 import styled from '@emotion/styled'
 import { ThemeProps } from '@theme'
 import { BsMoon, BsSun } from 'react-icons/bs'
 import useRootWrapperContext from '@/components/RootWrapper/useRootWrapperContext'
+import Subheading from '../Subheading'
 
 const HeaderContainer = styled.header(({ theme }: ThemeProps) => ({
   backgroundColor: theme.colors.static.white,
@@ -48,9 +49,14 @@ const Title = styled.h1(({ theme }: ThemeProps) => ({
   marginBottom: '1rem',
 }))
 
-const Subheading = styled.p(({ theme }: ThemeProps) => ({
-  ...theme.typography.styles.subheading,
-}))
+interface HeaderQuery {
+  site: {
+    siteMetadata: {
+      headerLink: string
+      mainTitle: string
+    }
+  }
+}
 
 interface HeaderProps {
   /** Add special section for the home page */
@@ -60,10 +66,23 @@ interface HeaderProps {
 const Header = ({ isHome = false }: HeaderProps) => {
   const { isDarkMode, setIsDarkMode } = useRootWrapperContext()
 
+  const {
+    site: { siteMetadata: data },
+  }: HeaderQuery = useStaticQuery(graphql`
+    {
+      site {
+        siteMetadata {
+          headerLink
+          mainTitle
+        }
+      }
+    }
+  `)
+
   return (
     <HeaderContainer>
       <MainSection>
-        <HomeLink to="/">p1t1ch.com</HomeLink>
+        <HomeLink to="/" dangerouslySetInnerHTML={{ __html: data.headerLink }} />
         <Button onClick={() => setIsDarkMode(!isDarkMode)}>
           {!isDarkMode ? <BsMoon title="Перейти в dark mode" /> : <BsSun title="Перейти в light mode" />}
         </Button>
@@ -71,8 +90,8 @@ const Header = ({ isHome = false }: HeaderProps) => {
       {isHome && (
         <HomeSection>
           <div>
-            <Title>Блог Кирилла Васильевича</Title>
-            <Subheading>Периодически публикую здесь мысли на тему фронтенд-разработки</Subheading>
+            <Title>{data.mainTitle}</Title>
+            <Subheading />
           </div>
         </HomeSection>
       )}

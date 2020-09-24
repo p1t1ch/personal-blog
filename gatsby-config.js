@@ -9,6 +9,12 @@ module.exports = {
     lang: config.lang,
     facebookUsername: config.facebookUsername,
     twitterUsername: config.twitterUsername,
+    headerLink: config.headerLink,
+    footerLink: config.footerLink,
+    mainTitle: config.mainTitle,
+    subheadingPrefix: config.subheadingPrefix,
+    subheadingPostfix: config.subheadingPostfix,
+    subheadingTags: config.subheadingTags,
   },
   plugins: [
     {

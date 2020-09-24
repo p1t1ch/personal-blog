@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'gatsby'
+import { graphql, Link, useStaticQuery } from 'gatsby'
 import styled from '@emotion/styled'
 import { ThemeProps } from '@theme'
 
@@ -20,11 +20,30 @@ const HomeLink = styled(Link)(({ theme }: ThemeProps) => ({
   color: theme.colors.static.white,
 }))
 
+interface FooterQuery {
+  site: {
+    siteMetadata: {
+      footerLink: string
+    }
+  }
+}
+
 const Footer = () => {
+  const {
+    site: { siteMetadata: data },
+  }: FooterQuery = useStaticQuery(graphql`
+    {
+      site {
+        siteMetadata {
+          footerLink
+        }
+      }
+    }
+  `)
   return (
     <FooterContainer>
       <Wrapper>
-        <HomeLink to="/">p1t1ch.com</HomeLink>
+        <HomeLink to="/">{data.footerLink}</HomeLink>
       </Wrapper>
     </FooterContainer>
   )
