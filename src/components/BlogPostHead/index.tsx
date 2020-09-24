@@ -6,6 +6,7 @@ import singleGridCell from '@/utils/singleGridCell'
 import { transitions, transparentize } from 'polished'
 import { BsCalendar, BsClock } from 'react-icons/bs'
 import media from '@/utils/media'
+import declOfNum from '@/utils/declOfNum'
 
 const HeadContainer = styled.section(({ theme, isPreview }: ThemeProps & { isPreview: boolean }) => ({
   height: !isPreview ? theme.sizes.headHeight : theme.sizes.previewHeight,
@@ -101,7 +102,7 @@ const BlogPostHead = ({
     if (differenceInHours === 0) {
       publishDateOutput = 'только что'
     } else if (differenceInHours < 24) {
-      publishDateOutput = `${differenceInHours} часов назад`
+      publishDateOutput = `${differenceInHours} ${declOfNum(differenceInHours, ['час', 'часа', 'часов'])} назад`
     }
   }
 
