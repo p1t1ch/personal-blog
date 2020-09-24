@@ -16,6 +16,7 @@ interface BlogPostTemplateQuery {
       title: string
       description: string
       publishDate: string
+      publishDateStrict: string
       tags: string[]
       thumbnail: {
         childImageSharp: {
@@ -48,6 +49,7 @@ const BlogPostTemplate = ({ data }: PageProps<BlogPostTemplateQuery>) => {
         unsplashLink={frontmatter.unsplashLink}
         unsplashAuthor={frontmatter.unsplashAuthor}
         publishDate={frontmatter.publishDate}
+        publishDateStrict={frontmatter.publishDateStrict}
         timeToRead={timeToRead}
       />
     </Layout>
@@ -65,7 +67,8 @@ export const pageQuery = graphql`
       frontmatter {
         title
         description
-        publishDate(formatString: "DD.MM.YYYY")
+        publishDate(formatString: "DD MMMM YYYY", locale: "ru")
+        publishDateStrict: publishDate(formatString: "YYYY-MM-DD")
         tags
         thumbnail {
           childImageSharp {

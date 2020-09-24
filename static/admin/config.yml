@@ -20,7 +20,7 @@ collections:
     fields:
       - { label: 'Title', name: 'title', widget: 'string' }
       - { label: 'Slug', name: 'slug', widget: 'string' }
-      - { label: 'Publish Date', name: 'publishDate', widget: 'datetime', dateFormat: 'DD.MM.YYYY', timeFormat: false }
+      - { label: 'Publish Date', name: 'publishDate', widget: 'datetime' }
       - { label: 'Featured Image', name: 'thumbnail', widget: 'image' }
       - { label: 'Unsplash Link', name: 'unsplashLink', widget: 'string' }
       - { label: 'Unsplash Author', name: 'unsplashAuthor', widget: 'string' }

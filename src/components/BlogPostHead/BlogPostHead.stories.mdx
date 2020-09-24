@@ -11,7 +11,8 @@ import BlogPostHead from '.'
     args={{
       title: 'Заголовок статьи',
       thumbnail: { src: 'assets/test-2.jpg' },
-      publishDate: '04.09.2020',
+      publishDate: '04 сентября 2020',
+      publishDateStrict: '2020-09-04',
       timeToRead: 12,
       isPreview: false,
     }}
@@ -22,11 +23,13 @@ import BlogPostHead from '.'
 
 Заголовок поста из блога с мета-информацией. Представлен в 2 вариациях: для статей и для карточек превью.
 
+Для карточек превью выводится дата в формате "N часов назад", если публикация произошла в течение последних 24 часов.
+
 <ArgsTable />
 
 ## Preview card
 
-Вариация для карточек отличается стилями: размерами, фоном и отключением фиксации изображения.
+Вариация для карточек отличается стилями: размерами, фоном и отключением фиксации изображения. Также только для них работает альтернативный формат даты для недавних публикаций.
 
 <Canvas>
   <Story
@@ -34,7 +37,9 @@ import BlogPostHead from '.'
     args={{
       title: 'Заголовок статьи',
       thumbnail: { src: 'assets/test-2.jpg' },
-      publishDate: '04.09.2020',
+      publishDate: '04 сентября 2020',
+      publishDateStrict: '2020-09-04',
+      differenceInHours: 290,
       timeToRead: 12,
       isPreview: true,
     }}

@@ -5,6 +5,7 @@ import styled from '@emotion/styled'
 import singleGridCell from '@/utils/singleGridCell'
 import { transitions, transparentize } from 'polished'
 import { BsCalendar, BsClock } from 'react-icons/bs'
+import media from '@/utils/media'
 
 const HeadContainer = styled.section(({ theme, isPreview }: ThemeProps & { isPreview: boolean }) => ({
   height: !isPreview ? theme.sizes.headHeight : theme.sizes.previewHeight,
@@ -41,11 +42,14 @@ const Meta = styled.section(({ theme, isPreview }: ThemeProps & { isPreview: boo
     parseFloat(!isPreview ? theme.sizes.headHeight : theme.sizes.previewHeight) - parseFloat(theme.sizes.clipSize)
   }rem`,
   left: '50%',
-  display: 'grid',
-  gridTemplateColumns: 'repeat(2, auto)',
-  gridGap: '1rem',
+  display: 'flex',
   padding: '0.5rem 1rem',
   transform: 'translateX(-50%)',
+  [media.sm]: { flexDirection: 'column', transform: 'translate(-50%, -2rem)' },
+  '> :not(:last-child)': {
+    marginRight: '1rem',
+    [media.sm]: { marginRight: 0 },
+  },
   ...theme.typography.styles.meta,
   backgroundColor: theme.colors.dynamic.secondary,
   boxShadow: `0 0 0 ${theme.sizes.linesWidth} ${theme.colors.dynamic.primary}`,
@@ -55,18 +59,24 @@ const Meta = styled.section(({ theme, isPreview }: ThemeProps & { isPreview: boo
 const MetaItem = styled.div(() => ({
   display: 'grid',
   gridTemplateColumns: 'repeat(2, auto)',
-  gridGap: '0.5rem',
+  gridGap: '1rem',
   alignItems: 'center',
+  justifyContent: 'start',
+  whiteSpace: 'nowrap',
 }))
 
 export interface BlogPostHeadProps {
-  /** Article title */
+  /** Blog post title */
   title: string
-  /** Article preview image */
+  /** Blog post preview image */
   thumbnail: FluidObject
-  /** Date of article publication in DD.MM.YYYY format */
+  /** Date of blog post publication in human readable format */
   publishDate: string
-  /** Calculated minutes to read based on article size */
+  /** Date of blog post publication in valid format for time tag */
+  publishDateStrict: string
+  /** Difference in hours between now and date of blog post publication */
+  differenceInHours?: number
+  /** Calculated minutes to read based on blog post size */
   timeToRead: number
   /** Use inside blog post preview */
   isPreview?: boolean
@@ -76,12 +86,25 @@ const BlogPostHead = ({
   title,
   thumbnail,
   publishDate,
+  publishDateStrict,
+  differenceInHours,
   timeToRead,
   isPreview = false,
   ...props
 }: BlogPostHeadProps) => {
   const BlogPostTitle = !isPreview ? Title : Title.withComponent('h3')
   const Time = MetaItem.withComponent('time')
+
+  let publishDateOutput = publishDate
+
+  if (differenceInHours !== undefined) {
+    if (differenceInHours === 0) {
+      publishDateOutput = 'только что'
+    } else if (differenceInHours < 24) {
+      publishDateOutput = `${differenceInHours} часов назад`
+    }
+  }
+
   return (
     <>
       <HeadContainer isPreview={isPreview} {...props}>
@@ -97,9 +120,9 @@ const BlogPostHead = ({
         </Wrapper>
       </HeadContainer>
       <Meta isPreview={isPreview}>
-        <Time dateTime={publishDate.replace(/(\d{2})\.(\d{2})\.(\d{4})/, '$3-$2-$1')}>
+        <Time dateTime={publishDateStrict}>
           <BsCalendar title="Дата публикации" />
-          {publishDate}
+          {publishDateOutput}
         </Time>
         <MetaItem>
           <BsClock title="Приблизительное время чтения" />

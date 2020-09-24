@@ -85,8 +85,10 @@ interface BlogPostProps {
   title: string
   /** Featured image */
   thumbnail: FluidObject
-  /** Publish date in DD/MM/YYYY format */
+  /** Date of blog post publication in human readable format */
   publishDate: string
+  /** Date of blog post publication in valid format for time tag */
+  publishDateStrict: string
   /** Time to read in minutes */
   timeToRead: number
   /** Link to Unsplash author page */
@@ -103,6 +105,7 @@ const BlogPost = ({
   title,
   thumbnail,
   publishDate,
+  publishDateStrict,
   timeToRead,
   unsplashLink,
   unsplashAuthor,
@@ -117,6 +120,7 @@ const BlogPost = ({
         thumbnail={thumbnail}
         title={title}
         publishDate={publishDate}
+        publishDateStrict={publishDateStrict}
         timeToRead={timeToRead}
         css={{ marginTop: `calc(-${theme.sizes.clipSize} + ${theme.sizes.linesWidth})` }}
       />

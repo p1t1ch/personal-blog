@@ -42,15 +42,19 @@ const Description = styled.section(({ theme }: ThemeProps) => ({
 export interface BlogPostsGridItemProps {
   /** Page path */
   slug: string
-  /** Article title */
+  /** Blog post title */
   title: string
-  /** Article preview image */
+  /** Blog post preview image */
   thumbnail: FluidObject
-  /** Date of article publication in DD.MM.YYYY format */
+  /** Date of blog post publication in human readable format */
   publishDate: string
-  /** Calculated minutes to read based on article size */
+  /** Date of blog post publication in valid format for time tag */
+  publishDateStrict: string
+  /** Difference in hours between now and date of blog post publication */
+  differenceInHours: number
+  /** Calculated minutes to read based on blog post size */
   timeToRead: number
-  /** Article short description */
+  /** Blog post short description */
   description: string
 }
 
@@ -59,6 +63,8 @@ export const BlogPostsGridItem = ({
   title,
   thumbnail,
   publishDate,
+  publishDateStrict,
+  differenceInHours,
   timeToRead,
   description,
   ...props
@@ -66,7 +72,15 @@ export const BlogPostsGridItem = ({
   return (
     <Article {...props}>
       <BlogPostLink to={slug}>
-        <BlogPostHead thumbnail={thumbnail} title={title} publishDate={publishDate} timeToRead={timeToRead} isPreview />
+        <BlogPostHead
+          thumbnail={thumbnail}
+          title={title}
+          publishDate={publishDate}
+          publishDateStrict={publishDateStrict}
+          differenceInHours={differenceInHours}
+          timeToRead={timeToRead}
+          isPreview
+        />
         <Description>{description}</Description>
       </BlogPostLink>
     </Article>
