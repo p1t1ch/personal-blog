@@ -1,14 +1,15 @@
 import React from 'react'
 import { graphql, Link, useStaticQuery } from 'gatsby'
 import styled from '@emotion/styled'
-import { ThemeProps } from '@theme'
+import { transitions } from 'polished'
 import { BsMoon, BsSun } from 'react-icons/bs'
+import { ThemeProps } from '@theme'
 import useRootWrapperContext from '@/components/RootWrapper/useRootWrapperContext'
-import Subheading from '../Subheading'
+import Subheading from '@/components/Subheading'
 
 const HeaderContainer = styled.header(({ theme }: ThemeProps) => ({
-  backgroundColor: theme.colors.static.white,
-  color: theme.colors.static.white,
+  backgroundColor: theme.colors.dynamic.primary,
+  ...transitions(['background-color'], theme.transitions.long),
 }))
 
 const MainSection = styled.section(({ theme }: ThemeProps) => ({
@@ -17,7 +18,8 @@ const MainSection = styled.section(({ theme }: ThemeProps) => ({
   display: 'flex',
   justifyContent: 'space-between',
   alignItems: 'center',
-  backgroundColor: theme.colors.static.black,
+  backgroundColor: theme.colors.dynamic.secondary,
+  ...transitions(['background-color'], theme.transitions.long),
   padding: `2rem ${theme.sizes.pagePadding} ${1.5 + parseFloat(theme.sizes.clipSize)}rem`,
   clipPath: `polygon(0 0, 100% 0%, 100% 100%, 0 calc(100% - ${theme.sizes.clipSize}))`,
 }))
@@ -25,7 +27,8 @@ const MainSection = styled.section(({ theme }: ThemeProps) => ({
 const HomeSection = styled.section(({ theme }: ThemeProps) => ({
   display: 'grid',
   placeItems: 'center',
-  backgroundColor: theme.colors.static.black,
+  backgroundColor: theme.colors.dynamic.secondary,
+  ...transitions(['background-color'], theme.transitions.long),
   marginTop: `calc(-${theme.sizes.clipSize} + ${theme.sizes.linesWidth})`,
   height: theme.sizes.headHeight,
   padding: `2rem ${theme.sizes.pagePadding} ${2 + parseFloat(theme.sizes.clipSize)}rem`,
@@ -35,13 +38,11 @@ const HomeSection = styled.section(({ theme }: ThemeProps) => ({
 
 const HomeLink = styled(Link)(({ theme }: ThemeProps) => ({
   ...theme.typography.styles.homeLink,
-  color: theme.colors.static.white,
 }))
 
 const Button = styled.button(({ theme }: ThemeProps) => ({
   display: 'inline-flex',
   ...theme.typography.styles.darkMode,
-  color: theme.colors.static.white,
 }))
 
 const Title = styled.h1(({ theme }: ThemeProps) => ({

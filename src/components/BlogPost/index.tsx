@@ -11,7 +11,10 @@ const Content = styled(Container)(({ theme }: ThemeProps) => ({
   h2: theme.typography.styles.h2,
   h3: theme.typography.styles.h3,
   'h4, h5, h6': theme.typography.styles.h4,
-  'h2, h3, h4, h5, h6, p, blockquote, ul, ol, figure, .gatsby-highlight, .gatsby-resp-iframe-wrapper, :not(.gatsby-resp-iframe-wrapper) > iframe': {
+  'h2, h3, h4, h5, h6': {
+    ...margin('2rem', null),
+  },
+  'p, blockquote, ul, ol, figure, .gatsby-highlight, .gatsby-resp-iframe-wrapper, :not(.gatsby-resp-iframe-wrapper) > iframe': {
     marginBottom: '1rem',
   },
   'li:not(:last-child)': {
@@ -56,7 +59,7 @@ const Content = styled(Container)(({ theme }: ThemeProps) => ({
     ...margin(null, `-${theme.sizes.pagePadding}`),
   },
   '.gatsby-resp-image-figcaption': {
-    paddingTop: '0.5rem',
+    padding: `0.5rem ${theme.sizes.pagePadding} 0`,
     textAlign: 'center',
     ...theme.typography.styles.small,
     fontVariationSettings: '"slnt" -12',

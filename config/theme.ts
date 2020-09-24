@@ -92,7 +92,7 @@ const typography = {
     },
     body: {
       fontSize: 'clamp(1.125rem, 2.5vw, 1.25rem)', // 20-18
-      lineHeight: 1.6,
+      lineHeight: 1.7,
     },
     small: {
       fontSize: 'clamp(1rem, 2.5vw, 1.125rem)', // 18-16
@@ -120,6 +120,11 @@ const typography = {
       fontWeight: 700,
       fontSize: 'clamp(1.9375rem, 3vw, 3.0625rem)', // 49-31
       lineHeight: 1.3,
+    },
+    meta: {
+      fontWeight: 500,
+      fontSize: 'clamp(1.125rem, 2.5vw, 1.25rem)', // 20-18
+      lineHeight: 1.6,
     },
   },
 }

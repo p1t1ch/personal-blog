@@ -1,15 +1,17 @@
 import React from 'react'
 import { graphql, Link, useStaticQuery } from 'gatsby'
 import styled from '@emotion/styled'
+import { transitions } from 'polished'
 import { ThemeProps } from '@theme'
 
 const FooterContainer = styled.footer(({ theme }: ThemeProps) => ({
-  backgroundColor: theme.colors.static.white,
-  color: theme.colors.static.white,
+  backgroundColor: theme.colors.dynamic.primary,
+  ...transitions(['background-color'], theme.transitions.long),
 }))
 
 const Wrapper = styled.div(({ theme }: ThemeProps) => ({
-  backgroundColor: theme.colors.static.black,
+  backgroundColor: theme.colors.dynamic.secondary,
+  ...transitions(['background-color'], theme.transitions.long),
   padding: `${theme.sizes.clipSize} ${theme.sizes.pagePadding} 1rem`,
   clipPath: `polygon(0 0, 100% ${theme.sizes.clipSize}, 100% 100%, 0 100%)`,
   textAlign: 'center',
@@ -17,7 +19,6 @@ const Wrapper = styled.div(({ theme }: ThemeProps) => ({
 
 const HomeLink = styled(Link)(({ theme }: ThemeProps) => ({
   ...theme.typography.styles.h4,
-  color: theme.colors.static.white,
 }))
 
 interface FooterQuery {

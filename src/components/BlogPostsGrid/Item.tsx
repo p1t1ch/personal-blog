@@ -16,9 +16,8 @@ const BlogPostLink = styled(Link)(({ theme }: ThemeProps) => ({
   flexDirection: 'column',
   height: '100%',
   backgroundColor: theme.colors.dynamic.primary,
-  color: theme.colors.dynamic.primary,
   filter: 'grayscale(1)',
-  ...transitions(['filter', 'transform', 'background-color', 'color'], theme.transitions.long),
+  ...transitions(['filter', 'transform', 'background-color'], theme.transitions.long),
   ':hover, :focus': {
     filter: 'grayscale(0)',
     transform: 'translateY(-0.5rem)',
@@ -31,13 +30,13 @@ const BlogPostLink = styled(Link)(({ theme }: ThemeProps) => ({
 
 const Description = styled.section(({ theme }: ThemeProps) => ({
   flexGrow: 1,
-  padding: `3rem 1rem 1rem`,
+  padding: '3.5rem 1.5rem 1.5rem',
   clipPath: `polygon(0 0, 100% ${theme.sizes.clipSize}, 100% 100%, 0 100%)`,
   marginTop: `calc(-${theme.sizes.clipSize} + ${theme.sizes.linesWidth})`,
   backgroundColor: theme.colors.dynamic.secondary,
   border: `${theme.sizes.linesWidth} solid ${theme.colors.dynamic.primary}`,
   borderTop: 'none',
-  ...transitions(['background-color', 'border-color'], theme.transitions.long),
+  ...transitions(['background-color', 'border-color', 'color'], theme.transitions.long),
 }))
 
 export interface BlogPostsGridItemProps {

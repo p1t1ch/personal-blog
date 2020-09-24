@@ -8,8 +8,6 @@ import { BsCalendar, BsClock } from 'react-icons/bs'
 
 const HeadContainer = styled.section(({ theme, isPreview }: ThemeProps & { isPreview: boolean }) => ({
   height: !isPreview ? theme.sizes.headHeight : theme.sizes.previewHeight,
-  backgroundColor: !isPreview ? theme.colors.static.white : theme.colors.dynamic.primary,
-  ...transitions(['background-color'], theme.transitions.long),
 }))
 
 const Wrapper = styled.div(({ theme, isPreview }: ThemeProps & { isPreview: boolean }) => ({
@@ -46,11 +44,12 @@ const Meta = styled.section(({ theme, isPreview }: ThemeProps & { isPreview: boo
   display: 'grid',
   gridTemplateColumns: 'repeat(2, auto)',
   gridGap: '1rem',
-  padding: '0.5rem',
-  backgroundColor: theme.colors.static.black,
-  color: theme.colors.static.white,
-  boxShadow: `0 0 0 ${theme.sizes.linesWidth} ${theme.colors.static.white}`,
-  transform: 'translate(-50%, -0.75rem)',
+  padding: '0.5rem 1rem',
+  transform: 'translateX(-50%)',
+  ...theme.typography.styles.meta,
+  backgroundColor: theme.colors.dynamic.secondary,
+  boxShadow: `0 0 0 ${theme.sizes.linesWidth} ${theme.colors.dynamic.primary}`,
+  ...transitions(['background-color', 'box-shadow'], theme.transitions.long),
 }))
 
 const MetaItem = styled.div(() => ({

@@ -31,9 +31,9 @@ const GlobalStyles = () => {
           },
           body: {
             ...theme.typography.styles.body,
-            backgroundColor: theme.colors.static.black,
+            backgroundColor: theme.colors.dynamic.secondary,
             color: theme.colors.dynamic.primary,
-            ...transitions(['color'], theme.transitions.long),
+            ...transitions(['background-color', 'color'], theme.transitions.long),
           },
           'h1, h2, h3, h4, h5, h6, p, ol, ul, dl, dd, hr, blockquote, figure': {
             margin: 0,
@@ -51,6 +51,7 @@ const GlobalStyles = () => {
             padding: 0,
             background: 'none',
             cursor: 'pointer',
+            color: theme.colors.dynamic.primary,
             ...transitions(['color', 'background-color'], theme.transitions.long),
             ':hover': {
               ...transitions(['color', 'background-color'], theme.transitions.short),
@@ -95,7 +96,7 @@ const GlobalStyles = () => {
             backgroundColor: theme.colors.static.black,
             boxShadow: `inset 0 0 0 ${theme.sizes.linesWidth} ${theme.colors.dynamic.primary}`,
             fontSize: theme.prism.fontSize,
-            ...transitions(['border-color'], theme.transitions.long),
+            ...transitions(['box-shadow'], theme.transitions.long),
           },
           '.gatsby-highlight pre[class*="language-"]': {
             backgroundColor: 'transparent',
