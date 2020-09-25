@@ -23,7 +23,6 @@ const GlobalStyles = () => {
           },
           html: {
             fontFamily: [theme.typography.family, ...theme.typography.stacks.sansSerif].join(', '),
-            fontFeatureSettings: '"frac"',
             scrollBehavior: 'smooth',
             '@media (prefers-reduced-motion)': {
               scrollBehavior: 'auto',
