@@ -24,7 +24,6 @@ const TitleWrapper = styled.div(({ theme }: ThemeProps) => ({
   placeItems: 'center',
   textAlign: 'center',
   backgroundColor: transparentize(0.5, theme.colors.static.black),
-  zIndex: 1,
 }))
 
 const Title = styled.h1(({ theme, isPreview }: ThemeProps & { isPreview: boolean }) => ({
@@ -100,6 +99,7 @@ const BlogPostHead = ({
             fluid={thumbnail}
             alt={`Превью для статьи ${title}`}
             imgStyle={!isPreview ? { position: 'fixed', objectPosition: '50% 100%' } : {}}
+            css={{ zIndex: -1 }}
           />
           <TitleWrapper>
             <BlogPostTitle isPreview={isPreview}>{title}</BlogPostTitle>
