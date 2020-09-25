@@ -6,7 +6,6 @@ import singleGridCell from '@/utils/singleGridCell'
 import { transitions, transparentize } from 'polished'
 import { BsCalendar, BsClock } from 'react-icons/bs'
 import media from '@/utils/media'
-import declOfNum from '@/utils/declOfNum'
 
 const HeadContainer = styled.section(({ theme, isPreview }: ThemeProps & { isPreview: boolean }) => ({
   height: !isPreview ? theme.sizes.headHeight : theme.sizes.previewHeight,
@@ -54,7 +53,7 @@ const Meta = styled.section(({ theme, isPreview }: ThemeProps & { isPreview: boo
   ...theme.typography.styles.meta,
   backgroundColor: theme.colors.dynamic.secondary,
   boxShadow: `0 0 0 ${theme.sizes.linesWidth} ${theme.colors.dynamic.primary}`,
-  ...transitions(['background-color', 'box-shadow'], theme.transitions.long),
+  ...transitions(['background-color', 'box-shadow', 'color'], theme.transitions.long),
 }))
 
 const MetaItem = styled.div(() => ({
@@ -75,8 +74,6 @@ export interface BlogPostHeadProps {
   publishDate: string
   /** Date of blog post publication in valid format for time tag */
   publishDateStrict: string
-  /** Difference in hours between now and date of blog post publication */
-  differenceInHours?: number
   /** Calculated minutes to read based on blog post size */
   timeToRead: number
   /** Use inside blog post preview */
@@ -88,23 +85,12 @@ const BlogPostHead = ({
   thumbnail,
   publishDate,
   publishDateStrict,
-  differenceInHours,
   timeToRead,
   isPreview = false,
   ...props
 }: BlogPostHeadProps) => {
   const BlogPostTitle = !isPreview ? Title : Title.withComponent('h3')
   const Time = MetaItem.withComponent('time')
-
-  let publishDateOutput = publishDate
-
-  if (differenceInHours !== undefined) {
-    if (differenceInHours === 0) {
-      publishDateOutput = 'только что'
-    } else if (differenceInHours < 24) {
-      publishDateOutput = `${differenceInHours} ${declOfNum(differenceInHours, ['час', 'часа', 'часов'])} назад`
-    }
-  }
 
   return (
     <>
@@ -123,7 +109,7 @@ const BlogPostHead = ({
       <Meta isPreview={isPreview}>
         <Time dateTime={publishDateStrict}>
           <BsCalendar title="Дата публикации" />
-          {publishDateOutput}
+          {publishDate}
         </Time>
         <MetaItem>
           <BsClock title="Приблизительное время чтения" />

@@ -42,7 +42,6 @@ const IndexPage = ({ data }: PageProps<IndexPageQuery>) => {
     image: node.frontmatter.thumbnail.childImageSharp.fluid,
     publishDate: node.frontmatter.publishDate,
     publishDateStrict: node.frontmatter.publishDateStrict,
-    differenceInHours: Number(node.frontmatter.differenceInHours) + 3, // remark doesn't respect timezones
     timeToRead: node.timeToRead,
   }))
 
@@ -61,7 +60,6 @@ const IndexPage = ({ data }: PageProps<IndexPageQuery>) => {
               thumbnail={blogPost.image}
               publishDate={blogPost.publishDate}
               publishDateStrict={blogPost.publishDateStrict}
-              differenceInHours={blogPost.differenceInHours}
               timeToRead={blogPost.timeToRead}
             />
           ))}
@@ -85,7 +83,6 @@ export const pageQuery = graphql`
             title
             publishDate(formatString: "DD MMMM YYYY", locale: "ru")
             publishDateStrict: publishDate(formatString: "YYYY-MM-DD")
-            differenceInHours: publishDate(difference: "hours")
             description
             thumbnail {
               childImageSharp {

@@ -50,8 +50,6 @@ export interface BlogPostsGridItemProps {
   publishDate: string
   /** Date of blog post publication in valid format for time tag */
   publishDateStrict: string
-  /** Difference in hours between now and date of blog post publication */
-  differenceInHours: number
   /** Calculated minutes to read based on blog post size */
   timeToRead: number
   /** Blog post short description */
@@ -64,7 +62,6 @@ export const BlogPostsGridItem = ({
   thumbnail,
   publishDate,
   publishDateStrict,
-  differenceInHours,
   timeToRead,
   description,
   ...props
@@ -77,7 +74,6 @@ export const BlogPostsGridItem = ({
           title={title}
           publishDate={publishDate}
           publishDateStrict={publishDateStrict}
-          differenceInHours={differenceInHours}
           timeToRead={timeToRead}
           isPreview
         />
