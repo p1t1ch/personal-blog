@@ -50,6 +50,7 @@ const Meta = styled.section(({ theme, isPreview }: ThemeProps & { isPreview: boo
     [media.sm]: { marginRight: 0 },
   },
   ...theme.typography.styles.meta,
+  color: theme.colors.dynamic.primary,
   backgroundColor: theme.colors.dynamic.secondary,
   boxShadow: `0 0 0 ${theme.sizes.linesWidth} ${theme.colors.dynamic.primary}`,
   ...transitions(['background-color', 'box-shadow', 'color'], theme.transitions.long),
