@@ -3,7 +3,7 @@ module.exports = {
   ci: {
     collect: {
       // Run Lighthouse only on these routes. Localhost port will be added automatically
-      url: ['http://localhost/'],
+      url: ['http://localhost/', 'http://localhost/blog/how-gatsby-blogs-work/'],
       // We need to set build result folder now explicitly because we defined url property
       staticDistDir: './public',
     },
