@@ -10,13 +10,15 @@ interface LayoutProps {
   children: React.ReactNode
   /** Change layout for home page */
   isHome?: boolean
+  /** Change layout for blog post page */
+  isBlogPost?: boolean
 }
 
-const Layout = ({ children, isHome }: LayoutProps) => {
+const Layout = ({ children, isHome, isBlogPost }: LayoutProps) => {
   const theme = useTheme<Theme>()
 
   return (
-    <>
+    <div css={!isBlogPost ? { display: 'grid', gridTemplateRows: 'auto 1fr auto', minHeight: '100vh' } : {}}>
       <Header isHome={isHome} />
       <main
         css={{
@@ -27,7 +29,7 @@ const Layout = ({ children, isHome }: LayoutProps) => {
         {children}
       </main>
       <Footer />
-    </>
+    </div>
   )
 }
 

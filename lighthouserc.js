@@ -8,7 +8,7 @@ module.exports = {
       staticDistDir: './public',
     },
     upload: {
-      // We don't wandtto set up our own server to save reports in a long term
+      // We don't want to set up our own server to save reports in a long term
       target: 'temporary-public-storage',
     },
   },

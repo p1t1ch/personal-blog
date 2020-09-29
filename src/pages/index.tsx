@@ -86,7 +86,7 @@ export const pageQuery = graphql`
             description
             thumbnail {
               childImageSharp {
-                fluid(maxWidth: 1440, traceSVG: { color: "#2b2b2b" }) {
+                fluid(maxWidth: 1440, traceSVG: { background: "#fff", color: "#2b2b2b", threshold: 24 }) {
                   ...GatsbyImageSharpFluid_withWebp_tracedSVG
                 }
               }

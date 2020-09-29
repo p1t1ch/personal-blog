@@ -6,12 +6,15 @@ import Layout from '.'
 # Layout
 
 <Canvas>
-  <Story name="Basic" args={{ children: 'Съешь ещё этих мягких французских булок, да выпей же чаю', isHome: false }}>
+  <Story
+    name="Basic"
+    args={{ children: 'Съешь ещё этих мягких французских булок, да выпей же чаю', isHome: false, isBlogPost: false }}
+  >
     {args => <Layout {...args} />}
   </Story>
 </Canvas>
 
-Обёртка для компонентов страниц. Включает в себя хэдер и футер, оборачивает `children` в **main**. Флаг `isHome` пробрасывается до хэдера.
+Обёртка для компонентов страниц. Включает в себя хэдер и футер, оборачивает `children` в **main**. Флаг `isHome` пробрасывается до хэдера, `isBlogPost` отключает растягивание main, т.к. это по непонятной причине вызывает там баги на адаптиве.
 
 <ArgsTable story="." />
 
@@ -19,6 +22,17 @@ import Layout from '.'
 
 <Canvas>
   <Story name="Home page" args={{ children: 'Съешь ещё этих мягких французских булок, да выпей же чаю', isHome: true }}>
+    {args => <Layout {...args} />}
+  </Story>
+</Canvas>
+
+## Blog post
+
+<Canvas>
+  <Story
+    name="Blog post page"
+    args={{ children: 'Съешь ещё этих мягких французских булок, да выпей же чаю', isBlogPost: true }}
+  >
     {args => <Layout {...args} />}
   </Story>
 </Canvas>

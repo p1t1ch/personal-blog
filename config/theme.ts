@@ -35,7 +35,7 @@ const sizes = {
   // Main container max width
   mainContainerWidth: '90rem',
   // Blog post container max width
-  blogPostContainerWidth: '60ch',
+  blogPostContainerWidth: '49rem',
   // Horizontal paddings for all page containers
   pagePadding: '1rem',
   // Difference of heights in clip-path

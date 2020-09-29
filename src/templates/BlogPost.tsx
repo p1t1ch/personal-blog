@@ -33,7 +33,7 @@ const BlogPostTemplate = ({ data }: PageProps<BlogPostTemplateQuery>) => {
   const { html, timeToRead, fields, frontmatter } = data.markdownRemark
 
   return (
-    <Layout>
+    <Layout isBlogPost>
       <Seo
         title={frontmatter.title}
         description={frontmatter.description}
@@ -72,7 +72,7 @@ export const pageQuery = graphql`
         tags
         thumbnail {
           childImageSharp {
-            fluid(quality: 100, traceSVG: { color: "#2b2b2b" }) {
+            fluid(quality: 100, traceSVG: { background: "#fff", color: "#2b2b2b", threshold: 24 }) {
               ...GatsbyImageSharpFluid_withWebp_tracedSVG
             }
           }
