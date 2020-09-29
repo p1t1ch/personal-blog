@@ -17,12 +17,6 @@ module.exports = {
     subheadingTags: config.subheadingTags,
   },
   plugins: [
-    {
-      resolve: 'gatsby-plugin-google-analytics',
-      options: {
-        trackingId: config.trackingID,
-      },
-    },
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-emotion',
     {

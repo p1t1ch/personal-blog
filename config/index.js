@@ -25,8 +25,6 @@ module.exports = {
   tracedSVGColor: '#2b2b2b',
   /** Width of blogpost page container to generate fluid images */
   containerWidth: 784,
-  /** Google Analytics tracking ID */
-  trackingID: 'UA-178665778-1',
   /** Link text in header */
   headerLink: 'Блог “У&nbsp;Василича”',
   /** Link footer in footer */
