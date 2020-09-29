@@ -8,7 +8,7 @@ module.exports = {
   /** Keywords describing the project. Used in SEO meta tag */
   keywords: ['p1t1ch', 'blog', 'gatsby'],
   /** Absolute deployment path (without trailing slash). Used as base URL in SEO meta tags */
-  baseUrl: 'https://p1t1ch-personal-blog.netlify.app',
+  baseUrl: 'https://p1t1ch.com',
   /** Site language. Added in html tag and PWA manifest */
   lang: 'ru',
   /** Your username on Facebook. Used in SEO meta tags */
