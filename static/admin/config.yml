@@ -1,12 +1,12 @@
 backend:
   name: github
-  repo: p1t1ch/personal-blog
+  repo: p1t1ch/p1t1ch.com
 
 media_folder: static/assets
 public_folder: /assets
 
 publish_mode: editorial_workflow
-site_url: https://p1t1ch-personal-blog.netlify.app
+site_url: https://p1t1ch.com
 
 collections:
   - name: 'blog'
