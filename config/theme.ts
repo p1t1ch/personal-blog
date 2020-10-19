@@ -9,22 +9,23 @@ const colors = {
   yellow: '#d4d0ab',
 }
 
-// export const lightTheme = {
-//   primary: palette.black,
-//   secondary: palette.white,
-//   active: palette.darkPurple,
-// }
+export const themeColors = {
+  primary: {
+    light: colors.black,
+    dark: colors.white,
+  },
+  secondary: {
+    light: colors.white,
+    dark: colors.black,
+  },
+  active: {
+    light: colors.darkPurple,
+    dark: colors.lightPurple,
+  },
+}
 
-// export const darkTheme = {
-//   primary: palette.white,
-//   secondary: palette.black,
-//   active: palette.lightPurple,
-// }
-
-// const colors = {
-//   static: palette,
-//   dynamic: lightTheme,
-// }
+export type ColorSchemeTypes = 'light' | 'dark'
+export type ColorSchemeVars = keyof typeof themeColors
 
 const breakpoints = {
   lg: 1440,
@@ -167,6 +168,9 @@ const theme = {
   transitions,
   prism,
 }
+
+export const INITIAL_COLOR_SCHEME_CSS_VAR = '--initial-color-scheme'
+export const COLOR_SCHEME_LC_KEY = 'color-scheme'
 
 // Use this type with useTheme hook
 export type Theme = typeof theme

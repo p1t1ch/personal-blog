@@ -6,7 +6,7 @@ import singleGridCell from '@/utils/singleGridCell'
 import { transitions, transparentize } from 'polished'
 import { BsCalendar, BsClock } from 'react-icons/bs'
 import media from '@/utils/media'
-import cvar from '@/utils/cvar'
+import colorVar from '@/utils/colorVar'
 
 const HeadContainer = styled.section(({ theme, isPreview }: ThemeProps & { isPreview: boolean }) => ({
   height: !isPreview ? theme.sizes.headHeight : theme.sizes.previewHeight,
@@ -51,9 +51,9 @@ const Meta = styled.section(({ theme, isPreview }: ThemeProps & { isPreview: boo
     [media.sm]: { marginRight: 0 },
   },
   ...theme.typography.styles.meta,
-  color: cvar('primary'),
-  backgroundColor: cvar('secondary'),
-  boxShadow: `0 0 0 ${theme.sizes.linesWidth} ${cvar('primary')}`,
+  color: colorVar('primary'),
+  backgroundColor: colorVar('secondary'),
+  boxShadow: `0 0 0 ${theme.sizes.linesWidth} ${colorVar('primary')}`,
   ...transitions(['background-color', 'box-shadow', 'color'], theme.transitions.long),
 }))
 

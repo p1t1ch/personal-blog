@@ -4,8 +4,10 @@ import { Global } from '@emotion/core'
 import { useTheme } from 'emotion-theming'
 import { buttons, transitions, normalize, margin, transparentize } from 'polished'
 import { Theme } from '@theme'
-import cvar from '@/utils/cvar'
+import colorVar from '@/utils/colorVar'
 import '@/fonts/index.css'
+
+// TODO Remove root style
 
 const GlobalStyles = () => {
   const theme = useTheme<Theme>()
@@ -16,12 +18,10 @@ const GlobalStyles = () => {
         ...normalize(),
         {
           ':root': {
+            '--initial-color-scheme': 'light',
             '--color-primary': theme.colors.black,
             '--color-secondary': theme.colors.white,
             '--color-active': theme.colors.darkPurple,
-            // '--color-primary': theme.colors.white,
-            // '--color-secondary': theme.colors.black,
-            // '--color-active': theme.colors.lightPurple,
           },
         },
         {
@@ -29,8 +29,8 @@ const GlobalStyles = () => {
             boxSizing: 'border-box',
           },
           '::selection': {
-            backgroundColor: cvar('primary'),
-            color: cvar('secondary'),
+            backgroundColor: colorVar('primary'),
+            color: colorVar('secondary'),
           },
           html: {
             fontFamily: [theme.typography.family, ...theme.typography.stacks.sansSerif].join(', '),
@@ -41,8 +41,8 @@ const GlobalStyles = () => {
           },
           body: {
             ...theme.typography.styles.body,
-            backgroundColor: cvar('secondary'),
-            color: cvar('primary'),
+            backgroundColor: colorVar('secondary'),
+            color: colorVar('primary'),
             ...transitions(['background-color', 'color'], theme.transitions.long),
           },
           'h1, h2, h3, h4, h5, h6, p, ol, ul, dl, dd, hr, blockquote, figure': {
@@ -53,7 +53,7 @@ const GlobalStyles = () => {
             outline: 'none',
           },
           ':focus': {
-            outline: `0.25rem solid ${cvar('active')}`,
+            outline: `0.25rem solid ${colorVar('active')}`,
             outlineOffset: '0.125rem',
           },
           [buttons()]: {
@@ -61,7 +61,7 @@ const GlobalStyles = () => {
             padding: 0,
             background: 'none',
             cursor: 'pointer',
-            color: cvar('primary'),
+            color: colorVar('primary'),
             ...transitions(['color', 'background-color'], theme.transitions.long),
             ':hover': {
               ...transitions(['color', 'background-color'], theme.transitions.short),
@@ -69,7 +69,7 @@ const GlobalStyles = () => {
           },
           a: {
             textDecoration: 'none',
-            color: cvar('primary'),
+            color: colorVar('primary'),
             ...transitions(['color'], theme.transitions.long),
             ':hover': {
               ...transitions(['color'], theme.transitions.short),
@@ -104,7 +104,7 @@ const GlobalStyles = () => {
           '.gatsby-highlight': {
             position: 'relative',
             backgroundColor: theme.colors.black,
-            boxShadow: `inset 0 0 0 ${theme.sizes.linesWidth} ${cvar('primary')}`,
+            boxShadow: `inset 0 0 0 ${theme.sizes.linesWidth} ${colorVar('primary')}`,
             fontSize: theme.prism.fontSize,
             ...transitions(['box-shadow'], theme.transitions.long),
           },
@@ -126,8 +126,8 @@ const GlobalStyles = () => {
           ':not(pre) > code': {
             padding: `${theme.prism.codePadding.vertical} ${theme.prism.codePadding.horizontal}`,
             borderRadius: 0,
-            backgroundColor: cvar('primary'),
-            color: cvar('secondary'),
+            backgroundColor: colorVar('primary'),
+            color: colorVar('secondary'),
             ...transitions(['background-color', 'color'], theme.transitions.long),
           },
           // Add styles for bash code blocks

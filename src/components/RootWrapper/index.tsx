@@ -1,11 +1,10 @@
 import React from 'react'
 import { ThemeProvider } from 'emotion-theming'
 import GlobalStyles from '@/components/GlobalStyles'
+import ColorSchemeProvider from '@/components/ColorSchemeProvider'
 import theme from '@theme'
 import 'prism-themes/themes/prism-a11y-dark.css'
 import 'prismjs/plugins/command-line/prism-command-line.css'
-import useDarkMode from '@/utils/useDarkMode'
-import { RootWrapperContext } from './useRootWrapperContext'
 
 interface RootWrapperProps {
   /** Site content */
@@ -13,15 +12,13 @@ interface RootWrapperProps {
 }
 
 const RootWrapper = ({ children }: RootWrapperProps) => {
-  const [isDarkMode, setIsDarkMode] = useDarkMode()
-
   return (
-    <RootWrapperContext.Provider value={{ isDarkMode, setIsDarkMode }}>
+    <ColorSchemeProvider>
       <ThemeProvider theme={theme}>
         <GlobalStyles />
         {children}
       </ThemeProvider>
-    </RootWrapperContext.Provider>
+    </ColorSchemeProvider>
   )
 }
 

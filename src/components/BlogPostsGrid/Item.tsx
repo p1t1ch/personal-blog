@@ -5,7 +5,7 @@ import styled from '@emotion/styled'
 import { transitions } from 'polished'
 import { ThemeProps } from '@theme'
 import BlogPostHead from '@/components/BlogPostHead'
-import cvar from '@/utils/cvar'
+import colorVar from '@/utils/colorVar'
 
 const Article = styled.article(() => ({
   height: '100%',
@@ -16,7 +16,7 @@ const BlogPostLink = styled(Link)(({ theme }: ThemeProps) => ({
   display: 'flex',
   flexDirection: 'column',
   height: '100%',
-  backgroundColor: cvar('primary'),
+  backgroundColor: colorVar('primary'),
   filter: 'grayscale(1)',
   ...transitions(['filter', 'transform', 'background-color'], theme.transitions.long),
   ':hover, :focus': {
@@ -34,8 +34,8 @@ const Description = styled.section(({ theme }: ThemeProps) => ({
   padding: '3.5rem 1.5rem 1.5rem',
   clipPath: `polygon(0 0, 100% ${theme.sizes.clipSize}, 100% 100%, 0 100%)`,
   marginTop: `calc(-${theme.sizes.clipSize} + ${theme.sizes.linesWidth})`,
-  backgroundColor: cvar('secondary'),
-  border: `${theme.sizes.linesWidth} solid ${cvar('primary')}`,
+  backgroundColor: colorVar('secondary'),
+  border: `${theme.sizes.linesWidth} solid ${colorVar('primary')}`,
   borderTop: 'none',
   ...transitions(['background-color', 'border-color', 'color'], theme.transitions.long),
 }))

@@ -6,7 +6,7 @@ import styled from '@emotion/styled'
 import { margin, size, transitions } from 'polished'
 import BlogPostHead from '@/components/BlogPostHead'
 import Container from '@/components/Container'
-import cvar from '@/utils/cvar'
+import colorVar from '@/utils/colorVar'
 
 const Content = styled(Container)(({ theme }: ThemeProps) => ({
   h2: theme.typography.styles.h2,
@@ -32,28 +32,28 @@ const Content = styled(Container)(({ theme }: ThemeProps) => ({
       content: 'counter(orderedlist)',
       padding: '0 0.25rem',
       marginRight: '1rem',
-      border: `0.125rem solid ${cvar('primary')}`,
+      border: `0.125rem solid ${colorVar('primary')}`,
       ...transitions(['border-color'], theme.transitions.long),
     },
   },
   blockquote: {
     display: 'grid',
     gridGap: '0.5rem',
-    borderLeft: `0.5rem solid ${cvar('primary')}`,
+    borderLeft: `0.5rem solid ${colorVar('primary')}`,
     padding: '0.5rem 1rem',
     paddingRight: 0,
     ...transitions(['border-color'], theme.transitions.long),
     '> *': { marginBottom: 0 },
   },
   hr: {
-    border: `2px solid ${cvar('primary')}`,
+    border: `2px solid ${colorVar('primary')}`,
     ...margin('2rem', null),
     ...transitions(['border-color'], theme.transitions.long),
   },
   a: {
     textDecoration: 'underline',
     ':hover': {
-      color: cvar('active'),
+      color: colorVar('active'),
     },
   },
   '.gatsby-highlight, .gatsby-resp-iframe-wrapper, .gatsby-resp-image-figure': {
