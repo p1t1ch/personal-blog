@@ -18,7 +18,6 @@ const GlobalStyles = () => {
         ...normalize(),
         {
           ':root': {
-            '--initial-color-scheme': 'light',
             '--color-primary': theme.colors.black,
             '--color-secondary': theme.colors.white,
             '--color-active': theme.colors.darkPurple,
