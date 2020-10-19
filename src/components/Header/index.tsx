@@ -6,9 +6,10 @@ import { BsMoon, BsSun } from 'react-icons/bs'
 import { ThemeProps } from '@theme'
 import useRootWrapperContext from '@/components/RootWrapper/useRootWrapperContext'
 import Subheading from '@/components/Subheading'
+import cvar from '@/utils/cvar'
 
 const HeaderContainer = styled.header(({ theme }: ThemeProps) => ({
-  backgroundColor: theme.colors.dynamic.primary,
+  backgroundColor: cvar('primary'),
   ...transitions(['background-color'], theme.transitions.long),
 }))
 
@@ -18,7 +19,7 @@ const MainSection = styled.section(({ theme }: ThemeProps) => ({
   display: 'flex',
   justifyContent: 'space-between',
   alignItems: 'center',
-  backgroundColor: theme.colors.dynamic.secondary,
+  backgroundColor: cvar('secondary'),
   ...transitions(['background-color'], theme.transitions.long),
   padding: `2rem ${theme.sizes.pagePadding} ${1.5 + parseFloat(theme.sizes.clipSize)}rem`,
   clipPath: `polygon(0 0, 100% 0%, 100% 100%, 0 calc(100% - ${theme.sizes.clipSize}))`,
@@ -27,7 +28,7 @@ const MainSection = styled.section(({ theme }: ThemeProps) => ({
 const HomeSection = styled.section(({ theme }: ThemeProps) => ({
   display: 'grid',
   placeItems: 'center',
-  backgroundColor: theme.colors.dynamic.secondary,
+  backgroundColor: cvar('secondary'),
   ...transitions(['background-color'], theme.transitions.long),
   marginTop: `calc(-${theme.sizes.clipSize} + ${theme.sizes.linesWidth})`,
   height: theme.sizes.headHeight,

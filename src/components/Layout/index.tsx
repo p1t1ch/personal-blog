@@ -4,6 +4,7 @@ import { useTheme } from 'emotion-theming'
 import { transitions } from 'polished'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
+import cvar from '@/utils/cvar'
 
 interface LayoutProps {
   /** Page content */
@@ -22,7 +23,7 @@ const Layout = ({ children, isHome, isBlogPost }: LayoutProps) => {
       <Header isHome={isHome} />
       <main
         css={{
-          backgroundColor: theme.colors.dynamic.primary,
+          backgroundColor: cvar('primary'),
           ...transitions(['background-color'], theme.transitions.long),
         }}
       >

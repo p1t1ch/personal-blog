@@ -17,7 +17,7 @@ const useDarkMode = () => {
 
   const isDarkMode = savedMode ?? prefersDarkMode
 
-  return [isDarkMode, setSavedMode]
+  return [isDarkMode, setSavedMode] as [boolean, (value: boolean) => void]
 }
 
 export default useDarkMode
