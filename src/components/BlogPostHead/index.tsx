@@ -3,7 +3,7 @@ import Img, { FluidObject } from 'gatsby-image'
 import { ThemeProps } from '@theme'
 import styled from '@emotion/styled'
 import singleGridCell from '@/utils/singleGridCell'
-import { transitions, transparentize } from 'polished'
+import { transparentize } from 'polished'
 import { BsCalendar, BsClock } from 'react-icons/bs'
 import media from '@/utils/media'
 import colorVar from '@/utils/colorVar'
@@ -54,7 +54,6 @@ const Meta = styled.section(({ theme, isPreview }: ThemeProps & { isPreview: boo
   color: colorVar('primary'),
   backgroundColor: colorVar('secondary'),
   boxShadow: `0 0 0 ${theme.sizes.linesWidth} ${colorVar('primary')}`,
-  ...transitions(['background-color', 'box-shadow', 'color'], theme.transitions.long),
 }))
 
 const MetaItem = styled.div(() => ({

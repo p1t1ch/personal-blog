@@ -1,16 +1,14 @@
 import React from 'react'
 import { graphql, Link, useStaticQuery } from 'gatsby'
 import styled from '@emotion/styled'
-import { transitions } from 'polished'
 import { BsMoon, BsSun } from 'react-icons/bs'
 import { ThemeProps } from '@theme'
 import { useColorScheme } from '@/components/ColorSchemeProvider'
 import Subheading from '@/components/Subheading'
 import colorVar from '@/utils/colorVar'
 
-const HeaderContainer = styled.header(({ theme }: ThemeProps) => ({
+const HeaderContainer = styled.header(() => ({
   backgroundColor: colorVar('primary'),
-  ...transitions(['background-color'], theme.transitions.long),
 }))
 
 const MainSection = styled.section(({ theme }: ThemeProps) => ({
@@ -20,7 +18,6 @@ const MainSection = styled.section(({ theme }: ThemeProps) => ({
   justifyContent: 'space-between',
   alignItems: 'center',
   backgroundColor: colorVar('secondary'),
-  ...transitions(['background-color'], theme.transitions.long),
   padding: `2rem ${theme.sizes.pagePadding} ${1.5 + parseFloat(theme.sizes.clipSize)}rem`,
   clipPath: `polygon(0 0, 100% 0%, 100% 100%, 0 calc(100% - ${theme.sizes.clipSize}))`,
 }))
@@ -29,7 +26,6 @@ const HomeSection = styled.section(({ theme }: ThemeProps) => ({
   display: 'grid',
   placeItems: 'center',
   backgroundColor: colorVar('secondary'),
-  ...transitions(['background-color'], theme.transitions.long),
   marginTop: `calc(-${theme.sizes.clipSize} + ${theme.sizes.linesWidth})`,
   height: theme.sizes.headHeight,
   padding: `2rem ${theme.sizes.pagePadding} ${2 + parseFloat(theme.sizes.clipSize)}rem`,

@@ -18,7 +18,7 @@ const BlogPostLink = styled(Link)(({ theme }: ThemeProps) => ({
   height: '100%',
   backgroundColor: colorVar('primary'),
   filter: 'grayscale(1)',
-  ...transitions(['filter', 'transform', 'background-color'], theme.transitions.long),
+  ...transitions(['filter', 'transform'], theme.transitions.long),
   ':hover, :focus': {
     filter: 'grayscale(0)',
     transform: 'translateY(-0.5rem)',
@@ -37,7 +37,6 @@ const Description = styled.section(({ theme }: ThemeProps) => ({
   backgroundColor: colorVar('secondary'),
   border: `${theme.sizes.linesWidth} solid ${colorVar('primary')}`,
   borderTop: 'none',
-  ...transitions(['background-color', 'border-color', 'color'], theme.transitions.long),
 }))
 
 export interface BlogPostsGridItemProps {
