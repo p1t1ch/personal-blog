@@ -1,15 +1,15 @@
 import React from 'react'
 import styled from '@emotion/styled'
 import { ThemeProps } from '@theme'
-import { margin, padding, transitions } from 'polished'
+import { margin, padding } from 'polished'
+import colorVar from '@/utils/colorVar'
 
 const Section = styled.section(({ theme }: ThemeProps) => ({
   ...padding('4rem', null),
   clipPath: `polygon(0 0, 100% ${theme.sizes.clipSize}, 100% 100%, 0 calc(100% - ${theme.sizes.clipSize}))`,
   height: `calc(100% + ${parseFloat(theme.sizes.clipSize) * 2}rem - ${parseFloat(theme.sizes.linesWidth) * 2}rem)`,
   ...margin(`calc(-${theme.sizes.clipSize} + ${theme.sizes.linesWidth})`, null),
-  backgroundColor: theme.colors.dynamic.secondary,
-  ...transitions(['background-color'], theme.transitions.long),
+  backgroundColor: colorVar('secondary'),
 }))
 
 const Wrapper = styled.div(({ theme, isBlogPost }: ThemeProps & { isBlogPost: boolean }) => ({

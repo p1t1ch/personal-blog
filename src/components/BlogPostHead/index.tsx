@@ -3,9 +3,10 @@ import Img, { FluidObject } from 'gatsby-image'
 import { ThemeProps } from '@theme'
 import styled from '@emotion/styled'
 import singleGridCell from '@/utils/singleGridCell'
-import { transitions, transparentize } from 'polished'
+import { transparentize } from 'polished'
 import { BsCalendar, BsClock } from 'react-icons/bs'
 import media from '@/utils/media'
+import colorVar from '@/utils/colorVar'
 
 const HeadContainer = styled.section(({ theme, isPreview }: ThemeProps & { isPreview: boolean }) => ({
   height: !isPreview ? theme.sizes.headHeight : theme.sizes.previewHeight,
@@ -23,15 +24,15 @@ const TitleWrapper = styled.div(({ theme }: ThemeProps) => ({
   display: 'grid',
   placeItems: 'center',
   textAlign: 'center',
-  backgroundColor: transparentize(0.5, theme.colors.static.black),
+  backgroundColor: transparentize(0.5, theme.colors.black),
 }))
 
 const Title = styled.h1(({ theme, isPreview }: ThemeProps & { isPreview: boolean }) => ({
   ...(!isPreview ? theme.typography.styles.h1 : theme.typography.styles.blogPostPreview),
   maxWidth: theme.sizes.mainContainerWidth,
   padding: `2rem ${theme.sizes.pagePadding} ${2 + parseFloat(theme.sizes.clipSize)}rem`,
-  color: theme.colors.static.white,
-  textShadow: `0.075em 0.075em 0 ${theme.colors.static.black}`,
+  color: theme.colors.white,
+  textShadow: `0.075em 0.075em 0 ${theme.colors.black}`,
 }))
 
 const Meta = styled.section(({ theme, isPreview }: ThemeProps & { isPreview: boolean }) => ({
@@ -50,10 +51,9 @@ const Meta = styled.section(({ theme, isPreview }: ThemeProps & { isPreview: boo
     [media.sm]: { marginRight: 0 },
   },
   ...theme.typography.styles.meta,
-  color: theme.colors.dynamic.primary,
-  backgroundColor: theme.colors.dynamic.secondary,
-  boxShadow: `0 0 0 ${theme.sizes.linesWidth} ${theme.colors.dynamic.primary}`,
-  ...transitions(['background-color', 'box-shadow', 'color'], theme.transitions.long),
+  color: colorVar('primary'),
+  backgroundColor: colorVar('secondary'),
+  boxShadow: `0 0 0 ${theme.sizes.linesWidth} ${colorVar('primary')}`,
 }))
 
 const MetaItem = styled.div(() => ({

@@ -3,9 +3,10 @@ import { FluidObject } from 'gatsby-image'
 import { Theme, ThemeProps } from '@theme'
 import { useTheme } from 'emotion-theming'
 import styled from '@emotion/styled'
-import { margin, size, transitions } from 'polished'
+import { margin, size } from 'polished'
 import BlogPostHead from '@/components/BlogPostHead'
 import Container from '@/components/Container'
+import colorVar from '@/utils/colorVar'
 
 const Content = styled(Container)(({ theme }: ThemeProps) => ({
   h2: theme.typography.styles.h2,
@@ -31,28 +32,25 @@ const Content = styled(Container)(({ theme }: ThemeProps) => ({
       content: 'counter(orderedlist)',
       padding: '0 0.25rem',
       marginRight: '1rem',
-      border: `0.125rem solid ${theme.colors.dynamic.primary}`,
-      ...transitions(['border-color'], theme.transitions.long),
+      border: `0.125rem solid ${colorVar('primary')}`,
     },
   },
   blockquote: {
     display: 'grid',
     gridGap: '0.5rem',
-    borderLeft: `0.5rem solid ${theme.colors.dynamic.primary}`,
+    borderLeft: `0.5rem solid ${colorVar('primary')}`,
     padding: '0.5rem 1rem',
     paddingRight: 0,
-    ...transitions(['border-color'], theme.transitions.long),
     '> *': { marginBottom: 0 },
   },
   hr: {
-    border: `2px solid ${theme.colors.dynamic.primary}`,
+    border: `2px solid ${colorVar('primary')}`,
     ...margin('2rem', null),
-    ...transitions(['border-color'], theme.transitions.long),
   },
   a: {
     textDecoration: 'underline',
     ':hover': {
-      color: theme.colors.dynamic.active,
+      color: colorVar('active'),
     },
   },
   '.gatsby-highlight, .gatsby-resp-iframe-wrapper, .gatsby-resp-image-figure': {

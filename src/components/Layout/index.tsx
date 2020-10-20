@@ -1,9 +1,7 @@
 import React from 'react'
-import { Theme } from '@theme'
-import { useTheme } from 'emotion-theming'
-import { transitions } from 'polished'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
+import colorVar from '@/utils/colorVar'
 
 interface LayoutProps {
   /** Page content */
@@ -15,19 +13,10 @@ interface LayoutProps {
 }
 
 const Layout = ({ children, isHome, isBlogPost }: LayoutProps) => {
-  const theme = useTheme<Theme>()
-
   return (
     <div css={!isBlogPost ? { display: 'grid', gridTemplateRows: 'auto 1fr auto', minHeight: '100vh' } : {}}>
       <Header isHome={isHome} />
-      <main
-        css={{
-          backgroundColor: theme.colors.dynamic.primary,
-          ...transitions(['background-color'], theme.transitions.long),
-        }}
-      >
-        {children}
-      </main>
+      <main css={{ backgroundColor: colorVar('primary') }}>{children}</main>
       <Footer />
     </div>
   )
