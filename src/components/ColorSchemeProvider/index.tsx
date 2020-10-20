@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { ColorSchemeContext } from './useColorScheme'
-import { ColorSchemeTypes, themeColors, INITIAL_COLOR_SCHEME_CSS_VAR, COLOR_SCHEME_LC_KEY } from '@theme'
+import { ColorSchemeTypes, themeColors } from '@theme'
+import { INITIAL_COLOR_SCHEME_CSS_VAR, COLOR_SCHEME_LC_KEY } from '@/utils/constants'
 
 interface ColorSchemeProviderProps {
   /** Content with access to color scheme */

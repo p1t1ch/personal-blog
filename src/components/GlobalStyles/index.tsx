@@ -20,8 +20,6 @@ const GlobalStyles = () => {
             '--color-secondary': theme.colors.white,
             '--color-active': theme.colors.darkPurple,
           },
-        },
-        {
           '*, *::before, *::after': {
             boxSizing: 'border-box',
           },

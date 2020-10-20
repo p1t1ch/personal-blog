@@ -1,10 +1,9 @@
 import React from 'react'
 import { graphql, Link, useStaticQuery } from 'gatsby'
 import styled from '@emotion/styled'
-import { BsMoon, BsSun } from 'react-icons/bs'
 import { ThemeProps } from '@theme'
-import { useColorScheme } from '@/components/ColorSchemeProvider'
 import Subheading from '@/components/Subheading'
+import ColorSchemeToggle from '@/components/ColorSchemeToggle'
 import colorVar from '@/utils/colorVar'
 
 const HeaderContainer = styled.header(() => ({
@@ -37,11 +36,6 @@ const HomeLink = styled(Link)(({ theme }: ThemeProps) => ({
   ...theme.typography.styles.homeLink,
 }))
 
-const Button = styled.button(({ theme }: ThemeProps) => ({
-  display: 'inline-flex',
-  ...theme.typography.styles.darkMode,
-}))
-
 const Title = styled.h1(({ theme }: ThemeProps) => ({
   ...theme.typography.styles.h1,
   marginBottom: '1rem',
@@ -62,8 +56,6 @@ interface HeaderProps {
 }
 
 const Header = ({ isHome = false }: HeaderProps) => {
-  const [colorScheme, setColorScheme] = useColorScheme()
-
   const {
     site: { siteMetadata: data },
   }: HeaderQuery = useStaticQuery(graphql`
@@ -81,11 +73,7 @@ const Header = ({ isHome = false }: HeaderProps) => {
     <HeaderContainer>
       <MainSection>
         <HomeLink to="/" dangerouslySetInnerHTML={{ __html: data.headerLink }} />
-        {colorScheme && (
-          <Button onClick={() => setColorScheme(colorScheme === 'light' ? 'dark' : 'light')}>
-            {colorScheme === 'light' ? <BsMoon title="Перейти в dark mode" /> : <BsSun title="Перейти в light mode" />}
-          </Button>
-        )}
+        <ColorSchemeToggle />
       </MainSection>
       {isHome && (
         <HomeSection>

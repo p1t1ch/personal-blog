@@ -1,5 +1,6 @@
 import React from 'react'
-import { themeColors, INITIAL_COLOR_SCHEME_CSS_VAR, COLOR_SCHEME_LC_KEY } from '@theme'
+import { themeColors } from '@theme'
+import { INITIAL_COLOR_SCHEME_CSS_VAR, COLOR_SCHEME_LC_KEY } from '@/utils/constants'
 
 const defineColorScheme = () => {
   const themeColors = '🎨'
