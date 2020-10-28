@@ -1,7 +1,6 @@
 import React from 'react'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
-import colorVar from '@/utils/colorVar'
 
 interface LayoutProps {
   /** Page content */
@@ -16,7 +15,7 @@ const Layout = ({ children, isHome, isBlogPost }: LayoutProps) => {
   return (
     <div css={!isBlogPost ? { display: 'grid', gridTemplateRows: 'auto 1fr auto', minHeight: '100vh' } : {}}>
       <Header isHome={isHome} />
-      <main css={{ backgroundColor: colorVar('primary') }}>{children}</main>
+      <main>{children}</main>
       <Footer />
     </div>
   )

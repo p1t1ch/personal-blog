@@ -10,18 +10,6 @@ import colorVar from '@/utils/colorVar'
 import DiagonalSection from '../DiagonalSection'
 import { useTheme } from 'emotion-theming'
 
-// const HeadContainer = styled.section(({ theme, isPreview }: ThemeProps & { isPreview: boolean }) => ({
-//   height: !isPreview ? theme.sizes.headHeight : theme.sizes.previewHeight,
-// }))
-
-// const Wrapper = styled.div(({ theme, isPreview }: ThemeProps & { isPreview: boolean }) => ({
-//   ...singleGridCell,
-//   height: '100%',
-//   // clipPath: `polygon(0 0, 100% ${!isPreview ? theme.sizes.clipSize : '0%'}, 100% 100%, 0 calc(100% - ${
-//   //   theme.sizes.clipSize
-//   // }))`,
-// }))
-
 const TitleWrapper = styled.div(({ theme }: ThemeProps) => ({
   display: 'grid',
   placeItems: 'center',
@@ -89,43 +77,42 @@ const BlogPostHead = ({
   publishDateStrict,
   timeToRead,
   isPreview = false,
-  ...props
 }: BlogPostHeadProps) => {
   const theme = useTheme<Theme>()
   const BlogPostTitle = !isPreview ? Title : Title.withComponent('h3')
   const Time = MetaItem.withComponent('time')
 
   return (
-    // <>
-    <DiagonalSection
-      topLine
-      bottomLine
-      css={{
-        ...singleGridCell,
-        height: !isPreview ? theme.sizes.headHeight : theme.sizes.previewHeight,
-      }}
-    >
-      <Img
-        fluid={thumbnail}
-        alt={`Превью для статьи ${title}`}
-        imgStyle={!isPreview ? { position: 'fixed', objectPosition: '50% 100%' } : {}}
-        css={{ zIndex: -1 }}
-      />
-      <TitleWrapper>
-        <BlogPostTitle isPreview={isPreview}>{title}</BlogPostTitle>
-      </TitleWrapper>
-    </DiagonalSection>
-    //   {/* <Meta isPreview={isPreview}>
-    //     <Time dateTime={publishDateStrict}>
-    //       <BsCalendar title="Дата публикации" />
-    //       {publishDate}
-    //     </Time>
-    //     <MetaItem>
-    //       <BsClock title="Приблизительное время чтения" />
-    //       {timeToRead}&nbsp;мин.
-    //     </MetaItem>
-    //   </Meta>
-    // </> */}
+    <section css={{ position: 'relative' }}>
+      <DiagonalSection
+        topLine={!isPreview}
+        bottomLine
+        css={{
+          ...singleGridCell,
+          height: !isPreview ? theme.sizes.headHeight : theme.sizes.previewHeight,
+        }}
+      >
+        <Img
+          fluid={thumbnail}
+          alt={`Превью для статьи ${title}`}
+          imgStyle={!isPreview ? { position: 'fixed', objectPosition: '50% 100%' } : {}}
+          css={{ zIndex: -1 }}
+        />
+        <TitleWrapper>
+          <BlogPostTitle isPreview={isPreview}>{title}</BlogPostTitle>
+        </TitleWrapper>
+      </DiagonalSection>
+      <Meta isPreview={isPreview}>
+        <Time dateTime={publishDateStrict}>
+          <BsCalendar title="Дата публикации" />
+          {publishDate}
+        </Time>
+        <MetaItem>
+          <BsClock title="Приблизительное время чтения" />
+          {timeToRead}&nbsp;мин.
+        </MetaItem>
+      </Meta>
+    </section>
   )
 }
 

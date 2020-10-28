@@ -18,7 +18,6 @@ const Content = styled.div(
       topLine ? `calc(${theme.sizes.clipSize} - ${theme.sizes.linesWidth})` : '0'
     }, 100% 100%, 0 ${bottomLine ? `calc(100% - ${theme.sizes.clipSize} + ${theme.sizes.linesWidth})` : '100%'})`,
     textAlign: 'center',
-    background: 'pink',
   })
 )
 

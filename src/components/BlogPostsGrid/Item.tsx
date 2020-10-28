@@ -12,11 +12,9 @@ const Article = styled.article(() => ({
 }))
 
 const BlogPostLink = styled(Link)(({ theme }: ThemeProps) => ({
-  position: 'relative',
   display: 'flex',
   flexDirection: 'column',
   height: '100%',
-  backgroundColor: colorVar('primary'),
   filter: 'grayscale(1)',
   ...transitions(['filter', 'transform'], theme.transitions.long),
   ':hover, :focus': {
@@ -31,10 +29,9 @@ const BlogPostLink = styled(Link)(({ theme }: ThemeProps) => ({
 
 const Description = styled.section(({ theme }: ThemeProps) => ({
   flexGrow: 1,
-  padding: '3.5rem 1.5rem 1.5rem',
-  // clipPath: `polygon(0 0, 100% ${theme.sizes.clipSize}, 100% 100%, 0 100%)`,
-  // marginTop: `calc(-${theme.sizes.clipSize} + ${theme.sizes.linesWidth})`,
-  backgroundColor: colorVar('secondary'),
+  padding: '1.5rem',
+  paddingTop: `calc(${theme.sizes.clipSize} + 1.5rem)`,
+  marginTop: `calc(-${theme.sizes.clipSize} + ${theme.sizes.linesWidth})`,
   border: `${theme.sizes.linesWidth} solid ${colorVar('primary')}`,
   borderTop: 'none',
 }))

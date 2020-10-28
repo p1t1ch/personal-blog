@@ -1,7 +1,6 @@
 import React from 'react'
 import { FluidObject } from 'gatsby-image'
-import { Theme, ThemeProps } from '@theme'
-import { useTheme } from 'emotion-theming'
+import { ThemeProps } from '@theme'
 import styled from '@emotion/styled'
 import { margin, size } from 'polished'
 import BlogPostHead from '@/components/BlogPostHead'
@@ -110,17 +109,14 @@ const BlogPost = ({
   description,
   content,
 }: BlogPostProps) => {
-  const theme = useTheme<Theme>()
-
   return (
-    <article css={{ position: 'relative' }}>
+    <article>
       <BlogPostHead
         thumbnail={thumbnail}
         title={title}
         publishDate={publishDate}
         publishDateStrict={publishDateStrict}
         timeToRead={timeToRead}
-        // css={{ marginTop: `calc(-${theme.sizes.clipSize} + ${theme.sizes.linesWidth})` }}
       />
       <Content isBlogPost>
         <Tldr>
