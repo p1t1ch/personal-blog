@@ -32,8 +32,8 @@ const BlogPostLink = styled(Link)(({ theme }: ThemeProps) => ({
 const Description = styled.section(({ theme }: ThemeProps) => ({
   flexGrow: 1,
   padding: '3.5rem 1.5rem 1.5rem',
-  clipPath: `polygon(0 0, 100% ${theme.sizes.clipSize}, 100% 100%, 0 100%)`,
-  marginTop: `calc(-${theme.sizes.clipSize} + ${theme.sizes.linesWidth})`,
+  // clipPath: `polygon(0 0, 100% ${theme.sizes.clipSize}, 100% 100%, 0 100%)`,
+  // marginTop: `calc(-${theme.sizes.clipSize} + ${theme.sizes.linesWidth})`,
   backgroundColor: colorVar('secondary'),
   border: `${theme.sizes.linesWidth} solid ${colorVar('primary')}`,
   borderTop: 'none',

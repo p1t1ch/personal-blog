@@ -15,9 +15,9 @@ const HeadContainer = styled.section(({ theme, isPreview }: ThemeProps & { isPre
 const Wrapper = styled.div(({ theme, isPreview }: ThemeProps & { isPreview: boolean }) => ({
   ...singleGridCell,
   height: '100%',
-  clipPath: `polygon(0 0, 100% ${!isPreview ? theme.sizes.clipSize : '0%'}, 100% 100%, 0 calc(100% - ${
-    theme.sizes.clipSize
-  }))`,
+  // clipPath: `polygon(0 0, 100% ${!isPreview ? theme.sizes.clipSize : '0%'}, 100% 100%, 0 calc(100% - ${
+  //   theme.sizes.clipSize
+  // }))`,
 }))
 
 const TitleWrapper = styled.div(({ theme }: ThemeProps) => ({

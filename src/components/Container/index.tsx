@@ -6,9 +6,9 @@ import colorVar from '@/utils/colorVar'
 
 const Section = styled.section(({ theme }: ThemeProps) => ({
   ...padding('4rem', null),
-  clipPath: `polygon(0 0, 100% ${theme.sizes.clipSize}, 100% 100%, 0 calc(100% - ${theme.sizes.clipSize}))`,
+  // clipPath: `polygon(0 0, 100% ${theme.sizes.clipSize}, 100% 100%, 0 calc(100% - ${theme.sizes.clipSize}))`,
   height: `calc(100% + ${parseFloat(theme.sizes.clipSize) * 2}rem - ${parseFloat(theme.sizes.linesWidth) * 2}rem)`,
-  ...margin(`calc(-${theme.sizes.clipSize} + ${theme.sizes.linesWidth})`, null),
+  // ...margin(`calc(-${theme.sizes.clipSize} + ${theme.sizes.linesWidth})`, null),
   backgroundColor: colorVar('secondary'),
 }))
 

@@ -11,7 +11,7 @@ const FooterContainer = styled.footer(() => ({
 const Wrapper = styled.div(({ theme }: ThemeProps) => ({
   backgroundColor: colorVar('secondary'),
   padding: `${theme.sizes.clipSize} ${theme.sizes.pagePadding} 1rem`,
-  clipPath: `polygon(0 0, 100% ${theme.sizes.clipSize}, 100% 100%, 0 100%)`,
+  // clipPath: `polygon(0 0, 100% ${theme.sizes.clipSize}, 100% 100%, 0 100%)`,
   textAlign: 'center',
 }))
 
