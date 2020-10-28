@@ -1,19 +1,9 @@
 import React from 'react'
 import { graphql, Link, useStaticQuery } from 'gatsby'
 import styled from '@emotion/styled'
-import { ThemeProps } from '@theme'
-import colorVar from '@/utils/colorVar'
-
-const FooterContainer = styled.footer(() => ({
-  backgroundColor: colorVar('primary'),
-}))
-
-const Wrapper = styled.div(({ theme }: ThemeProps) => ({
-  backgroundColor: colorVar('secondary'),
-  padding: `${theme.sizes.clipSize} ${theme.sizes.pagePadding} 1rem`,
-  // clipPath: `polygon(0 0, 100% ${theme.sizes.clipSize}, 100% 100%, 0 100%)`,
-  textAlign: 'center',
-}))
+import { Theme, ThemeProps } from '@theme'
+import DiagonalSection from '../DiagonalSection'
+import { useTheme } from 'emotion-theming'
 
 const HomeLink = styled(Link)(({ theme }: ThemeProps) => ({
   ...theme.typography.styles.h4,
@@ -28,6 +18,8 @@ interface FooterQuery {
 }
 
 const Footer = () => {
+  const theme = useTheme<Theme>()
+
   const {
     site: { siteMetadata: data },
   }: FooterQuery = useStaticQuery(graphql`
@@ -40,11 +32,11 @@ const Footer = () => {
     }
   `)
   return (
-    <FooterContainer>
-      <Wrapper>
+    <footer>
+      <DiagonalSection topLine css={{ padding: `${theme.sizes.clipSize} ${theme.sizes.pagePadding}` }}>
         <HomeLink to="/">{data.footerLink}</HomeLink>
-      </Wrapper>
-    </FooterContainer>
+      </DiagonalSection>
+    </footer>
   )
 }
 

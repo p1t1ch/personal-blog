@@ -1,11 +1,11 @@
 import React from 'react'
 import { graphql, Link, useStaticQuery } from 'gatsby'
-import { margin } from 'polished'
 import styled from '@emotion/styled'
-import { ThemeProps } from '@theme'
+import { Theme, ThemeProps } from '@theme'
 import Subheading from '@/components/Subheading'
 import ColorSchemeToggle from '@/components/ColorSchemeToggle'
-import colorVar from '@/utils/colorVar'
+import DiagonalSection from '@/components/DiagonalSection'
+import { useTheme } from 'emotion-theming'
 
 const MainSection = styled.section(({ theme }: ThemeProps) => ({
   position: 'relative',
@@ -13,23 +13,6 @@ const MainSection = styled.section(({ theme }: ThemeProps) => ({
   justifyContent: 'space-between',
   alignItems: 'center',
   padding: `2rem ${theme.sizes.pagePadding}`,
-}))
-
-const DiagonalLine = styled.div(({ theme }: ThemeProps) => ({
-  width: '100%',
-  height: theme.sizes.clipSize,
-  backgroundColor: colorVar('primary'),
-  clipPath: `polygon(0 0, 100% calc(100% - ${theme.sizes.linesWidth}), 100% 100%, 0 ${theme.sizes.linesWidth})`,
-}))
-
-const HomeSectionContent = styled.div(({ theme }: ThemeProps) => ({
-  display: 'grid',
-  placeItems: 'center',
-  textAlign: 'center',
-  padding: `2rem ${theme.sizes.pagePadding}`,
-  clipPath: `polygon(0 0, 100% calc(${theme.sizes.clipSize} - ${theme.sizes.linesWidth}), 100% 100%, 0 calc(100% - ${theme.sizes.clipSize} + ${theme.sizes.linesWidth}))`,
-  height: theme.sizes.headHeight,
-  ...margin(`calc(-${theme.sizes.clipSize} + ${theme.sizes.linesWidth})`, null),
 }))
 
 const HomeLink = styled(Link)(({ theme }: ThemeProps) => ({
@@ -56,6 +39,8 @@ interface HeaderProps {
 }
 
 const Header = ({ isHome = false }: HeaderProps) => {
+  const theme = useTheme<Theme>()
+
   const {
     site: { siteMetadata: data },
   }: HeaderQuery = useStaticQuery(graphql`
@@ -76,16 +61,21 @@ const Header = ({ isHome = false }: HeaderProps) => {
         <ColorSchemeToggle />
       </MainSection>
       {isHome && (
-        <section>
-          <DiagonalLine />
-          <HomeSectionContent>
-            <div>
-              <Title>{data.mainTitle}</Title>
-              <Subheading />
-            </div>
-          </HomeSectionContent>
-          <DiagonalLine />
-        </section>
+        <DiagonalSection
+          topLine
+          bottomLine
+          css={{
+            display: 'grid',
+            placeItems: 'center',
+            height: theme.sizes.headHeight,
+            padding: `${theme.sizes.clipSize} ${theme.sizes.pagePadding}`,
+          }}
+        >
+          <div>
+            <Title>{data.mainTitle}</Title>
+            <Subheading />
+          </div>
+        </DiagonalSection>
       )}
     </header>
   )

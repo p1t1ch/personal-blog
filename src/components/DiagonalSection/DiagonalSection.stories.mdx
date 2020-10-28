@@ -1,0 +1,16 @@
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks'
+import DiagonalSection from '.'
+
+<Meta title="DiagonalSection" component={DiagonalSection} />
+
+# DiagonalSection
+
+<Canvas>
+  <Story name="Basic" args={{ children: 'Контент', topLine: false, bottomLine: false }}>
+    {args => <DiagonalSection {...args} />}
+  </Story>
+</Canvas>
+
+Диагональная секция. Используется везде, где нужны диагональные линии: шапка на главной, заголовок статьи, карточка превью, футер.
+
+<ArgsTable story="." />
