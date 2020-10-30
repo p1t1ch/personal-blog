@@ -4,7 +4,7 @@ import styled from '@emotion/styled'
 import { Theme, ThemeProps } from '@theme'
 import Subheading from '@/components/Subheading'
 import ColorSchemeToggle from '@/components/ColorSchemeToggle'
-import DiagonalSection from '@/components/DiagonalSection'
+import DiagonalBlock from '@/components/DiagonalBlock'
 import { useTheme } from 'emotion-theming'
 
 const MainSection = styled.section(({ theme }: ThemeProps) => ({
@@ -61,7 +61,8 @@ const Header = ({ isHome = false }: HeaderProps) => {
         <ColorSchemeToggle />
       </MainSection>
       {isHome && (
-        <DiagonalSection
+        <DiagonalBlock
+          as="section"
           topLine
           bottomLine
           css={{
@@ -75,7 +76,7 @@ const Header = ({ isHome = false }: HeaderProps) => {
             <Title>{data.mainTitle}</Title>
             <Subheading />
           </div>
-        </DiagonalSection>
+        </DiagonalBlock>
       )}
     </header>
   )

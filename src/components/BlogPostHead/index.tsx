@@ -7,7 +7,7 @@ import { transparentize } from 'polished'
 import { BsCalendar, BsClock } from 'react-icons/bs'
 import media from '@/utils/media'
 import colorVar from '@/utils/colorVar'
-import DiagonalSection from '../DiagonalSection'
+import DiagonalBlock from '@/components/DiagonalBlock'
 import { useTheme } from 'emotion-theming'
 
 const TitleWrapper = styled.div(({ theme }: ThemeProps) => ({
@@ -25,7 +25,7 @@ const Title = styled.h1(({ theme, isPreview }: ThemeProps & { isPreview: boolean
   textShadow: `0.075em 0.075em 0 ${theme.colors.black}`,
 }))
 
-const Meta = styled.section(({ theme, isPreview }: ThemeProps & { isPreview: boolean }) => ({
+const Meta = styled.div(({ theme, isPreview }: ThemeProps & { isPreview: boolean }) => ({
   position: 'absolute',
   zIndex: 1,
   top: `${
@@ -84,7 +84,7 @@ const BlogPostHead = ({
 
   return (
     <section css={{ position: 'relative' }}>
-      <DiagonalSection
+      <DiagonalBlock
         topLine={!isPreview}
         bottomLine
         css={{
@@ -101,7 +101,7 @@ const BlogPostHead = ({
         <TitleWrapper>
           <BlogPostTitle isPreview={isPreview}>{title}</BlogPostTitle>
         </TitleWrapper>
-      </DiagonalSection>
+      </DiagonalBlock>
       <Meta isPreview={isPreview}>
         <Time dateTime={publishDateStrict}>
           <BsCalendar title="Дата публикации" />

@@ -2,7 +2,7 @@ import React from 'react'
 import { graphql, Link, useStaticQuery } from 'gatsby'
 import styled from '@emotion/styled'
 import { Theme, ThemeProps } from '@theme'
-import DiagonalSection from '../DiagonalSection'
+import DiagonalBlock from '@/components/DiagonalBlock'
 import { useTheme } from 'emotion-theming'
 
 const HomeLink = styled(Link)(({ theme }: ThemeProps) => ({
@@ -32,11 +32,9 @@ const Footer = () => {
     }
   `)
   return (
-    <footer>
-      <DiagonalSection topLine css={{ padding: `${theme.sizes.clipSize} ${theme.sizes.pagePadding}` }}>
-        <HomeLink to="/">{data.footerLink}</HomeLink>
-      </DiagonalSection>
-    </footer>
+    <DiagonalBlock as="footer" topLine css={{ padding: `${theme.sizes.clipSize} ${theme.sizes.pagePadding}` }}>
+      <HomeLink to="/">{data.footerLink}</HomeLink>
+    </DiagonalBlock>
   )
 }
 

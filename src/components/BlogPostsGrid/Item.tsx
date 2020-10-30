@@ -31,7 +31,7 @@ const Description = styled.section(({ theme }: ThemeProps) => ({
   flexGrow: 1,
   padding: '1.5rem',
   paddingTop: `calc(${theme.sizes.clipSize} + 1.5rem)`,
-  marginTop: `calc(-${theme.sizes.clipSize} + ${theme.sizes.linesWidth})`,
+  marginTop: `-${theme.sizes.clipSize}`,
   border: `${theme.sizes.linesWidth} solid ${colorVar('primary')}`,
   borderTop: 'none',
 }))
