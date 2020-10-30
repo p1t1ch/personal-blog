@@ -92,12 +92,7 @@ const BlogPostHead = ({
           height: !isPreview ? theme.sizes.headHeight : theme.sizes.previewHeight,
         }}
       >
-        <Img
-          fluid={thumbnail}
-          alt={`Превью для статьи ${title}`}
-          imgStyle={!isPreview ? { position: 'fixed', objectPosition: '50% 100%' } : {}}
-          css={{ zIndex: -1 }}
-        />
+        <Img fluid={thumbnail} alt={`Превью для статьи ${title}`} css={{ zIndex: -1 }} />
         <TitleWrapper>
           <BlogPostTitle isPreview={isPreview}>{title}</BlogPostTitle>
         </TitleWrapper>
