@@ -13,10 +13,11 @@ tags:
   - browser bugs
   - clip-path
 ---
+
 Столкнулся с жуткими лагами в блоге при скроллинге.
 
-<video autoplay loop muted playsinline>
-  <source src="blog-paint-lag.mp4" type="video/mp4">
+<video controls>
+  <source src="/assets/blog-paint-lag.mp4" type="video/mp4">
 </video>
 
 Любопытно, что этой проблемы нет на Windows ни в одном из браузеров. Она проявляется на MacOS в Chrome и Edge. В Firefox при скролле основного содержимого проблема не особо чувствуется, но появляются лаги рядом с промо изображением, и на главной странице при ховере на карточках всё тормозит. В Safari проблема не наблюдается.
@@ -39,13 +40,13 @@ tags:
 
 Убрав clip-path с основного контейнера, исчезла проблема на главной странице при ховере на карточки. Если включить через Chrome Devtools отображение репэинтов (Rendering → Paint flashing), то можно увидеть, что при ховере перерисовывается весь контейнер, точнее при каждом движении карточки через transform, отчего конкретно Firefox'у становится тяжко. Почему именно ему? Опять же без понятия. Но отрисовка всего блока на каждое движение карточки через легковесный transform -- это ненормально. Так что вывод аналогичный: не оборачиваем в clip-path крупные блоки.
 
-<video autoplay loop muted playsinline>
-  <source src="main-page-paint-flashing.mp4" type="video/mp4">
+<video controls>
+  <source src="/assets/main-page-paint-flashing.mp4" type="video/mp4">
 </video>
 
 Что касается clip-path на баннере в посте, то я пришёл к тому, что как Chrome не любит совмещать clip-path со скроллом, Firefox не любит мешать его с фиксированным фоном. У изображения стоит `position: fixed` и на контейнер ставится clip-path -- таким образом достигается занимательный эффект, когда на скролл мы видим движущееся изображение как будто через замочную скважину. Здесь я не нашёл пруфов о существовании такого бага на форумах Firefox, но природа этой проблемы очень схожа со скроллом, так что я не удивлён. В итоге попросту пришлось отказаться от фиксированного фона, сделав баннер статичным -- обидно, но ничего умного мне в голову не пришло.
 
-*Касательно проблем с отрисовкой в MacOS есть ещё такая тема, что когда мы не скроллим, то есть на экране статичная картинка, и вдруг начинаем скроллить, то мы можем увидеть всё те же белые фрагменты экрана, хоть и в гораздо меньшем количестве. Такая проблема есть на современных маках с двумя GPU: на этих системах используются разные GPU в зависимости от нагрузок -- интегрированной менее ресурсозатратной картой и более производительной и тяжеловесной дискретной. Так мак видя на экране статичную картинку переключается на интегрированную, чтобы сэкономить заряд батареи -- мы начинаем скролл, и она уже не справляется, идёт замена на дискретную -- в этот момент переключения мы и видим белые полосы. Убрать эту замену можно через Energy Saver → Automatic graphics switching, что имеет смысл при использовании ноутбука, подключённого к зарядке -- в ином случае это скорее того не стоит, просто стоит иметь в виду.*
+_Касательно проблем с отрисовкой в MacOS есть ещё такая тема, что когда мы не скроллим, то есть на экране статичная картинка, и вдруг начинаем скроллить, то мы можем увидеть всё те же белые фрагменты экрана, хоть и в гораздо меньшем количестве. Такая проблема есть на современных маках с двумя GPU: на этих системах используются разные GPU в зависимости от нагрузок -- интегрированной менее ресурсозатратной картой и более производительной и тяжеловесной дискретной. Так мак видя на экране статичную картинку переключается на интегрированную, чтобы сэкономить заряд батареи -- мы начинаем скролл, и она уже не справляется, идёт замена на дискретную -- в этот момент переключения мы и видим белые полосы. Убрать эту замену можно через Energy Saver → Automatic graphics switching, что имеет смысл при использовании ноутбука, подключённого к зарядке -- в ином случае это скорее того не стоит, просто стоит иметь в виду._
 
 ## В поисках нового решения
 
@@ -55,7 +56,7 @@ tags:
 
 ### Старое решение
 
-<iframe height="600" style="width: 100%;" scrolling="no" title="Diagonal layout (bad solution)" src="https://codepen.io/p1t1ch/embed/preview/gOMeoja?height=600&theme-id=dark&default-tab=html,result" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+<iframe width="600" height="600" scrolling="no" title="Diagonal layout (bad solution)" src="https://codepen.io/p1t1ch/embed/preview/gOMeoja?height=600&theme-id=dark&default-tab=html,result" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
   See the Pen <a href='https://codepen.io/p1t1ch/pen/gOMeoja'>Diagonal layout (bad solution)</a> by p1t1ch
   (<a href='https://codepen.io/p1t1ch'>@p1t1ch</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
@@ -64,7 +65,7 @@ tags:
 
 ### Новое решение
 
-<iframe height="600" style="width: 100%;" scrolling="no" title="Diagonal layout (good solution)" src="https://codepen.io/p1t1ch/embed/preview/BazrYgV?height=600&theme-id=dark&default-tab=html,result" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+<iframe width="600" height="600" scrolling="no" title="Diagonal layout (good solution)" src="https://codepen.io/p1t1ch/embed/preview/BazrYgV?height=600&theme-id=dark&default-tab=html,result" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
   See the Pen <a href='https://codepen.io/p1t1ch/pen/BazrYgV'>Diagonal layout (good solution)</a> by p1t1ch
   (<a href='https://codepen.io/p1t1ch'>@p1t1ch</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>

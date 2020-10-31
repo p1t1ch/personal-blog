@@ -14,7 +14,7 @@ const Content = styled(Container)(({ theme }: ThemeProps) => ({
   'h2, h3, h4, h5, h6': {
     ...margin('2rem', null),
   },
-  'p, blockquote, ul, ol, figure, .gatsby-highlight, .gatsby-resp-iframe-wrapper, :not(.gatsby-resp-iframe-wrapper) > iframe': {
+  'p, blockquote, ul, ol, figure, .gatsby-highlight, .gatsby-resp-iframe-wrapper, :not(.gatsby-resp-iframe-wrapper) > iframe, video': {
     marginBottom: '1rem',
   },
   'li:not(:last-child)': {
@@ -69,6 +69,10 @@ const Content = styled(Container)(({ theme }: ThemeProps) => ({
       display: 'block',
       ...size('0.75em'),
     },
+  },
+  video: {
+    width: `calc(100% + ${theme.sizes.pagePadding} * 2)`,
+    ...margin(null, `-${theme.sizes.pagePadding}`),
   },
 }))
 
