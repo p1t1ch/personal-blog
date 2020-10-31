@@ -52,7 +52,7 @@ const Content = styled(Container)(({ theme }: ThemeProps) => ({
       color: colorVar('active'),
     },
   },
-  '.gatsby-highlight, .gatsby-resp-iframe-wrapper, .gatsby-resp-image-figure': {
+  '.gatsby-highlight, .gatsby-resp-iframe-wrapper, .gatsby-resp-image-figure, video': {
     ...margin(null, `-${theme.sizes.pagePadding}`),
   },
   '.gatsby-resp-image-figcaption': {
@@ -69,10 +69,6 @@ const Content = styled(Container)(({ theme }: ThemeProps) => ({
       display: 'block',
       ...size('0.75em'),
     },
-  },
-  video: {
-    width: `calc(100% + ${theme.sizes.pagePadding} * 2)`,
-    ...margin(null, `-${theme.sizes.pagePadding}`),
   },
 }))
 

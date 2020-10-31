@@ -16,7 +16,7 @@ tags:
 
 Столкнулся с жуткими лагами в блоге при скроллинге: прокрутка идёт с трудом и контент не успевает отрисоваться. А мы тут между прочим все модные, с легковесным статическим сайтом -- что за дела?!
 
-<video controls>
+<video controls style="width: calc(100% + 2rem)">
   <source src="/assets/blog-paint-lag.mp4" type="video/mp4">
 </video>
 
@@ -40,7 +40,7 @@ tags:
 
 Если включить через Chrome Devtools отображение репэинтов (Rendering → Paint flashing), то можно увидеть, что при ховере (а точнее при каждом движении карточки через transform, происходящем на ховере) перерисовывается весь контейнер, отчего конкретно Firefox'у становится тяжко.
 
-<video controls>
+<video controls style="width: calc(100% + 2rem)">
   <source src="/assets/main-page-paint-flashing.mp4" type="video/mp4">
 </video>
 
