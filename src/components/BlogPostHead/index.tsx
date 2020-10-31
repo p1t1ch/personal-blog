@@ -1,24 +1,14 @@
 import React from 'react'
 import Img, { FluidObject } from 'gatsby-image'
-import { ThemeProps } from '@theme'
+import { Theme, ThemeProps } from '@theme'
 import styled from '@emotion/styled'
 import singleGridCell from '@/utils/singleGridCell'
 import { transparentize } from 'polished'
 import { BsCalendar, BsClock } from 'react-icons/bs'
 import media from '@/utils/media'
 import colorVar from '@/utils/colorVar'
-
-const HeadContainer = styled.section(({ theme, isPreview }: ThemeProps & { isPreview: boolean }) => ({
-  height: !isPreview ? theme.sizes.headHeight : theme.sizes.previewHeight,
-}))
-
-const Wrapper = styled.div(({ theme, isPreview }: ThemeProps & { isPreview: boolean }) => ({
-  ...singleGridCell,
-  height: '100%',
-  clipPath: `polygon(0 0, 100% ${!isPreview ? theme.sizes.clipSize : '0%'}, 100% 100%, 0 calc(100% - ${
-    theme.sizes.clipSize
-  }))`,
-}))
+import DiagonalBlock from '@/components/DiagonalBlock'
+import { useTheme } from 'emotion-theming'
 
 const TitleWrapper = styled.div(({ theme }: ThemeProps) => ({
   display: 'grid',
@@ -35,7 +25,7 @@ const Title = styled.h1(({ theme, isPreview }: ThemeProps & { isPreview: boolean
   textShadow: `0.075em 0.075em 0 ${theme.colors.black}`,
 }))
 
-const Meta = styled.section(({ theme, isPreview }: ThemeProps & { isPreview: boolean }) => ({
+const Meta = styled.div(({ theme, isPreview }: ThemeProps & { isPreview: boolean }) => ({
   position: 'absolute',
   zIndex: 1,
   top: `${
@@ -87,26 +77,26 @@ const BlogPostHead = ({
   publishDateStrict,
   timeToRead,
   isPreview = false,
-  ...props
 }: BlogPostHeadProps) => {
+  const theme = useTheme<Theme>()
   const BlogPostTitle = !isPreview ? Title : Title.withComponent('h3')
   const Time = MetaItem.withComponent('time')
 
   return (
-    <>
-      <HeadContainer isPreview={isPreview} {...props}>
-        <Wrapper isPreview={isPreview}>
-          <Img
-            fluid={thumbnail}
-            alt={`Превью для статьи ${title}`}
-            imgStyle={!isPreview ? { position: 'fixed', objectPosition: '50% 100%' } : {}}
-            css={{ zIndex: -1 }}
-          />
-          <TitleWrapper>
-            <BlogPostTitle isPreview={isPreview}>{title}</BlogPostTitle>
-          </TitleWrapper>
-        </Wrapper>
-      </HeadContainer>
+    <section css={{ position: 'relative' }}>
+      <DiagonalBlock
+        topLine={!isPreview}
+        bottomLine
+        css={{
+          ...singleGridCell,
+          height: !isPreview ? theme.sizes.headHeight : theme.sizes.previewHeight,
+        }}
+      >
+        <Img fluid={thumbnail} alt={`Превью для статьи ${title}`} css={{ zIndex: -1 }} />
+        <TitleWrapper>
+          <BlogPostTitle isPreview={isPreview}>{title}</BlogPostTitle>
+        </TitleWrapper>
+      </DiagonalBlock>
       <Meta isPreview={isPreview}>
         <Time dateTime={publishDateStrict}>
           <BsCalendar title="Дата публикации" />
@@ -117,7 +107,7 @@ const BlogPostHead = ({
           {timeToRead}&nbsp;мин.
         </MetaItem>
       </Meta>
-    </>
+    </section>
   )
 }
 

@@ -1,0 +1,16 @@
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks'
+import DiagonalBlock from '.'
+
+<Meta title="DiagonalBlock" component={DiagonalBlock} />
+
+# DiagonalBlock
+
+<Canvas>
+  <Story name="Basic" args={{ children: 'Контент', topLine: false, bottomLine: false }}>
+    {args => <DiagonalBlock {...args} />}
+  </Story>
+</Canvas>
+
+Диагональный блок. Используется везде, где нужны диагональные линии: шапка на главной, заголовок статьи, карточка превью, футер.
+
+<ArgsTable story="." />
